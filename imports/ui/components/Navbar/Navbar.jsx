@@ -2,19 +2,26 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 import { Link } from "react-router-dom";
-
+import { withTracker } from 'meteor/react-meteor-data';
 import { Modal, Button } from 'react-materialize';
 
 
-export default class Navbar extends Component {
+class Navbar extends Component {
 
-   _logout(e) {
+   logout(e) {
       e.preventDefault();
-      console.log('logout button clicked');
       Meteor.logout();
    }
 
    render() {
+
+      if(!this.props.user){
+         return (
+            <span>not logged in</span>
+         )
+      }
+
+
       return (
          <div>
             <ul className="dropdown-content">
@@ -35,11 +42,17 @@ export default class Navbar extends Component {
                                         className="circle teal lighten-2"/></a>*/ }
                      </li>
                      <li>
-                        <a href="">
-                           John Doe</a>
+                        <a href=''>
+                           {
+                              (typeof this.props.user.profile.firstname === 'undefined')?
+                                 this.props.user.username :
+                                 `${this.props.user.profile.firstname}
+                                  ${this.props.user.profile.lastname}`
+                           }
+                        </a>
                      </li>
 
-                     <li><a href="#" onClick={ this._logout.bind(this) }> <i className="material-icons">power_settings_new</i> </a>
+                     <li><a href="#" onClick={ this.logout.bind(this) }> <i className="material-icons">power_settings_new</i> </a>
                      </li>
 
                   </ul>
@@ -56,6 +69,17 @@ export default class Navbar extends Component {
       )
    }
 }
+
+
+
+export default withTracker(() => {
+
+   return {
+      user: Meteor.users.findOne()
+   }
+})(Navbar)
+
+
 
 
 

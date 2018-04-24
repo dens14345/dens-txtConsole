@@ -12,6 +12,7 @@ export default class Register extends Component {
       this.state = {
          fname    : '',
          lname    : '',
+         username : '',
          email    : '',
          password : ''
       };
@@ -29,15 +30,19 @@ export default class Register extends Component {
    handlePasswordInput(e) {
       this.setState({ password: e.target.value });
    }
-
+   handleUsernameInput(e){
+      this.setState({ username : e.target.value });
+   }
    register(e) {
       e.preventDefault();
-      let fname = this.state.fname;
-      let lname = this.state.lname;
-      let email = this.state.email;
-      let password = this.state.password;
+      let fname      = this.state.fname;
+      let lname      = this.state.lname;
+      let username   = this.state.username;
+      let email      = this.state.email;
+      let password   = this.state.password;
 
       Accounts.createUser({
+         username,
          email,
          password,
          profile: {
@@ -66,6 +71,14 @@ export default class Register extends Component {
                                onChange={ this.handleLnameInput.bind(this) }
                                value={ this.state.lname }/>
                         <label htmlFor="lname">Lastname</label>
+                     </div>
+                  </div>
+                  <div className="row">
+                     <div className="input-field col s12">
+                        <input id="username" type="text" className="validate"
+                               onChange={ this.handleUsernameInput.bind(this) }
+                               value={ this.state.username }/>
+                        <label htmlFor="username">Username</label>
                      </div>
                   </div>
                   <div className="row">

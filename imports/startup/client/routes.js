@@ -1,12 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Navbar from '../../ui/components/Navbar/Navbar';
-import Sidebar from '../../ui/components/Sidebar/Sidebar';
 import Login from '../../ui/components/Auth/Login';
 import Register from '../../ui/components/Auth/Register';
+import Index from '../../ui/components/Index/Index'
 
-import MoviesContainer from '../../ui/components/Movies/MoviesContainer';
 
 
 let index = () => {
@@ -28,12 +25,9 @@ let contacts = () => {
 export default routes = (
    <Router>
       <div>
-         <Navbar/>
-         <Sidebar/>
+         <Route exact path='/' component={ Index }/>
          <Route path='/login' component={ Login }/>
          <Route path='/register' component={ Register }/>
-         <Route path='/contacts' component={ contacts }/>
-         <Route path='/movies' component={ MoviesContainer }/>
       </div>
    </Router>
 )

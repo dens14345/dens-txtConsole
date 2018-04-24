@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-
+import { loggedIn } from '../../../api/Classes/Utils'
 
 export default class Login extends Component {
 
@@ -9,6 +9,14 @@ export default class Login extends Component {
       this.state = {
          email: '',
          password: ''
+      }
+   }
+
+   componentWillMount(){
+      // console.log(loggedIn());
+      if(loggedIn()){
+
+         this.props.history.push('/');
       }
    }
 
@@ -27,7 +35,12 @@ export default class Login extends Component {
       let email = this.state.email;
       let password = this.state.password;
 
-      Meteor.loginWithPassword(email, password);
+      Meteor.loginWithPassword(email, password, (error, success) => {
+         console.log(error);
+         console.log(success);
+         // this.props.history.push('/');
+         this.props.history.replace('/');
+      });
    }
 
    render(){

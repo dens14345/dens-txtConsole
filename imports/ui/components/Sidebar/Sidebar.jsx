@@ -10,10 +10,10 @@ class Sidebar extends Component {
 
    constructor(props) {
       super(props);
-
    }
 
    render() {
+
       return (
          <div className="">
             <ul id="sidebar" className="side-nav fixed ">
@@ -30,7 +30,9 @@ class Sidebar extends Component {
                      </a>
 
                      <a href="#">
-                        <span className="center-align white-text name">John Doe</span>
+                        <span className="center-align white-text name">
+
+                        </span>
                      </a>
                      <a href="#">
                         <span className="center-align white-text email">_</span>
@@ -39,20 +41,14 @@ class Sidebar extends Component {
                   </div>
                </li>
 
-
-
-
                <li>
                   <div className="divider">_</div>
                </li>
-
-
             </ul>
 
             <a href="#" data-activates="slide-out" className="button-collapse">
                <i className="material-icons">menu</i>
             </a>
-
 
          </div>
       );
@@ -60,7 +56,10 @@ class Sidebar extends Component {
 }
 
 export default withTracker(() => {
-   return {}
+
+   return {
+      user: Meteor.users.findOne()
+   }
 })(Sidebar)
 
 
