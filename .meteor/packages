@@ -26,3 +26,5 @@ fourseven:scss
 accounts-base
 accounts-password
 react-meteor-data
+materialize:materialize@=0.97.0
+meteortoys:allthings
