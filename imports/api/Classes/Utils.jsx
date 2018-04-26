@@ -5,6 +5,13 @@ export function loggedIn(){
    }
 }
 
-export function userRole(){
-   return Meteor.users.findOne().profile.role;
+export function currentUser(){
+
+   let user = Meteor.user();
+   return user;
+
+   // return Meteor.users.findOne().profile.role;
+  /* if(currentUser){
+      return currentUser;
+   }*/
 }

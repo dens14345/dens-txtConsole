@@ -2,7 +2,11 @@ import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
+
+import Navbar from '../Navbar/Navbar';
+import Sidebar from '../Sidebar/Sidebar';
 import { Movies } from "../../../api/movies/movies";
+
 
 import Movie from './Movie';
 
@@ -11,7 +15,19 @@ class MoviesContainer extends Component {
 		super(props);
 	}
 
-	render() {
+   render() {
+      return (
+         <div>
+            <Navbar/>
+            <Sidebar/>
+            <div className="container-fluid">
+               <h3>Movies Component</h3>
+            </div>
+         </div>
+      );
+   }
+
+	/*render() {
 		if (!this.props.movies) {
 			return (
 				<h2>Loading</h2>
@@ -34,7 +50,7 @@ class MoviesContainer extends Component {
 				</div>
 			</div>
 		);
-	}
+	}*/
 }
 
 export default withTracker((props) => {

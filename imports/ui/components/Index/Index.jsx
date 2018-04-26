@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { userRole } from "../../../api/Classes/Utils";
+import { currentUser } from "../../../api/Classes/Utils";
 
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar';
@@ -25,14 +25,17 @@ class Index extends Component {
          <div>
             <Navbar/>
             <Sidebar/>
-            {console.log(userRole())}
+            {/*{console.log(currentUser())}
+            {console.log(this.props.currentUser)}*/}
          </div>
       );
    }
 }
 
 export default withTracker(() => {
-
-   return {}
+   // let currentUser = Meteor.currentUser().profile.role;
+   return {
+      // currentUser
+   }
 })(Index)
 

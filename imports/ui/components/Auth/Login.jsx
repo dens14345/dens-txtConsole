@@ -15,7 +15,6 @@ export default class Login extends Component {
    componentWillMount(){
       // console.log(loggedIn());
       if(loggedIn()){
-
          this.props.history.push('/');
       }
    }
