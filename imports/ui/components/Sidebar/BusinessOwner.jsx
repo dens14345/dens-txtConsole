@@ -1,26 +1,29 @@
 
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from 'react-router-dom';
+import MenuItem from 'material-ui/MenuItem';
 
 export default class BusinessOwner extends Component {
 
    render() {
       return (
-         <div>
-            <li>
-               <Link  to='/dashboard'>
-                  <i className="material-icons">dashboard</i>
-                  dashboard
-               </Link>
-            </li>
-            <li>
-               <Link  to='/'>
-                  <i className="material-icons">email</i>
-                  for business
-               </Link>
-            </li>
-         </div>
-
+         <Fragment>
+            <Link  to='/dashboard'>
+               <MenuItem>
+                  Dashboard
+               </MenuItem>
+            </Link>
+            <Link  to='/businesses'>
+               <MenuItem>
+                  Businesses
+               </MenuItem>
+            </Link>
+            <Link  to='/agents'>
+               <MenuItem>
+                  Agents
+               </MenuItem>
+            </Link>
+         </Fragment>
       );
    }
 }

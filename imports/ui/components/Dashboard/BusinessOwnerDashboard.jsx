@@ -14,6 +14,10 @@ class BusinessOwnerDashboard extends Component {
       return (
          <div>
             <h4>BusinessOwnerDashboard</h4>
+            <div>testing</div>
+            <div>testing</div>
+            <div>testing</div>
+            <div>testing</div>
          </div>
       );
    }

@@ -34,10 +34,11 @@ export default class Login extends Component {
       let email = this.state.email;
       let password = this.state.password;
 
+
+
       Meteor.loginWithPassword(email, password, (error, success) => {
          console.log(error);
          console.log(success);
-         // this.props.history.push('/');
          this.props.history.replace('/');
       });
    }

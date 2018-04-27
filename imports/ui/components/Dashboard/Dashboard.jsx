@@ -5,6 +5,7 @@ import { currentUser } from "../../../api/Classes/Utils";
 import { ROLES } from "../../../api/Classes/Const";
 
 import BusinessOwnerDashboard from './BusinessOwnerDashboard';
+import SuperAdminDashboard from './SuperAdminDashboard';
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -28,7 +29,7 @@ class Dashboard extends Component {
       console.log(`userRole: ${userRole} ROLES.B_OWNER: ${ROLES.B_OWNER}`);
       switch (userRole) {
          case ROLES.SUPER_ADMIN:
-            return <SuperAdmin/>
+            return <SuperAdminDashboard/>
          case ROLES.B_OWNER:
             return <BusinessOwnerDashboard/>;
          case ROLES.AGENT:

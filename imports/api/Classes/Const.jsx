@@ -6,3 +6,8 @@ export const ROLES = {
    AGENT       : 'agent',
    B_OWNER     : 'b_owner'
 };
+
+export const AGENT_STATUS = {
+   ACTIVE    : 'active',
+   SUSPENDED : 'suspended'
+};

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Route, Link, NavLink } from 'react-router-dom';
-
+import Drawer from 'material-ui/Drawer';
+import Divider from 'material-ui/Divider';
+import RaisedButton from 'material-ui/RaisedButton'
 
 import { currentUser } from '../../../api/Classes/Utils';
 import { ROLES } from '../../../api/Classes/Const';
@@ -17,20 +17,15 @@ class Sidebar extends Component {
 
    constructor(props) {
       super(props);
-      $('.button-collapse').sideNav({
-         menuWidth: 500, // Default is 300
-         edge: 'right', // Choose the horizontal origin
-         closeOnClick: true,
-         draggable: true
-      });
+      this.state = { open: true }
    }
 
-   toggleSidebar(){
-      $('.button-collapse').sideNav('show');
+   handleSidebarToggle() {
+      this.setState({ open: !this.state.open })
    }
 
    renderSidebar(userRole) {
-      console.log(`userRole: ${userRole} ROLES.B_OWNER: ${ROLES.B_OWNER}`);
+      console.log(`userRole: ${userRole}`);
       switch (userRole) {
          case ROLES.SUPER_ADMIN:
             return <SuperAdmin/>
@@ -45,54 +40,37 @@ class Sidebar extends Component {
       }
    }
 
-   renderTest() {
-      return <Agent/>
-   }
-
    render() {
+      if(!this.props.user){
+         return(
+            <div/>
+         )
+      }
+
       return (
          <div>
-            <ul id='sidebar' className='side-nav fixed'>
-               <li>
-                  <div id='test' className='user-view'>
-                     <div className='background'>
-                        <img
-                           src='https://image.freepik.com/free-vector/watercolor-background-with-stars_23-2147659850.jpg'/>
-                     </div>
+            <RaisedButton
+               label="Toggle Drawer"
+               onClick={ this.handleSidebarToggle.bind(this) }
+            />
 
-                     <a className='center-align'>
-                        <img src='https://react-materialize.github.io/img/react-materialize-logo.svg'
-                             height='70' width='70' className='circle responsive-img center-image'/>
-                     </a>
-
-                     <a href='#'>
-                        <span className='center-align white-text name'>
-
-                        </span>
-                     </a>
-                     <a href='#'>
-                        <span className='center-align white-text email'>_</span>
-                     </a>
-
-                  </div>
-               </li>
-
-               <li>
-                  <div className='divider'>_</div>
-               </li>
-
+            <Drawer open={ this.state.open }
+                    docked={ true }
+                    onRequestChange={ this.handleSidebarToggle.bind(this) }
+                    openSecondary={ false }
+            >
+               <RaisedButton
+                  label="Toggle Drawer"
+                  onClick={ this.handleSidebarToggle.bind(this) }
+               />
+               <Divider/>
                {
                   (typeof currentUser() === 'undefined') ?
                      null : this.renderSidebar(currentUser().profile.role)
                }
-            </ul>
-
-            <a href='#' data-activates='slide-out' className='button-collapse'
-               onClick={this.toggleSidebar.bind(this)}>
-               <i className='material-icons'>menu</i>
-            </a>
-`
+            </Drawer>
          </div>
+
       );
    }
 }
