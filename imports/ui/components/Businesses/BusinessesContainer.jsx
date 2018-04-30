@@ -7,9 +7,13 @@ import Sidebar from '../Sidebar/Sidebar';
 import Businesses from './Businesses';
 import SingleBusiness from './SingleBusiness';
 import DepartmentsContainer from './DepartmentsContainer';
-import { BusinessesCollection } from "../../../api/businesses/businesses";
-import { DepartmentsCollection } from "../../../api/departments/departments";
-import { ConsumersCollection } from "../../../api/consumers/consumers";
+import { BusinessesCollection } from '../../../api/businesses/businesses';
+import { DepartmentsCollection } from '../../../api/departments/departments';
+import { ConsumersCollection } from '../../../api/consumers/consumers';
+import { ROLES } from '../../../api/Classes/Const';
+import { userRole } from '../../../api/Classes/Utils';
+
+import { NotAllowed } from '../extras/NotAllowed';
 
 
 class BusinessesContainer extends Component {
@@ -23,6 +27,20 @@ class BusinessesContainer extends Component {
 
 
    render() {
+
+      if (!this.props.user) {
+         return (
+            <div>
+               loading
+            </div>
+         )
+      } else {
+         if (userRole() === ROLES.AGENT) {
+            return (
+               <NotAllowed/>
+            )
+         }
+      }
 
       return (
          <div>
@@ -52,9 +70,11 @@ export default withTracker(() => {
    // Meteor.subscribe('departments.business', businessId);
    // Meteor.subscribe('consumers.business', businessId);
 
+   let user = Meteor.user();
 
    return {
       businesses: BusinessesCollection.find().fetch(),
+      user
       // departments: DepartmentsCollection.find().fetch(),
       // consumers: ConsumersCollection.find().fetch()
    }

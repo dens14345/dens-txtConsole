@@ -55,7 +55,7 @@ class SingleBusiness extends Component {
    render() {
       if (!this.props.business[0]) {
          return (
-            <div className='container-fluid'>
+            <div className='my-container'>
                <CircularProgress size={ 100 } thickness={ 5 }/>
                <LinearProgress mode='indeterminate'/>
             </div>
@@ -63,7 +63,7 @@ class SingleBusiness extends Component {
          )
       }
       return (
-         <div className='container-fluid'>
+         <div className='my-container'>
             <Sidebar/>
             <Navbar/>
             <AppBar

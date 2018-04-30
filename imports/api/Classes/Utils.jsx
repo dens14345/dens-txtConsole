@@ -1,4 +1,5 @@
 import Accounts from 'meteor/accounts-base';
+import { ROLES } from "./Const";
 
 
 export function loggedIn() {
@@ -8,15 +9,31 @@ export function loggedIn() {
 }
 
 export function currentUser() {
-
    let user = Meteor.user();
    return user;
-
-   // return Meteor.users.findOne().profile.role;
-   /* if(currentUser){
-       return currentUser;
-    }*/
 }
+
+export function userRole(){
+   return Meteor.user().profile.role;
+}
+
+export function checkRole({loader, notAllowedPage}){
+
+   if (!this.props.user) {
+      return (
+         <div>
+            <loader/>
+         </div>
+      )
+   } else {
+      if (userRole() === ROLES.AGENT) {
+         return (
+            <NotAllowed/>
+         )
+      }
+   }
+}
+
 
 export function createAgentAccount(){
    if(Meteor.isServer) {
@@ -36,5 +53,3 @@ export function createAgentAccount(){
       });
    }
 }
-
-

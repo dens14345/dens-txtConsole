@@ -24,7 +24,7 @@ class DepartmentsContainer extends Component {
       }
 
       return (
-         <div className="container-fluid">
+         <div className="my-container">
             <Navbar/>
             <Sidebar/>
             <h1>{this.props.department.name}</h1>

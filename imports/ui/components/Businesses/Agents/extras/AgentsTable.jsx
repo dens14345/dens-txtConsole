@@ -3,12 +3,12 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 
-import { AGENT_STATUS, ROLES } from '../../../../api/Classes/Const';
+import { AGENT_STATUS, ROLES } from '../../../../../api/Classes/Const';
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import MaterialModal from '../../extras/Modal/MaterialModal';
+import MaterialModal from '../../../extras/Modal/MaterialModal';
 import {
    Table,
    TableBody,
@@ -18,7 +18,7 @@ import {
    TableRowColumn,
 } from 'material-ui/Table';
 
-import AgentsCollection from '../../../../api/agents/agents';
+import AgentsCollection from '../../../../../api/agents/agents';
 
 
 class AgentsTable extends Component {

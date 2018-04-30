@@ -5,8 +5,7 @@ import { Route } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar';
 
-import AgentsTable from './extras/AgentsTable';
-
+import InboxContainer from './inbox/InboxContainer';
 
 class AgentsContainer extends Component {
 
@@ -18,15 +17,17 @@ class AgentsContainer extends Component {
    }
 
    render() {
-
       return (
          <div>
             <Navbar/>
             <Sidebar/>
-            <div className="container-fluid">
-               <h1>Agents</h1>
-               <AgentsTable/>
-            </div>
+            <Route exact path='/inbox' component={ InboxContainer }/>
+            { /*<Route exact path='/businesses/:businessId' render={ (props) =>
+               <SingleBusiness url={ props } businesses={ this.props.businesses }/> }
+            />
+            <Route path='/businesses/:businessId/:departmentId' render={ (props) =>
+               <DepartmentsContainer url={ props } businesses={ this.props.businesses }/> }
+            />*/ }
          </div>
 
       );
@@ -35,8 +36,6 @@ class AgentsContainer extends Component {
 }
 
 export default withTracker(() => {
-
-
    return {}
 })(AgentsContainer)
 

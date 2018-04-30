@@ -55,7 +55,7 @@ export default class Register extends Component {
 
    render() {
       return (
-         <div className="container-fluid">
+         <div className="my-container">
             <h4>Create an account</h4>
             <div className="row">
                <form className="col s12">

@@ -45,7 +45,7 @@ export default class Login extends Component {
 
    render(){
       return(
-         <div className="container-fluid">
+         <div className="my-container">
             <h4>Login page</h4>
             <div className="row">
                <form className="col s12">

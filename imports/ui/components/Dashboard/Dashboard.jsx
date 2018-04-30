@@ -18,13 +18,6 @@ class Dashboard extends Component {
       }
    }
 
-   /*componentWillMount() {
-      if (!Meteor.userId()) {
-         this.props.history.replace('/login');
-      }
-   }*/
-
-
    renderDashboard(userRole) {
       console.log(`userRole: ${userRole} ROLES.B_OWNER: ${ROLES.B_OWNER}`);
       switch (userRole) {
@@ -47,7 +40,7 @@ class Dashboard extends Component {
          <div>
             <Navbar/>
             <Sidebar/>
-            <div className='container-fluid'>
+            <div className='my-container'>
                {
                   (typeof currentUser() === 'undefined') ?
                      null : this.renderDashboard(currentUser().profile.role)

@@ -25,31 +25,21 @@ class Navbar extends Component {
 
 
       return (
-         <div>
+         <div className='my-container'>
 
-            <div className="row">
+         {/*   <div className="row">
                <div className="col-sm"><p>column</p></div>
                <div className="col-sm"><p>column</p></div>
                <div className="col-sm"><p>column</p></div>
-            </div>
-            <div className="row">
-               <div className="col-xs">
-                  <div className="box">auto</div>
-               </div>
-               <div className="col-xs">
-                  <div className="box">auto</div>
-               </div>
-               <div className="col-xs">
-                  <div className="box">auto</div>
-               </div>
-            </div>
-            {/*<nav className="nav-extended teal">
+            </div>*/}
+
+            <nav className="nav-extended teal">
                <div>
                   <div className="row">
-                     <div className="col-sm">
-                        <a href="#" className="brand-logo">Messaging app</a>
+                     <div className="col-sm-8">
+                        <a href="#">Messaging app</a>
                      </div>
-                     <div className="col-sm">
+                     <div className="col-sm-4">
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                            <li>
                               <a href=''>
@@ -69,9 +59,7 @@ class Navbar extends Component {
                   </div>
 
                </div>
-            </nav>*/}
-
-
+            </nav>
          </div>
       )
    }

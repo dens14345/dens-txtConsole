@@ -20,7 +20,7 @@ class MoviesContainer extends Component {
          <div>
             <Navbar/>
             <Sidebar/>
-            <div className="container-fluid">
+            <div className="my-container">
                <h3>Movies Component</h3>
             </div>
          </div>

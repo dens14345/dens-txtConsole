@@ -1,23 +1,48 @@
-
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from 'react-router-dom';
-
+import MenuItem from 'material-ui/MenuItem';
 
 
 export default class Agent extends Component {
 
    render() {
       return (
-         <li>
-            <Link  to='/'>
-               <i className="material-icons">email</i>
-               for Agent
+         <Fragment>
+            <Link to='/inbox'>
+               <MenuItem>
+                  Inbox
+               </MenuItem>
             </Link>
-         </li>
+            <Link to='/contacts'>
+               <MenuItem>
+                  Contacts
+               </MenuItem>
+            </Link>
+            <Link to='/'>
+               <MenuItem>
+                  Profile
+               </MenuItem>
+            </Link>
+         </Fragment>
       );
    }
 }
 
 
-
-
+/*<Fragment>
+            <Link  to='/dashboard'>
+               <MenuItem>
+                  Dashboard
+               </MenuItem>
+            </Link>
+            <Link  to='/businesses'>
+               <MenuItem>
+                  Businesses
+               </MenuItem>
+            </Link>
+            <Link  to='/agents'>
+               <MenuItem>
+                  Agents
+               </MenuItem>
+            </Link>
+         </Fragment>*/

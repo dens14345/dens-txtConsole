@@ -7,12 +7,12 @@ import Register from '../../ui/components/Auth/Register';
 import Index from '../../ui/components/Index/Index'
 import MoviesContainer from '../../ui/components/Movies/MoviesContainer'
 import Dashboard from '../../ui/components/Dashboard/Dashboard';
-import AgentsContainer from '../../ui/components/Agents/AgentsContainer';
-import Businesses from '../../ui/components/Businesses/Businesses';
+import AgentsContainer from '../../ui/components/Businesses/Agents/AgentsContainer';
 import BusinessesContainer from '../../ui/components/Businesses/BusinessesContainer';
-import SingleBusiness from '../../ui/components/Businesses/Businesses';
 
-import { userRole } from "../../api/Classes/Utils";
+
+import InboxContainer from '../../ui/components/Agents/inbox/InboxContainer';
+import ContactsContainer from '../../ui/components/Agents/contacts/ContactsContainer';
 
 
 class Routes extends Component {
@@ -29,6 +29,13 @@ class Routes extends Component {
                <Route path='/dashboard' component={ Dashboard }/>
                <Route path='/businesses' component={ BusinessesContainer }/>
                <Route path='/agents' component={ AgentsContainer }/>
+
+               <Route path='/inbox' component={ InboxContainer }/>
+               <Route path='/contacts' component={ ContactsContainer }/>
+
+
+
+
 
                <Route path='/movies' component={ MoviesContainer }/>
             </div>

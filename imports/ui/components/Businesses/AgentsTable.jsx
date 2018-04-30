@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import AvailableAgents from '../Agents/extras/AvailableAgents';
+import AvailableAgents from './Agents/extras/AvailableAgents';
 import TextField from 'material-ui/TextField';
 
 import {
@@ -119,7 +119,6 @@ class AgentsTable extends Component {
                      {console.log(this.state.selectedAgent)}
 
                      <MaterialModal
-                        // title={`Remove ${this.state.selectedAgent.profile.name} from this department?`}
                         title={`Remove from this department?`}
                         open={ this.state.confirmModal }
                         closeModal={ this.toggleConfirmModal.bind(this) }

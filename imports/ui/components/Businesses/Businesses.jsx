@@ -62,7 +62,7 @@ class Businesses extends Component {
          <div>
             <Navbar/>
             <Sidebar/>
-            <div className='container-fluid'>
+            <div className='my-container'>
                <h1>Businesses</h1>
                <RaisedButton
                   label='New'
