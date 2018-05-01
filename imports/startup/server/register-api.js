@@ -8,4 +8,6 @@ import '../../api/businesses/businesses.js';
 import '../../api/departments/departments.js';
 import '../../api/consumers/consumers.js';
 import '../../api/agents/agents.js';
+import '../../api/conversations/conversations.js';
+
 

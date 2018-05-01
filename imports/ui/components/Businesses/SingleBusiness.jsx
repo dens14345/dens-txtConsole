@@ -11,13 +11,13 @@ import DepartmentsContainer from './DepartmentsContainer';
 import DepartmentsTable from './DeparmentsTable';
 import ConsumersTable from './ConsumersTable';
 
-import { BusinessesCollection } from "../../../api/businesses/businesses";
-import { DepartmentsCollection } from "../../../api/departments/departments";
-import { ConsumersCollection } from "../../../api/consumers/consumers";
+import { BusinessesCollection } from '../../../api/businesses/businesses';
+import { DepartmentsCollection } from '../../../api/departments/departments';
+import { ConsumersCollection } from '../../../api/consumers/consumers';
 
 import Sidebar from '../Sidebar/Sidebar';
 import Navbar from '../Navbar/Navbar';
-import Businesses from "./Businesses";
+import Businesses from './Businesses';
 
 
 class SingleBusiness extends Component {
@@ -51,7 +51,7 @@ class SingleBusiness extends Component {
                   businessId={ this.props.businessId }
                />
                <ConsumersTable
-                  consumers={ this.props.consumers }
+                  // consumers={ this.props.consumers }
                   businessId={ this.props.businessId }
                />
             </div>
@@ -66,7 +66,9 @@ export default withTracker((props) => {
    let businessId = props.url.match.params.businessId
 
    Meteor.subscribe('departments.business', businessId);
-   Meteor.subscribe('consumers.business', businessId);
+   // Meteor.subscribe('consumers.business', businessId);
+   // Meteor.subscribe('consumers.business.limit', businessId, 50);
+
 
    let business = businesses.filter((business) => {
       return business._id === businessId
@@ -76,7 +78,7 @@ export default withTracker((props) => {
       business,
       businessId,
       departments: DepartmentsCollection.find().fetch(),
-      consumers: ConsumersCollection.find().fetch()
+      // consumers: ConsumersCollection.find().fetch()
    }
 
 })(SingleBusiness)

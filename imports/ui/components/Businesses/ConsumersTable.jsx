@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import faker from 'faker';
-import { Link } from 'react-router-dom';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import { ConsumersCollection } from '../../../api/consumers/consumers';
 
+// import Pagination from 'materialui-pagination';
+import Pagination from 'material-ui-pagination-react';
 import {
    Table,
    TableBody,
@@ -28,7 +34,13 @@ class ConsumersTable extends Component {
          open: false,
          consumerName: '',
          consumerNumber: '',
-         consumerAddress: ''
+         consumerAddress: '',
+         rowsPerPage: [5, 10, 15],
+         rows: [],
+         numberOfRows: 5,
+         page: 1,
+         total: undefined,
+         selectedRowSize: 20
       }
    }
 
@@ -47,6 +59,17 @@ class ConsumersTable extends Component {
          consumerAddress: ''
       })
    }
+
+   updateRows(state) {
+      /*RowApi.getRows(state)
+         .then((updatedState) => {
+            this.setState(updatedState);
+         });*/
+   }
+
+   onChange(event, index, selectedRowSize) {
+      this.setState({ selectedRowSize });
+   };
 
    addConsumer() {
       Meteor.call('consumer.insert', {
@@ -83,26 +106,28 @@ class ConsumersTable extends Component {
 
       callback();
    }
-   addConsumerUsingFaker1(){
+
+   addConsumerUsingFaker1() {
       let consumers = [];
       for (let i = 0; i < 10000; i++) {
          let add = faker.address;
 
          let name = faker.name.findName();
          let number = faker.phone.phoneNumber();
-         let address = `${add.country} ${add.city} ${add.streetAddress} ${add.streetName}`;
+         let address = `${add.country()} ${add.city()} ${add.streetAddress()} ${add.streetName()}`;
          let businessId = this.props.businessId;
 
 
          consumers.push({ name, number, address, businessId });
       }
 
-      console.log(consumers.length);
-      Meteor.call('consumer.insertBulk', consumers, (err,succ) => {
+      // console.log(consumers[1].address);
+      Meteor.call('consumer.insertBulk', consumers, (err, succ) => {
          (succ) ? console.log(`random consumer inserted`) :
             console.log(err)
       });
    }
+
    handleInputNameChange(e) {
       this.setState({ consumerName: e.target.value })
    }
@@ -127,7 +152,9 @@ class ConsumersTable extends Component {
             <RaisedButton
                label='Insert with Faker'
                primary={ true }
-               onClick={ this.addConsumerUsingFaker.bind(this, () => {console.log('finished')}) }
+               onClick={ this.addConsumerUsingFaker.bind(this, () => {
+                  console.log('finished')
+               }) }
             />
             <RaisedButton
                label='Bulk insert'
@@ -178,45 +205,64 @@ class ConsumersTable extends Component {
                      }
                   </TableBody>
                </Table>
-               <MaterialModal
-                  title='Add new Consumer'
-                  open={ this.state.open }
-                  closeModal={ this.closeModal.bind(this) }
-                  submit={ this.addConsumer.bind(this) }
-               >
-                  <TextField
-                     value={ this.state.consumerName }
-                     fullWidth={ true }
-                     floatingLabelText='Consumer Name'
-                     onChange={ this.handleInputNameChange.bind(this) }
-                  />
-                  <TextField
-                     value={ this.state.consumerNumber }
-                     fullWidth={ true }
-                     floatingLabelText='Number'
-                     onChange={ this.handleInputNumberChange.bind(this) }
-                  />
-                  <TextField
-                     value={ this.state.consumerAddress }
-                     fullWidth={ true }
-                     floatingLabelText='Address'
-                     onChange={ this.handleInputAddressChange.bind(this) }
-                  />
+               { /*<Pagination
+                  total={ this.state.total }
+                  rowsPerPage={ this.state.rowsPerPage }
+                  page={ this.state.page }
+                  numberOfRows={ this.state.numberOfRows }
+                  updateRows={ this.updateRows.bind(this) }
+               />*/ }
+               <Divider/>
+               {/*<Pagination
+                  rows={ 10 }
+                  rowSizeWidthStyle="10%"
+                  selectedRowSize={ this.state.selectedRowSize }
+                  rowSize={ [10, 20, 30] }
+                  handleRowSizeChange={ this.onChange.bind(this) }
+               />*/}
 
-               </MaterialModal>
             </CardText>
+            <MaterialModal
+               title='Add new Consumer'
+               open={ this.state.open }
+               closeModal={ this.closeModal.bind(this) }
+               submit={ this.addConsumer.bind(this) }
+            >
+               <TextField
+                  value={ this.state.consumerName }
+                  fullWidth={ true }
+                  floatingLabelText='Consumer Name'
+                  onChange={ this.handleInputNameChange.bind(this) }
+               />
+               <TextField
+                  value={ this.state.consumerNumber }
+                  fullWidth={ true }
+                  floatingLabelText='Number'
+                  onChange={ this.handleInputNumberChange.bind(this) }
+               />
+               <TextField
+                  value={ this.state.consumerAddress }
+                  fullWidth={ true }
+                  floatingLabelText='Address'
+                  onChange={ this.handleInputAddressChange.bind(this) }
+               />
 
+
+            </MaterialModal>
          </Card>
+
 
       );
    }
 }
 
 export default withTracker((props) => {
-   // console.log(props)
 
+   Meteor.subscribe('consumers.business.limit', props.businessId, 50);
 
-   return {}
+   return {
+      consumers: ConsumersCollection.find().fetch()
+   }
 
 })(ConsumersTable)
 

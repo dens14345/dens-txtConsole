@@ -71,5 +71,9 @@ if (Meteor.isServer) {
 
 
    Meteor.publish('consumers.all', () => ConsumersCollection.find());
+   Meteor.publish('consumers.business.limit', (businessId, limit) => ConsumersCollection.find(
+      { business: businessId },
+      { limit }
+      ));
    Meteor.publish('consumers.business', (businessId) => ConsumersCollection.find({ business: businessId }));
 }
