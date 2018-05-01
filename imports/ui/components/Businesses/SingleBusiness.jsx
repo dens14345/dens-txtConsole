@@ -26,31 +26,6 @@ class SingleBusiness extends Component {
       super(props);
    }
 
-   render1() {
-      console.log(`render1()  function is called`)
-      return (
-         <Fragment>
-            <AppBar
-               title={ this.props.business[0].name }
-            />
-            <DepartmentsTable
-               departments={ this.props.departments }
-               businessId={ this.props.businessId }
-            />
-            <ConsumersTable
-               consumers={ this.props.consumers }
-               businessId={ this.props.businessId }
-            />
-         </Fragment>
-      )
-   }
-
-   renderDepartmentsContainer() {
-      console.log(`renderDepartmentsContainer() function is called`)
-      return(
-         <DepartmentsContainer/>
-      )
-   }
 
    render() {
       if (!this.props.business[0]) {
@@ -63,31 +38,25 @@ class SingleBusiness extends Component {
          )
       }
       return (
-         <div className='my-container'>
-            <Sidebar/>
+         <Fragment>
             <Navbar/>
-            <AppBar
-               title={ this.props.business[0].name }
-            />
-            <DepartmentsTable
-               departments={ this.props.departments }
-               businessId={ this.props.businessId }
-            />
-            <ConsumersTable
-               consumers={ this.props.consumers }
-               businessId={ this.props.businessId }
-            />
+            <Sidebar/>
+            <div className='my-container'>
+               <AppBar
+                  title={ this.props.business[0].name }
+                  showMenuIconButton={false}
+               />
+               <DepartmentsTable
+                  departments={ this.props.departments }
+                  businessId={ this.props.businessId }
+               />
+               <ConsumersTable
+                  consumers={ this.props.consumers }
+                  businessId={ this.props.businessId }
+               />
+            </div>
+         </Fragment>
 
-            {/*<Route path='/businesses/:businessId' component={ this.render1.bind(this) }/>*/}
-            {/*<Route path='/businesses/:businessId/:departmentId' component={this.render1.bind(this)}/>*/}
-            { /*{ this.render1() }*/ }
-
-            { /* <Route path='/businesses/:businessId' render={ (props) =>
-               <DepartmentsContainer url={ props } businesses={ this.props.businesses }/> }
-            />*/ }
-
-
-         </div>
       );
    }
 }

@@ -86,7 +86,6 @@ class DeparmentsTable extends Component {
                      displayRowCheckbox={ false }
                      deselectOnClickaway={ true }
                      showRowHover={ true }
-                     stripedRows={ true }
                   >
                      {
                         this.props.departments.map((department, index) => (

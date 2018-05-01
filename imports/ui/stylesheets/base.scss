@@ -5,6 +5,18 @@ body {
   font-family: Helvetica, Arial, sans-serif
 }
 
+a {
+  text-decoration: none !important;
+}
+a:active{
+  background: black;
+}
+
+//for testing only
+.my-background-color{
+  background: black;
+}
+
 #sidebar {
   width: 250px;
 }
@@ -27,6 +39,8 @@ header, .my-container {
   padding-left: 275px;
   padding-right: 15px;
 }
+
+//.my-container-full
 
 @media only screen and (max-width: 992px) {
   header, .my-container, footer, #logo-container, .brand-logo {
@@ -53,28 +67,6 @@ header, .my-container {
   text-align: center;
 }
 
-.padded-left {
-  padding-left: 50px;
-}
-
-/* The Modal (background) */
-.my-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  right: 50px;
-  bottom: 50px;
-  height: 25%;
-  /*overflow: auto;*/
-  margin: auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  width: 20%;
-
-  -webkit-box-shadow: 0px 6px 19px -1px rgba(117, 117, 117, 1);
-  -moz-box-shadow: 0px 6px 19px -1px rgba(117, 117, 117, 1);
-  box-shadow: 0px 6px 19px -1px rgba(117, 117, 117, 1);
-}
 
 .visible {
   display: block;

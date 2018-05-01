@@ -13,19 +13,16 @@ export default class Login extends Component {
    }
 
    componentWillMount(){
-      // console.log(loggedIn());
       if(loggedIn()){
          this.props.history.push('/');
       }
    }
 
    handleEmailInput(e){
-      // console.log(e.target.value);
       this.setState({ email: e.target.value });
    }
 
    handlePasswordInput(e){
-      // console.log(e.target.value);
       this.setState({ password: e.target.value });
    }
 

@@ -6,6 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import AppBar from 'material-ui/AppBar';
 
 
 import BusinessesTable from './BusinessesTable';
@@ -63,12 +64,15 @@ class Businesses extends Component {
             <Navbar/>
             <Sidebar/>
             <div className='my-container'>
-               <h1>Businesses</h1>
-               <RaisedButton
+               <AppBar
+                  title='Businesses'
+                  showMenuIconButton={ false }
+               />
+               {/*<RaisedButton
                   label='New'
                   primary={ true }
                   onClick={ this.openModal.bind(this) }
-               />
+               />*/}
 
                <MaterialModal
                   title='Create new Business'

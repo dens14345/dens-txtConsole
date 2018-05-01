@@ -111,7 +111,6 @@ class ConsumersTable extends Component {
                      displayRowCheckbox={ false }
                      deselectOnClickaway={ true }
                      showRowHover={ true }
-                     stripedRows={ true }
                   >
                      {
                         this.props.consumers.map((consumer, index) => (

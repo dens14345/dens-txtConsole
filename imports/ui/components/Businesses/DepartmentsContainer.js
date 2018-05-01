@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Route } from 'react-router-dom';
+
+import AppBar from 'material-ui/AppBar';
 
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar';
@@ -17,24 +19,32 @@ class DepartmentsContainer extends Component {
 
 
    render() {
-      if(!this.props.department){
-         return(
+      if (!this.props.department) {
+         return (
             <h1>loading</h1>
          )
       }
 
       return (
-         <div className="my-container">
+         <Fragment>
+
             <Navbar/>
             <Sidebar/>
-            <h1>{this.props.department.name}</h1>
-            <AgentsTable
-               businessId={this.props.businessId}
-               departmentId={this.props.departmentId}
-            />
-            {console.log(this.props.business)}
-            {console.log(this.props.department)}
-         </div>
+            <div className="my-container">
+
+               { /*<h1>{this.props.department.name}</h1>*/ }
+               <AppBar
+                  title={this.props.department.name}
+                  showMenuIconButton={false}
+               />
+               <AgentsTable
+                  businessId={ this.props.businessId }
+                  departmentId={ this.props.departmentId }
+               />
+               { console.log(this.props.business) }
+               { console.log(this.props.department) }
+            </div>
+         </Fragment>
       );
    }
 }

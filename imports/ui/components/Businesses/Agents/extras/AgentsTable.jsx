@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Link } from 'react-router-dom';
-import { Accounts } from 'meteor/accounts-base';
-
+import faker from 'faker';
 import { AGENT_STATUS, ROLES } from '../../../../../api/Classes/Const';
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
@@ -67,22 +65,61 @@ class AgentsTable extends Component {
                   number: ''
                }) : console.log(err)
          }
-      )
-      ;
+      );
    }
 
-   // 'agents.insert'({name, email, username, password, number, status, businessId, departmentId}){
+   addAgentUsingFaker() {
+      let name = faker.name.findName();
+      let email = faker.internet.email();
+      let username = faker.internet.userName();
+      let number  = faker.phone.phoneNumber();
+      let password = 'agent123';
+      let status =  AGENT_STATUS.ACTIVE;
+      let businessId = 'N/A';
+      let departmentId= 'N/A';
 
+
+
+      // console.log(`name: ${name} \nemail: ${email} \nusername: ${username} \nnumber: ${number}`);
+
+
+      for (let i = 0; i <= 5000; i++) {
+         Meteor.call('agents.insert', {
+               name,
+               email,
+               username,
+               password,
+               number,
+               status,
+               businessId,
+               departmentId
+            },
+            (err, succ) => {
+               console.log(err);
+               console.log(succ);
+               (succ) ? console.log(`random agent inserted`) : null
+            }
+         );
+      }
+
+   }
 
    render() {
       return (
          <Card>
-            <CardTitle title='Agents'/>
-            <RaisedButton
-               label='New'
-               primary={ true }
-               onClick={ this.openModal.bind(this) }
-            />
+            <CardTitle>
+               <RaisedButton
+                  label='New'
+                  primary={ true }
+                  onClick={ this.openModal.bind(this) }
+               />
+               <RaisedButton
+                  label='Use Faker'
+                  primary={ true }
+                  onClick={ this.addAgentUsingFaker.bind(this) }
+               />
+            </CardTitle>
+
             <CardText>
                <Table
                   fixedHeader={ true }
@@ -125,14 +162,14 @@ class AgentsTable extends Component {
                               <TableRowColumn> { agent.profile.department }</TableRowColumn>
                               <TableRowColumn> { agent.profile.status } </TableRowColumn>
                               <TableRowColumn> { agent.profile.status } </TableRowColumn>
-                              {/*<TableRowColumn>*/}
-                                 {/*<Link to={ { pathname: `${window.location.pathname}/${department._id}` } }>*/}
-                                    {/*<RaisedButton*/}
-                                       {/*label='View'*/}
-                                       {/*primary={ true }*/}
-                                    {/*/>*/}
-                                 {/*</Link>*/}
-                              {/*</TableRowColumn>*/}
+                              { /*<TableRowColumn>*/ }
+                              { /*<Link to={ { pathname: `${window.location.pathname}/${department._id}` } }>*/ }
+                              { /*<RaisedButton*/ }
+                              { /*label='View'*/ }
+                              { /*primary={ true }*/ }
+                              { /*/>*/ }
+                              { /*</Link>*/ }
+                              { /*</TableRowColumn>*/ }
                            </TableRow>
                         ))
                      }
@@ -168,13 +205,13 @@ class AgentsTable extends Component {
                      value={ this.state.password }
                      fullWidth={ true }
                      floatingLabelText='Password'
+                     type='password'
                      onChange={ (e) => this.setState({ password: e.target.value }) }
                   />
                   <TextField
                      value={ this.state.number }
                      fullWidth={ true }
                      floatingLabelText='Number'
-                     type='password'
                      onChange={ (e) => this.setState({ number: e.target.value }) }
                   />
 
