@@ -71,7 +71,7 @@ export default withTracker((props) => {
    let business = businesses.filter((business) => {
       return business._id === businessId
    });
-   console.log(business[0]);
+   // console.log(business[0]);
    return {
       business,
       businessId,

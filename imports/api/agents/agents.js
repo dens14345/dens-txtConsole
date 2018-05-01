@@ -8,7 +8,7 @@ if (Meteor.isServer) {
 
    Meteor.methods({
       'agents.insert'({name, email, username, password, number, status, businessId, departmentId}){
-         Accounts.createUser({
+         return Accounts.createUser({
             email,
             username,
             password,
@@ -23,7 +23,32 @@ if (Meteor.isServer) {
             }
          });
       },
+      'agents.insertBulk'(docs){
+         let userId = Meteor.userId();
+         let status = 'active';
+         let role = ROLES.AGENT;
+         let business = 'N/A';
+         let department = 'N/A';
 
+         docs.forEach((doc) => {
+            Accounts.createUser({
+               email: doc.email,
+               username: doc.username,
+               password: doc.password,
+               profile: {
+                  name: doc.name,
+                  number: doc.number,
+                  status,
+                  role,
+                  business,
+                  department,
+                  belongsTo: userId
+               }
+            });
+            console.log('record inserted')
+         });
+         return true;
+      },
       'agents.addToDepartment'({_id, businessId, departmentId}){
          return Meteor.users.update(
             {_id},

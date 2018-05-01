@@ -5,30 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a88cae8-9dd7-4c2a-954e-af2bf7ba5985" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/api/theme/theme.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/contacts/ContactInfo.jsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/contacts/ContactsList.jsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/contacts/SelectableList.jsx" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/App.js" afterPath="$PROJECT_DIR$/imports/ui/App.js" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Agents/contacts/ContactsContainer.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/contacts/ContactsContainer.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/ChatList.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/ChatList.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/InboxContainer.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/InboxContainer.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Auth/Login.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Auth/Login.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx" />
+      <change beforePath="$PROJECT_DIR$/imports/api/agents/agents.js" afterPath="$PROJECT_DIR$/imports/api/agents/agents.js" />
+      <change beforePath="$PROJECT_DIR$/imports/api/consumers/consumers.js" afterPath="$PROJECT_DIR$/imports/api/consumers/consumers.js" />
       <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/Businesses.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Businesses.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessesTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessesTable.jsx" />
       <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/ConsumersTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/ConsumersTable.jsx" />
       <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/DeparmentsTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/DeparmentsTable.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/DepartmentsContainer.js" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/DepartmentsContainer.js" />
       <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/SingleBusiness.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/SingleBusiness.jsx" />
       <change beforePath="$PROJECT_DIR$/imports/ui/components/Navbar/Navbar.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Navbar/Navbar.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Sidebar/Sidebar.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Sidebar/Sidebar.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/stylesheets/base.scss" afterPath="$PROJECT_DIR$/imports/ui/stylesheets/base.scss" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/extras/Modal/MaterialModal.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/extras/Modal/MaterialModal.jsx" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/server/main.js" afterPath="$PROJECT_DIR$/server/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -54,34 +41,79 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AgentsTable.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AgentsTable.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="95" column="14" lean-forward="true" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
+            <state relative-caret-position="604">
+              <caret line="135" column="8" lean-forward="false" selection-start-line="132" selection-start-column="5" selection-end-line="135" selection-end-column="8" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <element signature="n#!!block;n#constructor#0;n#AgentsTable#0" expanded="false" />
                 <element signature="n#!!block;n#addAgent#0;n#AgentsTable#0" expanded="false" />
-                <marker date="1525184312960" expanded="true" signature="2725:5369" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="2749:3125" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="2779:2917" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="2947:3100" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="3149:5369" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="3172:5369" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="3381:4341" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="3626:3817" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="3849:4308" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="4372:5369" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="4717:5369" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="5308:5369" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="5902:7549" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="6149:7533" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="6419:7533" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="6687:7533" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="6963:7533" ph="..." />
-                <marker date="1525184312960" expanded="true" signature="7276:7533" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="3930:6574" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="3954:4330" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="3984:4122" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="4152:4305" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="4354:6574" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="4377:6574" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="4586:5546" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="4831:5022" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="5054:5513" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="5577:6574" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="5922:6574" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="6513:6574" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="7107:8754" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="7354:8738" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="7624:8738" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="7892:8738" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="8168:8738" ph="..." />
+                <marker date="1525187889311" expanded="true" signature="8481:8738" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MaterialModal.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/extras/Modal/MaterialModal.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="556">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="agents.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/api/agents/agents.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-15">
+              <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConsumersTable.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/ConsumersTable.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="596">
+              <caret line="74" column="17" lean-forward="false" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+                <element signature="n#!!block;n#handleInputNameChange#0;n#ConsumersTable#0" expanded="false" />
+                <element signature="n#!!block;n#handleInputNumberChange#0;n#ConsumersTable#0" expanded="false" />
+                <element signature="n#!!block;n#handleInputAddressChange#0;n#ConsumersTable#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="consumers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/api/consumers/consumers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,20 +122,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Appbar</find>
-      <find>name</find>
-      <find>showmenu</find>
-      <find>AppBar</find>
-      <find>agents</find>
-      <find>busi</find>
-      <find>button</find>
       <find>openModal</find>
       <find>addBusiness</find>
       <find>this.bind</find>
       <find>table</find>
       <find>NavigationExpandMoreIcon</find>
       <find>appbar</find>
-      <find>asdf</find>
       <find>MoreVertIcon</find>
       <find>ArrowDropLeft</find>
       <find>Arrowd</find>
@@ -119,7 +143,15 @@
       <find>material</find>
       <find>materialmodal</find>
       <find>submit</find>
+      <find>belongs</find>
+      <find>succ</find>
+      <find>this.logout</find>
+      <find>Meteor.lout</find>
+      <find>accounts</find>
+      <find>asdf</find>
       <find>new</find>
+      <find>insert wi</find>
+      <find>addConsumerUsingFaker</find>
     </findStrings>
     <replaceStrings>
       <replace>forHTML</replace>
@@ -148,10 +180,8 @@
         <option value="$PROJECT_DIR$/imports/ui/components/Dashboard/SuperAdmin.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Dashboard/SuperAdminDashboard.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/stylesheets/_variables.scss" />
-        <option value="$PROJECT_DIR$/imports/ui/components/extras/Modal/MaterialModal.jsx" />
         <option value="$PROJECT_DIR$/imports/api/businesses/businesses.js" />
         <option value="$PROJECT_DIR$/imports/api/consumers/consumers.jsx" />
-        <option value="$PROJECT_DIR$/imports/api/consumers/consumers.js" />
         <option value="$PROJECT_DIR$/imports/api/departments/departments.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/Sidebar/BusinessOwner.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Agents/BusinessOwnerAgents.jsx" />
@@ -159,7 +189,6 @@
         <option value="$PROJECT_DIR$/imports/startup/server/utils.js" />
         <option value="$PROJECT_DIR$/imports/api/Classes/Const.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Agents/extras/AgentsTable.jsx" />
-        <option value="$PROJECT_DIR$/imports/api/agents/agents.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/Agents/extras/AvailableAgents.jsx" />
         <option value="$PROJECT_DIR$/client/main.html" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/AgentsTable.jsx" />
@@ -177,8 +206,6 @@
         <option value="$PROJECT_DIR$/imports/ui/components/Agents/contacts/ContactsContainer.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/stylesheets/base.scss" />
         <option value="$PROJECT_DIR$/imports/ui/components/Sidebar/Sidebar.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/DeparmentsTable.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/ConsumersTable.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessesTable.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/Businesses.jsx" />
@@ -187,11 +214,16 @@
         <option value="$PROJECT_DIR$/imports/api/theme/theme.js" />
         <option value="$PROJECT_DIR$/imports/ui/App.js" />
         <option value="$PROJECT_DIR$/server/main.js" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Navbar/Navbar.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Auth/Login.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/DepartmentsContainer.js" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/SingleBusiness.jsx" />
+        <option value="$PROJECT_DIR$/imports/api/agents/agents.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/extras/Modal/MaterialModal.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Navbar/Navbar.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/DeparmentsTable.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/SingleBusiness.jsx" />
+        <option value="$PROJECT_DIR$/imports/api/consumers/consumers.js" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/ConsumersTable.jsx" />
       </list>
     </option>
   </component>
@@ -206,8 +238,8 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-5" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-209" />
     <option name="width" value="1433" />
     <option name="height" value="866" />
   </component>
@@ -238,6 +270,11 @@
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
               <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name=".meteor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -245,6 +282,13 @@
               <item name="txt-console" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="agents" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
@@ -374,6 +418,23 @@
               <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="extras" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="extras" type="462c0819:PsiDirectoryNode" />
+              <item name="Modal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Navbar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -468,18 +529,18 @@
       <workItem from="1525090497962" duration="10051000" />
       <workItem from="1525101057855" duration="19653000" />
       <workItem from="1525175971865" duration="4911000" />
-      <workItem from="1525181553679" duration="2756000" />
+      <workItem from="1525181553679" duration="12783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139426000" />
+    <option name="totallyTimeSpent" value="149453000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="0" width="1433" height="866" extended-state="0" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22293907" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.219323" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -487,7 +548,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4260274" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3918919" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -512,38 +573,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Dashboard/BusinessOwnerDashboard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Dashboard/SuperAdminDashboard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/stylesheets/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/extras/Modal/MaterialModal.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/startup/server/fixtures.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="19" column="9" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="19" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -554,25 +587,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/startup/server/register-api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/api/Classes/Const.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -587,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/agents/agents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -605,13 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/startup/server/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -731,25 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/DeparmentsTable.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#openModal#0;n#DeparmentsTable#0" expanded="false" />
-            <element signature="n#!!block;n#closeModal#0;n#DeparmentsTable#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/ConsumersTable.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="106" column="32" lean-forward="false" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Sidebar/Sidebar.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -778,13 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/consumers/consumers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/api/theme/theme.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -797,26 +775,6 @@
         <state relative-caret-position="293">
           <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#48#81#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar/Navbar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -880,16 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/SingleBusiness.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/BusinessOwnerAgents.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -906,6 +854,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#48#81#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/startup/server/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#61#88#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/startup/server/register-api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#121#157#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/startup/server/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar/Navbar.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="48" column="4" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/startup/server/fixtures.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.meteor/packages">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -916,32 +934,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/extras/Modal/MaterialModal.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="95" column="14" lean-forward="true" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
+        <state relative-caret-position="604">
+          <caret line="135" column="8" lean-forward="false" selection-start-line="132" selection-start-column="5" selection-end-line="135" selection-end-column="8" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="n#!!block;n#constructor#0;n#AgentsTable#0" expanded="false" />
             <element signature="n#!!block;n#addAgent#0;n#AgentsTable#0" expanded="false" />
-            <marker date="1525184312960" expanded="true" signature="2725:5369" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="2749:3125" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="2779:2917" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="2947:3100" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="3149:5369" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="3172:5369" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="3381:4341" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="3626:3817" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="3849:4308" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="4372:5369" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="4717:5369" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="5308:5369" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="5902:7549" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="6149:7533" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="6419:7533" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="6687:7533" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="6963:7533" ph="..." />
-            <marker date="1525184312960" expanded="true" signature="7276:7533" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="3930:6574" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="3954:4330" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="3984:4122" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="4152:4305" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="4354:6574" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="4377:6574" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="4586:5546" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="4831:5022" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="5054:5513" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="5577:6574" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="5922:6574" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="6513:6574" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="7107:8754" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="7354:8738" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="7624:8738" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="7892:8738" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="8168:8738" ph="..." />
+            <marker date="1525187889311" expanded="true" signature="8481:8738" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/DeparmentsTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="132" column="24" lean-forward="true" selection-start-line="132" selection-start-column="24" selection-end-line="132" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!block;n#openModal#0;n#DeparmentsTable#0" expanded="false" />
+            <element signature="n#!!block;n#closeModal#0;n#DeparmentsTable#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/SingleBusiness.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="74" column="11" lean-forward="true" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/agents/agents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/consumers/consumers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/ConsumersTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="74" column="17" lean-forward="false" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="n#!!block;n#handleInputNameChange#0;n#ConsumersTable#0" expanded="false" />
+            <element signature="n#!!block;n#handleInputNumberChange#0;n#ConsumersTable#0" expanded="false" />
+            <element signature="n#!!block;n#handleInputAddressChange#0;n#ConsumersTable#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -85,7 +85,7 @@ class Navbar extends Component {
                      <MenuItem primaryText='Help'/>
                      <Divider/>
                      <MenuItem primaryText='Sign out'
-                               onClick={this.logout.bind(this)}
+                               onClick={this.logout}
                      />
                   </IconMenu>
                }

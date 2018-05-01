@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
+import faker from 'faker';
 import { Link } from 'react-router-dom';
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
@@ -39,7 +40,7 @@ class ConsumersTable extends Component {
       this.setState({ open: false })
    }
 
-   clearStates(){
+   clearStates() {
       this.setState({
          consumerName: '',
          consumerNumber: '',
@@ -48,7 +49,6 @@ class ConsumersTable extends Component {
    }
 
    addConsumer() {
-
       Meteor.call('consumer.insert', {
          name: this.state.consumerName,
          number: this.state.consumerNumber,
@@ -57,20 +57,62 @@ class ConsumersTable extends Component {
       }, (err, succ) => {
          console.log(err);
          console.log(succ);
-         (succ)? this.clearStates(): console.log(err)
+         (succ) ? this.clearStates() : console.log(err)
       });
-
-
    }
 
-   handleInputNameChange(e){
-      this.setState({consumerName: e.target.value})
+   addConsumerUsingFaker(callback) {
+      for (let i = 0; i < 10000; i++) {
+         let add = faker.address;
+
+         let name = faker.name.findName();
+         let number = faker.phone.phoneNumber();
+         let address = `${add.country} ${add.city} ${add.streetAddress} ${add.streetName}`;
+         let businessId = this.props.businessId;
+
+         Meteor.call('consumer.insert', {
+            name,
+            number,
+            address,
+            businessId
+         }, (err, succ) => {
+            (succ) ? console.log(`${succ} inserted`) : console.log(err)
+         });
+      }
+      console.log('testing');
+
+      callback();
    }
-   handleInputNumberChange(e){
-      this.setState({consumerNumber: e.target.value})
+   addConsumerUsingFaker1(){
+      let consumers = [];
+      for (let i = 0; i < 10000; i++) {
+         let add = faker.address;
+
+         let name = faker.name.findName();
+         let number = faker.phone.phoneNumber();
+         let address = `${add.country} ${add.city} ${add.streetAddress} ${add.streetName}`;
+         let businessId = this.props.businessId;
+
+
+         consumers.push({ name, number, address, businessId });
+      }
+
+      console.log(consumers.length);
+      Meteor.call('consumer.insertBulk', consumers, (err,succ) => {
+         (succ) ? console.log(`random consumer inserted`) :
+            console.log(err)
+      });
    }
-   handleInputAddressChange(e){
-      this.setState({consumerAddress: e.target.value})
+   handleInputNameChange(e) {
+      this.setState({ consumerName: e.target.value })
+   }
+
+   handleInputNumberChange(e) {
+      this.setState({ consumerNumber: e.target.value })
+   }
+
+   handleInputAddressChange(e) {
+      this.setState({ consumerAddress: e.target.value })
    }
 
    render() {
@@ -82,23 +124,28 @@ class ConsumersTable extends Component {
                primary={ true }
                onClick={ this.openModal.bind(this) }
             />
+            <RaisedButton
+               label='Insert with Faker'
+               primary={ true }
+               onClick={ this.addConsumerUsingFaker.bind(this, () => {console.log('finished')}) }
+            />
+            <RaisedButton
+               label='Bulk insert'
+               primary={ true }
+               onClick={ this.addConsumerUsingFaker1.bind(this) }
+            />
+
             <CardText>
                <Table
                   fixedHeader={ true }
-                  fixedFooter={ true }
                   selectable={ false }
                   multiSelectable={ false }
                >
                   <TableHeader
-                     displaySelectAll={ true }
-                     adjustForCheckbox={ true }
+                     displaySelectAll={ false }
+                     adjustForCheckbox={ false }
                      displayRowCheckbox={ false }
-                     enableSelectAll={ true }
                   >
-                     <TableRow>
-                        <TableHeaderColumn colSpan="3" tooltip="Super Header" style={ { textAlign: 'center' } }>
-                        </TableHeaderColumn>
-                     </TableRow>
                      <TableRow>
                         <TableHeaderColumn>Name</TableHeaderColumn>
                         <TableHeaderColumn>Number</TableHeaderColumn>
@@ -166,12 +213,10 @@ class ConsumersTable extends Component {
 }
 
 export default withTracker((props) => {
-   console.log(props)
+   // console.log(props)
 
 
-   return {
-
-   }
+   return {}
 
 })(ConsumersTable)
 

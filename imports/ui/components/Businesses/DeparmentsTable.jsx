@@ -129,7 +129,7 @@ class DeparmentsTable extends Component {
 }
 
 export default withTracker((props) => {
-   console.log(props)
+   // console.log(props)
    /*let businessId = props.url.match.params.businessId
    Meteor.subscribe('departments.business', businessId);*/
 

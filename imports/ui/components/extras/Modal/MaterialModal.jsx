@@ -31,6 +31,7 @@ export default class MaterialModal extends Component {
                title={ this.props.title }
                actions={ modalActions }
                open={ this.props.open }
+               autoScrollBodyContent={true}
             >
                { this.props.children }
             </Dialog>

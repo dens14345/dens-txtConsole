@@ -72,19 +72,48 @@ class AgentsTable extends Component {
       let name = faker.name.findName();
       let email = faker.internet.email();
       let username = faker.internet.userName();
-      let number  = faker.phone.phoneNumber();
+      let number = faker.phone.phoneNumber();
       let password = 'agent123';
-      let status =  AGENT_STATUS.ACTIVE;
+      let status = AGENT_STATUS.ACTIVE;
       let businessId = 'N/A';
-      let departmentId= 'N/A';
-
+      let departmentId = 'N/A';
 
 
       // console.log(`name: ${name} \nemail: ${email} \nusername: ${username} \nnumber: ${number}`);
+      /*for (let i = 0; i <= 5000; i++) {
+         let name = faker.name.findName();
+         let email = faker.internet.email();
+         let username = faker.internet.userName();
+         let number  = faker.phone.phoneNumber();
+         let password = 'agent123';
+         let status =  AGENT_STATUS.ACTIVE;
+         let businessId = 'N/A';
+         let departmentId= 'N/A';
+         console.log(`name: ${name} \nemail: ${email} \nusername: ${username} \nnumber: ${number}`);
+      }*/
 
+      let agents = [];
+      for (let i = 0; i < 200; i++) {
+         let name = faker.name.findName();
+         let email = faker.internet.email();
+         let username = faker.internet.userName();
+         let number = faker.phone.phoneNumber();
+         let password = 'agent123';
+         let status = AGENT_STATUS.ACTIVE;
+         let businessId = 'N/A';
+         let departmentId = 'N/A';
 
-      for (let i = 0; i <= 5000; i++) {
-         Meteor.call('agents.insert', {
+         agents.push({
+            name,
+            email,
+            username,
+            number,
+            password,
+            status,
+            businessId,
+            departmentId
+         })
+         /*Meteor.call('agents.insert', {
                name,
                email,
                username,
@@ -95,13 +124,16 @@ class AgentsTable extends Component {
                departmentId
             },
             (err, succ) => {
-               console.log(err);
-               console.log(succ);
-               (succ) ? console.log(`random agent inserted`) : null
+               (succ) ? console.log(`random agent inserted`) :
+                  console.log(err)
             }
-         );
+         );*/
       }
-
+      console.log(agents);
+      Meteor.call('agents.insertBulk', agents, (err,succ) => {
+         (succ) ? console.log(`random agent inserted`) :
+                  console.log(err)
+      })
    }
 
    render() {
