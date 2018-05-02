@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a88cae8-9dd7-4c2a-954e-af2bf7ba5985" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/api/messages/messages.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/Messages.jsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Profile/ProfileContainer.jsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/SuperAdmin/staffs/StaffsContainer.jsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/SuperAdmin/staffs/StaffsTable.jsx" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
-      <change beforePath="$PROJECT_DIR$/imports/api/conversations/conversations.js" afterPath="$PROJECT_DIR$/imports/api/conversations/conversations.js" />
       <change beforePath="$PROJECT_DIR$/imports/startup/client/routes.js" afterPath="$PROJECT_DIR$/imports/startup/client/routes.js" />
-      <change beforePath="$PROJECT_DIR$/imports/startup/server/register-api.js" afterPath="$PROJECT_DIR$/imports/startup/server/register-api.js" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/App.js" afterPath="$PROJECT_DIR$/imports/ui/App.js" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/ChatList.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/ChatList.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/InboxContainer.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/InboxContainer.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Dashboard/Dashboard.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Dashboard/Dashboard.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Navbar/Navbar.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Navbar/Navbar.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Sidebar/SuperAdmin.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Sidebar/SuperAdmin.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +23,8 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/imports/startup/client/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="373">
+              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -388,12 +374,12 @@
       <workItem from="1525101057855" duration="19653000" />
       <workItem from="1525175971865" duration="4911000" />
       <workItem from="1525181553679" duration="22022000" />
-      <workItem from="1525262542936" duration="20122000" />
+      <workItem from="1525262542936" duration="20156000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178814000" />
+    <option name="totallyTimeSpent" value="178848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="3" width="1433" height="867" extended-state="0" />
@@ -408,7 +394,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36662108" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36662108" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -855,8 +841,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/startup/client/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="373">
+          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

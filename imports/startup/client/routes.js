@@ -7,6 +7,7 @@ import Register from '../../ui/components/Auth/Register';
 import Index from '../../ui/components/Index/Index'
 import MoviesContainer from '../../ui/components/Movies/MoviesContainer'
 import Dashboard from '../../ui/components/Dashboard/Dashboard';
+import ProfileContainer from '../../ui/components/Profile/ProfileContainer';
 import AgentsContainer from '../../ui/components/Businesses/Agents/AgentsContainer';
 import BusinessesContainer from '../../ui/components/Businesses/BusinessesContainer';
 import StaffsContainer from '../../ui/components/SuperAdmin/staffs/StaffsContainer';
@@ -27,6 +28,7 @@ class Routes extends Component {
 
 
                <Route path='/dashboard' component={ Dashboard }/>
+               <Route path='/profile' component={ ProfileContainer }
                <Route path='/businesses' component={ BusinessesContainer }/>
                <Route path='/agents' component={ AgentsContainer }/>
 
@@ -40,16 +42,19 @@ class Routes extends Component {
                <Route path='/movies' component={ MoviesContainer }/>
             </div>
          </Router>
-      );
+   );
    }
-}
+   }
 
-export default withTracker(() => {
-   let user = Meteor.user();
-   return {
+
+
+   export default withTracker(() => {
+      let user = Meteor.user();
+      return {
       user
    }
-})(Routes)
+   })(Routes)
+
 
 
 
