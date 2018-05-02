@@ -10,7 +10,11 @@ import Routes from '../startup/client/routes';
 class App extends Component {
    render() {
       if(!this.props.user){
-         return(<div/>);
+         return(
+            <MuiThemeProvider>
+               <Routes/>
+            </MuiThemeProvider>
+         );
       }
       let theme = '';
       if(this.props.user.profile.theme !== 'undefined'){
@@ -26,7 +30,6 @@ class App extends Component {
 
       return (
          <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
-         {/*<MuiThemeProvider>*/}
             <Routes/>
          </MuiThemeProvider>
       );

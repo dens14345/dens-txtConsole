@@ -8,11 +8,13 @@ import BusinessOwnerDashboard from './BusinessOwnerDashboard';
 import SuperAdminDashboard from './SuperAdminDashboard';
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar';
+import { Meteor } from "meteor/meteor";
 
 class Dashboard extends Component {
 
    constructor(props) {
       super(props);
+      console.log(Meteor.userId());
       if (!Meteor.userId()) {
          this.props.history.replace('/login');
       }
@@ -42,8 +44,12 @@ class Dashboard extends Component {
             <Sidebar/>
             <div className='my-container'>
                {
-                  (typeof currentUser() === 'undefined') ?
-                     null : this.renderDashboard(currentUser().profile.role)
+                  // (typeof currentUser() === 'undefined') ?
+                     // null : this.renderDashboard(currentUser().profile.role)
+                     // null : this.renderDashboard(this.props.user.profile.role)
+                  (this.props.user)?
+                     this.renderDashboard(this.props.user.profile.role) :
+                     null
                }
             </div>
          </div>
@@ -52,8 +58,11 @@ class Dashboard extends Component {
 }
 
 export default withTracker(() => {
+   let user;
+   (Meteor.user()) ? user = Meteor.user() : null;
+
    return {
-      user: Meteor.user()
+      user
    }
 })(Dashboard)
 

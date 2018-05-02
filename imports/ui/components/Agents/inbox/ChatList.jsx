@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
+
 
 import MobileTearSheet from '../../extras/MobileTearSheet';
 import { List, ListItem } from 'material-ui/List';
@@ -25,46 +27,33 @@ class ChatList extends Component {
          padding: '0px'
       };
       return (
-         <Fragment>
+         <Paper style={ cardStyle } zDepth={ 1 }>
+            <List>
+               <Subheader>Recent Chats</Subheader>
+               <Divider/>
+               {
+                  this.props.conversations.map((convo) =>
 
-            <Paper style={ cardStyle } zDepth={ 1 }>
-               <List>
-                  <Subheader>Recent Chats</Subheader>
-                  <Divider/>
-                  <ListItem
-                     primaryText="Brendan Lim"
-                     rightIcon={ <CommunicationChatBubble/> }
-                  />
-                  <ListItem
-                     primaryText="Eric Hoffman"
-                     rightIcon={ <CommunicationChatBubble/> }
-                  />
-                  <ListItem
-                     primaryText="Grace Ng"
-                     rightIcon={ <CommunicationChatBubble/> }
-                  />
-                  <ListItem
-                     primaryText="Kerem Suer"
-                     rightIcon={ <CommunicationChatBubble/> }
-                  />
-                  <ListItem
-                     primaryText="Raquel Parrado"
-                     rightIcon={ <CommunicationChatBubble/> }
-                  />
-
-               </List>
-
-            </Paper>
-
-         </Fragment>
-
+                     <Link key={convo._id} to={{pathname: `/inbox/${convo._id}`}}>
+                        <ListItem
+                           primaryText={convo.convoWith}
+                           rightIcon={ <CommunicationChatBubble/> }
+                        />
+                     </Link>
+                  )
+               }
+            </List>
+         </Paper>
       );
 
    }
 }
 
-export default withTracker(() => {
-   return {}
+export default withTracker((props) => {
+   // console.log(props);
+   return {
+
+   }
 })(ChatList)
 
 

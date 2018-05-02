@@ -9,7 +9,7 @@ import MoviesContainer from '../../ui/components/Movies/MoviesContainer'
 import Dashboard from '../../ui/components/Dashboard/Dashboard';
 import AgentsContainer from '../../ui/components/Businesses/Agents/AgentsContainer';
 import BusinessesContainer from '../../ui/components/Businesses/BusinessesContainer';
-
+import StaffsContainer from '../../ui/components/SuperAdmin/staffs/StaffsContainer';
 
 import InboxContainer from '../../ui/components/Agents/inbox/InboxContainer';
 import ContactsContainer from '../../ui/components/Agents/contacts/ContactsContainer';
@@ -34,7 +34,7 @@ class Routes extends Component {
                <Route path='/contacts' component={ ContactsContainer }/>
 
 
-
+               <Route path='/staffs' component={ StaffsContainer }/>
 
 
                <Route path='/movies' component={ MoviesContainer }/>

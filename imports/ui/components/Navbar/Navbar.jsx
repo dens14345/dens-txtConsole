@@ -17,6 +17,9 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import PersonCircle from 'material-ui/svg-icons/maps/person-pin';
+import Person from 'material-ui/svg-icons/social/person';
+
 import AppBar from 'material-ui/AppBar';
 import Divider from 'material-ui/Divider';
 
@@ -39,6 +42,9 @@ class Navbar extends Component {
    logout(e) {
       e.preventDefault();
       Meteor.logout();
+      window.localStorage.removeItem('Meteor.loginToken');
+      window.localStorage.removeItem('Meteor.loginTokenExpires');
+      window.localStorage.removeItem('Meteor.userId');
       window.location.replace('/login');
    }
 
@@ -60,14 +66,12 @@ class Navbar extends Component {
       return (
          <div className='my-container'>
             <AppBar
-               title='Inbox'
-               // onTitleClick={ handleClick }
-
+               title={ this.props.user.username }
+               iconElementLeft={<IconButton><Person/></IconButton>}
                iconElementRight={
                   <IconMenu
                      iconButtonElement={ <IconButton><MoreVertIcon/></IconButton> }
-                     anchorOrigin={ { horizontal: 'left', vertical: 'top' } }
-                     targetOrigin={ { horizontal: 'left', vertical: 'top' } }
+
                   >
                      <MenuItem primaryText='Theme'
                                rightIcon={ <ArrowDropRight/> }
@@ -85,7 +89,7 @@ class Navbar extends Component {
                      <MenuItem primaryText='Help'/>
                      <Divider/>
                      <MenuItem primaryText='Sign out'
-                               onClick={this.logout}
+                               onClick={ this.logout }
                      />
                   </IconMenu>
                }
@@ -111,47 +115,6 @@ class Navbar extends Component {
                </ToolbarGroup>
             </Toolbar>*/ }
 
-            { /* <div className='row'>
-               <div className='col-md-8'>
-                  <h4>Testing</h4>
-               </div>
-               <div className='col-md-2'>
-                  <Logout/>
-                  <VerticalMenu/>
-
-               </div>
-               <div className='col-md-2'>
-
-               </div>
-            </div>*/ }
-
-            { /*  <nav className='nav-extended teal'>
-               <div>
-                  <div className='row'>
-                     <div className='col-sm-8'>
-                        <a href='#'>Messaging app</a>
-                     </div>
-                     <div className='col-sm-4'>
-                        <ul id='nav-mobile' className='right hide-on-med-and-down'>
-                           <li>
-                              <a href=''>
-                                 {
-                                    (typeof this.props.user.profile.firstname === 'undefined') ?
-                                       this.props.user.username :
-                                       `${this.props.user.profile.firstname}
-                                     ${this.props.user.profile.lastname}`
-                                 }
-                              </a>
-                           </li>
-                           <li><a href='#' onClick={ this.logout.bind(this) }> <i
-                              className='material-icons'>power_settings_new</i> </a>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-
-               </div>
-            </nav>*/ }
          </div>
       )
    }

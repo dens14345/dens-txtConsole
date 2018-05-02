@@ -24,8 +24,6 @@ if (Meteor.isServer) {
 
    }); //end of methods
 
+   Meteor.publish('conversations.agentNumber', (agentNumber) => ConversationsCollection.find({agentNumber}));
 
-   // Meteor.publish('departments.all', () => DepartmentsCollection.find());
-   // Meteor.publish('departments.single', (departmentId) => DepartmentsCollection.find({_id: departmentId}));
-   // Meteor.publish('departments.business', (businessId) => DepartmentsCollection.find({business:businessId}));
 }
