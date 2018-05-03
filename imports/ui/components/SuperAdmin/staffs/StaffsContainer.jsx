@@ -7,6 +7,9 @@ import Navbar from '../../Navbar/Navbar';
 import Sidebar from '../../Sidebar/Sidebar';
 
 import StaffsTable from './StaffsTable';
+import { ROLES } from "../../../../api/Classes/Const";
+import { userRole } from "../../../../api/Classes/Utils";
+import { NotAllowed } from '../../extras/NotAllowed';
 
 class InboxContainer extends Component {
 
@@ -18,6 +21,17 @@ class InboxContainer extends Component {
    }
 
    render() {
+      if (!this.props.user) {
+         return (<div/>)
+      } else {
+         if (userRole() === ROLES.AGENT || userRole() === ROLES.STAFF) {
+            return (
+               <NotAllowed/>
+            )
+         }
+      }
+
+
       return (
          <div>
             <Navbar/>
@@ -39,7 +53,9 @@ class InboxContainer extends Component {
 export default withTracker((props) => {
 
 
-   return {}
+   return {
+      user: Meteor.user()
+   }
 })(InboxContainer)
 
 

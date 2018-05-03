@@ -16,23 +16,12 @@ if (Meteor.isServer) {
          })
       }
 
-
-      /*'conversations.insert'(convoWith){
-         return Conversations.insert({
-            convoWith
-         });
-      },
-
-      'conversations.isNumberExisting'(number){
-         return Conversations.findOne({
-            convoWith: number
-         });
-      }*/
-
-
    }); //end of methods
 
 
    Meteor.publish('businesses.all', () => BusinessesCollection.find());
    Meteor.publish('businesses.owner', (owner) => BusinessesCollection.find({owner}));
+
+   Meteor.publish('businessOwner.all', () => Meteor.users.find({ 'profile.role': 'b_owner' }));
+
 }

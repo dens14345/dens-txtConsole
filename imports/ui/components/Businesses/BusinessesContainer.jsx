@@ -55,10 +55,6 @@ class BusinessesContainer extends Component {
             />
 
 
-            { /*<Route exact path='/businesses/:businessId' component={ SingleBusiness } extraProps={this.props.businesses}/>*/ }
-            { /*<Route path='/businesses/:businessId' render={()=>
-               <SingleBusiness {...this.props}/>}
-            />*/ }
 
          </div>
       );
@@ -67,16 +63,12 @@ class BusinessesContainer extends Component {
 
 export default withTracker(() => {
    Meteor.subscribe('businesses.owner', Meteor.userId());
-   // Meteor.subscribe('departments.business', businessId);
-   // Meteor.subscribe('consumers.business', businessId);
 
    let user = Meteor.user();
 
    return {
-      businesses: BusinessesCollection.find().fetch(),
-      user
-      // departments: DepartmentsCollection.find().fetch(),
-      // consumers: ConsumersCollection.find().fetch()
+      user,
+      businesses: BusinessesCollection.find().fetch()
    }
 })(BusinessesContainer)
 

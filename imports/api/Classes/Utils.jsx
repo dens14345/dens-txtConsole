@@ -1,6 +1,6 @@
+import { Meteor } from 'meteor/meteor';
 import Accounts from 'meteor/accounts-base';
 import { ROLES } from "./Const";
-
 
 export function loggedIn() {
    if (Meteor.userId()) {
@@ -13,11 +13,11 @@ export function currentUser() {
    return user;
 }
 
-export function userRole(){
+export function userRole() {
    return Meteor.user().profile.role;
 }
 
-export function checkRole({loader, notAllowedPage}){
+export function checkRole({ loader, notAllowedPage }) {
 
    if (!this.props.user) {
       return (
@@ -35,8 +35,8 @@ export function checkRole({loader, notAllowedPage}){
 }
 
 
-export function createAgentAccount(){
-   if(Meteor.isServer) {
+export function createAgentAccount() {
+   if (Meteor.isServer) {
       Accounts.createUser({
          email: 'agen1t@gmail.com',
          username: 'agent1',
@@ -52,4 +52,21 @@ export function createAgentAccount(){
          }
       });
    }
+}
+
+
+if(Meteor.isServer) {
+   Meteor.methods({
+      'checkPassword'(digest) {
+
+         if (this.userId) {
+            let user = Meteor.user();
+            let password = {digest: digest, algorithm: 'sha-256'};
+            let result = Accounts._checkPassword(user, password);
+            return result.error == null;
+         } else {
+            return false;
+         }
+      }
+   });
 }

@@ -70,6 +70,8 @@ if (Meteor.isServer) {
       'profile.belongsTo': businessOwnerId
    }));
 
+   Meteor.publish('agents.all', () => Meteor.users.find({ 'profile.role': 'agent' }) );
+
 
 
 }

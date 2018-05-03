@@ -28,7 +28,9 @@ class Routes extends Component {
 
 
                <Route path='/dashboard' component={ Dashboard }/>
-               <Route path='/profile' component={ ProfileContainer }
+
+               <Route path='/profile' component={ ProfileContainer }/>
+
                <Route path='/businesses' component={ BusinessesContainer }/>
                <Route path='/agents' component={ AgentsContainer }/>
 
@@ -42,19 +44,16 @@ class Routes extends Component {
                <Route path='/movies' component={ MoviesContainer }/>
             </div>
          </Router>
-   );
+      );
    }
-   }
+}
 
-
-
-   export default withTracker(() => {
-      let user = Meteor.user();
-      return {
+export default withTracker(() => {
+   let user = Meteor.user();
+   return {
       user
    }
-   })(Routes)
-
+})(Routes)
 
 
 

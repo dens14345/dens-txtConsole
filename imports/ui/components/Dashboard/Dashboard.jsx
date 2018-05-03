@@ -1,14 +1,18 @@
+import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { currentUser } from "../../../api/Classes/Utils";
-import { ROLES } from "../../../api/Classes/Const";
+import { Progress } from '../extras/Progress';
+import { currentUser, userRole } from '../../../api/Classes/Utils';
+import { ROLES } from '../../../api/Classes/Const';
+
+import Navbar from '../Navbar/Navbar';
+import Sidebar from '../Sidebar/Sidebar';
 
 import BusinessOwnerDashboard from './BusinessOwnerDashboard';
 import SuperAdminDashboard from './SuperAdminDashboard';
-import Navbar from '../Navbar/Navbar';
-import Sidebar from '../Sidebar/Sidebar';
-import { Meteor } from "meteor/meteor";
+import StaffDashboard from './Staff/StaffDashboard';
+
 
 class Dashboard extends Component {
 
@@ -27,10 +31,10 @@ class Dashboard extends Component {
             return <SuperAdminDashboard/>
          case ROLES.B_OWNER:
             return <BusinessOwnerDashboard/>;
-         case ROLES.AGENT:
-            return <Agent/>;
+         /*case ROLES.AGENT:
+            return <Agent/>;*/
          case ROLES.STAFF:
-            return <Staff/>;
+            return <StaffDashboard/>;
          default:
             break;
       }
@@ -38,16 +42,22 @@ class Dashboard extends Component {
 
 
    render() {
+      if (!this.props.user) {
+         return (<Progress/>)
+      } else {
+         if (userRole() === ROLES.AGENT) {
+            this.props.history.replace('/inbox');
+         }
+      }
+
+
       return (
          <div>
             <Navbar/>
             <Sidebar/>
             <div className='my-container'>
                {
-                  // (typeof currentUser() === 'undefined') ?
-                     // null : this.renderDashboard(currentUser().profile.role)
-                     // null : this.renderDashboard(this.props.user.profile.role)
-                  (this.props.user)?
+                  (this.props.user) ?
                      this.renderDashboard(this.props.user.profile.role) :
                      null
                }
@@ -60,7 +70,6 @@ class Dashboard extends Component {
 export default withTracker(() => {
    let user;
    (Meteor.user()) ? user = Meteor.user() : null;
-
    return {
       user
    }

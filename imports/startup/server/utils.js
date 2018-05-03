@@ -1,6 +1,7 @@
+import { Meteor } from 'meteor/meteor';
 
-export function createAgentAccount(){
-   if(Meteor.isServer) {
+export function createAgentAccount() {
+   if (Meteor.isServer) {
       Accounts.createUser({
          email: 'agen1t@gmail.com',
          username: 'agent1',
