@@ -38,6 +38,12 @@ class ProfileContainer extends Component {
    }
 
    render() {
+      if (!this.props.user) {
+         return (
+            <div/>
+         )
+      }
+
       return (
          <div>
             <Navbar/>
@@ -63,7 +69,7 @@ class ProfileContainer extends Component {
 export default withTracker((props) => {
    // let user = Meteor.user();
    return {
-
+      user: Meteor.user()
    }
 })(ProfileContainer)
 

@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import Accounts from 'meteor/accounts-base';
-import { ROLES } from "./Const";
+import {Accounts }from 'meteor/accounts-base';
+import { ROLES } from './Const';
 
 export function loggedIn() {
    if (Meteor.userId()) {
@@ -55,18 +55,37 @@ export function createAgentAccount() {
 }
 
 
-if(Meteor.isServer) {
+if (Meteor.isServer) {
    Meteor.methods({
       'checkPassword'(digest) {
 
          if (this.userId) {
             let user = Meteor.user();
-            let password = {digest: digest, algorithm: 'sha-256'};
+            let password = { digest: digest, algorithm: 'sha-256' };
             let result = Accounts._checkPassword(user, password);
+
             return result.error == null;
          } else {
             return false;
          }
-      }
+      },
+      'updateUser'(userId, doc) {
+         Meteor.users.update(userId, {
+            $set: {
+               'username': doc.username,
+               'profile.name': doc.name,
+               'emails.0.address': doc.email
+            }
+         });
+
+         if(doc.updatePassword){
+            console.log(true);
+            Accounts.setPassword(userId, doc.password);
+         }else{
+            console.log(false);
+         }
+
+         return true;
+      },
    });
 }

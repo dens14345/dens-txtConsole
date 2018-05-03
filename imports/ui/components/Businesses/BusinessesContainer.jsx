@@ -35,17 +35,16 @@ class BusinessesContainer extends Component {
             </div>
          )
       } else {
-         if (userRole() === ROLES.AGENT) {
-            return (
-               <NotAllowed/>
-            )
+         switch(userRole()){
+            case ROLES.AGENT:
+               return <NotAllowed/>;
+            default:
+               break;
          }
       }
 
       return (
          <div>
-            { /*<Navbar/>
-            <Sidebar/>*/ }
             <Route exact path='/businesses' component={ Businesses }/>
             <Route exact path='/businesses/:businessId' render={ (props) =>
                <SingleBusiness url={ props } businesses={ this.props.businesses }/> }
