@@ -44,6 +44,7 @@ class AgentsContainer extends Component {
          <Fragment>
             <Navbar/>
             <Sidebar/>
+
             <div className="my-container">
                <AppBar
                   title='Agents'

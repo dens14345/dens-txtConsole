@@ -54,7 +54,7 @@ class SingleBusinessOwner extends Component {
 
             <br/>
             {/*<AgentsTable agents={this.props.agents}/>*/}
-            <AgentsTable />
+            <AgentsTable history={this.props.history} />
 
          </Fragment>
       );

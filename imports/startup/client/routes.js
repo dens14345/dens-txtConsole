@@ -37,7 +37,7 @@ class Routes extends Component {
                <Route path='/business-owners' component={ BusinessOwnerContainer }/>
 
 
-               <Route path='/agents' component={ AgentsContainer }/>
+               <Route exact path='/agents' component={ AgentsContainer }/>
                {/*asdfasdfasdfasdfasdfasdasdf*/}
 
                <Route path='/inbox' component={ InboxContainer }/>

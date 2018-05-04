@@ -21,8 +21,16 @@ class AgentsTable extends Component {
 
    constructor(props) {
       super(props);
-
    }
+
+
+   singleAgent(agentId){
+      this.props.history.push(`/agents/${agentId}`);
+     /* this.props.history.push(
+         `${pathname}/${_id}`
+      );*/
+   }
+
 
 
    render() {
@@ -59,6 +67,8 @@ class AgentsTable extends Component {
                         displayRowCheckbox={ false }
                         showRowHover={ true }
                      >
+                        {console.log(this.props)}
+                        {console.log(this.props.history)}
                         {
                            this.props.agents.map((agent) => (
                               <TableRow key={ agent._id }>
@@ -69,6 +79,7 @@ class AgentsTable extends Component {
                                     <RaisedButton
                                        label='View'
                                        primary={true}
+                                       onClick={this.singleAgent.bind(this, agent._id)}
                                     />
                                  </TableRowColumn>
                               </TableRow>
