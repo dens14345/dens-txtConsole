@@ -50,7 +50,6 @@ class Sidebar extends Component {
    }
 
    renderSidebar(userRole) {
-      // console.log(`userRole: ${userRole}`);
       switch (userRole) {
          case ROLES.SUPER_ADMIN:
             return <SuperAdmin/>

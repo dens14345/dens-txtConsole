@@ -11,11 +11,11 @@ import AppBar from 'material-ui/AppBar';
 
 import BusinessesTable from './BusinessesTable';
 import SingleBusiness from './SingleBusiness';
-import Navbar from '../Navbar/Navbar';
-import Sidebar from '../Sidebar/Sidebar';
-import MaterialModal from '../extras/Modal/MaterialModal';
+import Navbar from '../../Navbar/Navbar';
+import Sidebar from '../../Sidebar/Sidebar';
+import MaterialModal from '../../extras/Modal/MaterialModal';
 
-import { BusinessesCollection } from "../../../api/businesses/businesses";
+import { BusinessesCollection } from "../../../../api/businesses/businesses";
 
 
 class Businesses extends Component {

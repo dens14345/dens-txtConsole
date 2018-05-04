@@ -16,7 +16,7 @@ import {
    TableRowColumn,
 } from 'material-ui/Table';
 
-import MaterialModal from '../extras/Modal/MaterialModal';
+import MaterialModal from '../../extras/Modal/MaterialModal';
 
 
 class DeparmentsTable extends Component {

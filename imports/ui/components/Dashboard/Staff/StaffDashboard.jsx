@@ -50,10 +50,6 @@ export default withTracker(() => {
    Meteor.subscribe('businesses.all');
    Meteor.subscribe('businessOwner.all');
 
-  /* console.log(Meteor.users.find().count());
-   console.log(Meteor.users.find({ 'profile.role': 'agent' }).count());
-   console.log(Meteor.users.find({ 'profile.role': 'b_owner' }).count());*/
-
    let agentsCount = Meteor.users.find({ 'profile.role': 'agent' }).count();
    let businessesCount = BusinessesCollection.find().count();
    let businessOwnersCount = Meteor.users.find({ 'profile.role': 'b_owner' }).count();

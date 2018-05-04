@@ -4,9 +4,9 @@ import { Route } from 'react-router-dom';
 
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar';
-import Businesses from './Businesses';
-import SingleBusiness from './SingleBusiness';
-import DepartmentsContainer from './DepartmentsContainer';
+import Businesses from './BusinessOwner/Businesses';
+import SingleBusiness from './BusinessOwner/SingleBusiness';
+import DepartmentsContainer from './BusinessOwner/DepartmentsContainer';
 import { BusinessesCollection } from '../../../api/businesses/businesses';
 import { DepartmentsCollection } from '../../../api/departments/departments';
 import { ConsumersCollection } from '../../../api/consumers/consumers';
@@ -14,6 +14,9 @@ import { ROLES } from '../../../api/Classes/Const';
 import { userRole } from '../../../api/Classes/Utils';
 
 import { NotAllowed } from '../extras/NotAllowed';
+
+import BusinessOwnerContainer from './BusinessOwner/BusinessOwnerContainer';
+import StaffContainer from './Staff/StaffContainer';
 
 
 class BusinessesContainer extends Component {
@@ -25,6 +28,35 @@ class BusinessesContainer extends Component {
       }
    }
 
+   /* renderBusinessComponent() {
+       switch (userRole()) {
+          case ROLES.SUPER_ADMIN:
+             return <SuperAdmin/>
+          case ROLES.B_OWNER:
+             return <BusinessOwnerContainer/>;
+          case ROLES.AGENT:
+             return <Agent/>;
+          case ROLES.STAFF:
+             return <Staff/>;
+          default:
+             break;
+       }
+    }*/
+
+   renderBusinessComponent() {
+      switch (userRole()) {
+         case ROLES.SUPER_ADMIN:
+            return <SuperAdmin/>
+         case ROLES.B_OWNER:
+            return <Route path='/businesses' component={ BusinessOwnerContainer }/>;
+         case ROLES.AGENT:
+            return <Agent/>;
+         case ROLES.STAFF:
+            return <Route path='/businesses' component={ StaffContainer }/>;
+         default:
+            break;
+      }
+   }
 
    render() {
 
@@ -34,40 +66,22 @@ class BusinessesContainer extends Component {
                loading
             </div>
          )
-      } else {
-         switch(userRole()){
-            case ROLES.AGENT:
-               return <NotAllowed/>;
-            default:
-               break;
-         }
       }
 
       return (
          <div>
-            <Route exact path='/businesses' component={ Businesses }/>
-            <Route exact path='/businesses/:businessId' render={ (props) =>
-               <SingleBusiness url={ props } businesses={ this.props.businesses }/> }
-            />
-            <Route path='/businesses/:businessId/:departmentId' render={ (props) =>
-               <DepartmentsContainer url={ props } businesses={ this.props.businesses }/> }
-            />
-
-
-
+            { this.renderBusinessComponent() }
          </div>
       );
    }
 }
 
 export default withTracker(() => {
-   Meteor.subscribe('businesses.owner', Meteor.userId());
 
    let user = Meteor.user();
 
    return {
       user,
-      businesses: BusinessesCollection.find().fetch()
    }
 })(BusinessesContainer)
 

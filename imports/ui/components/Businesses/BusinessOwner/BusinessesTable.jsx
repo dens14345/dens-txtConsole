@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
-import MaterialModal from '../extras/Modal/MaterialModal';
+import MaterialModal from '../../extras/Modal/MaterialModal';
 
 import {
    Table,
@@ -20,7 +20,7 @@ import {
 } from 'material-ui/Table';
 
 
-import { BusinessesCollection } from "../../../api/businesses/businesses";
+import { BusinessesCollection } from "../../../../api/businesses/businesses";
 
 class BusinessesTable extends Component {
 

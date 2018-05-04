@@ -9,7 +9,7 @@ import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'm
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { ConsumersCollection } from '../../../api/consumers/consumers';
+import { ConsumersCollection } from '../../../../api/consumers/consumers';
 
 // import Pagination from 'materialui-pagination';
 import Pagination from 'material-ui-pagination-react';
@@ -23,7 +23,7 @@ import {
    TableRowColumn,
 } from 'material-ui/Table';
 
-import MaterialModal from '../extras/Modal/MaterialModal';
+import MaterialModal from '../../extras/Modal/MaterialModal';
 
 
 class ConsumersTable extends Component {

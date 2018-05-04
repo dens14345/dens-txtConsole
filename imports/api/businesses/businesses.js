@@ -22,6 +22,7 @@ if (Meteor.isServer) {
    Meteor.publish('businesses.all', () => BusinessesCollection.find());
    Meteor.publish('businesses.owner', (owner) => BusinessesCollection.find({owner}));
 
+   Meteor.publish('businessOwner', (b_ownerId) => Meteor.users.find({ _id: b_ownerId }));
    Meteor.publish('businessOwner.all', () => Meteor.users.find({ 'profile.role': 'b_owner' }));
 
 }

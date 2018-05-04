@@ -11,12 +11,12 @@ import DepartmentsContainer from './DepartmentsContainer';
 import DepartmentsTable from './DeparmentsTable';
 import ConsumersTable from './ConsumersTable';
 
-import { BusinessesCollection } from '../../../api/businesses/businesses';
-import { DepartmentsCollection } from '../../../api/departments/departments';
-import { ConsumersCollection } from '../../../api/consumers/consumers';
+import { BusinessesCollection } from '../../../../api/businesses/businesses';
+import { DepartmentsCollection } from '../../../../api/departments/departments';
+import { ConsumersCollection } from '../../../../api/consumers/consumers';
 
-import Sidebar from '../Sidebar/Sidebar';
-import Navbar from '../Navbar/Navbar';
+import Sidebar from '../../Sidebar/Sidebar';
+import Navbar from '../../Navbar/Navbar';
 import Businesses from './Businesses';
 
 
@@ -62,6 +62,7 @@ class SingleBusiness extends Component {
 }
 
 export default withTracker((props) => {
+   console.log(props);
    let businesses = props.businesses;
    let businessId = props.url.match.params.businessId
 

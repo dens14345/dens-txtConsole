@@ -14,6 +14,8 @@ import StaffsContainer from '../../ui/components/SuperAdmin/staffs/StaffsContain
 
 import InboxContainer from '../../ui/components/Agents/inbox/InboxContainer';
 import ContactsContainer from '../../ui/components/Agents/contacts/ContactsContainer';
+import BusinessOwnerContainer from '../../ui/components/BusinessOwners/BusinessOwnerContainer';
+
 
 
 class Routes extends Component {
@@ -32,7 +34,11 @@ class Routes extends Component {
                <Route path='/profile' component={ ProfileContainer }/>
 
                <Route path='/businesses' component={ BusinessesContainer }/>
+               <Route path='/business-owners' component={ BusinessOwnerContainer }/>
+
+
                <Route path='/agents' component={ AgentsContainer }/>
+               {/*asdfasdfasdfasdfasdfasdasdf*/}
 
                <Route path='/inbox' component={ InboxContainer }/>
                <Route path='/contacts' component={ ContactsContainer }/>

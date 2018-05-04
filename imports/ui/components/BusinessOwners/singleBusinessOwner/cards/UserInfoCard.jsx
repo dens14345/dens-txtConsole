@@ -1,44 +1,44 @@
 import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Link } from 'react-router-dom';
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
+import RaisedButton from 'material-ui/RaisedButton';
 
 
-class BusinessOwnerCard extends Component {
+class AgentsCard extends Component {
 
    constructor(props) {
       super(props);
    }
 
    render() {
+      let bOwner = this.props;
+
       return (
          <Card style={ this.props.style }>
             <CardText>
                <div className="row">
                   <div className="col-sm-4">
-                     <img src='/icons/b_owner-icon.png' alt=''/>
+                     <br/>
+                     <img src='/icons/profile-icon.png' alt=''/>
                   </div>
                   <div className="col-sm-8">
-                     <Link to='business-owners'>
-                        <h4>Business Owners</h4>
-                     </Link>
+                     <h4>Account Info:</h4>
+                     <p>{ `${bOwner.profile.firstname} ${bOwner.profile.lastname}` }</p>
+                     <p>{ this.props.emails[0].address }</p>
+                     <p>Status</p>
 
-                     <span>{ this.props.businessOwnersCount }</span>
                   </div>
                </div>
             </CardText>
-            <CardActions>
-               <Divider/>
-               <h4>Last updated: </h4>
-            </CardActions>
+
          </Card>
       );
    }
 }
 
-export default withTracker((props) => {
+export default withTracker(() => {
    return {}
-})(BusinessOwnerCard)
+})(AgentsCard)
 

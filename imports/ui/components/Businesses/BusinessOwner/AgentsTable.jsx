@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import AvailableAgents from './Agents/extras/AvailableAgents';
+import AvailableAgents from '../Agents/extras/AvailableAgents';
 import TextField from 'material-ui/TextField';
 
 import {
@@ -17,7 +17,7 @@ import {
    TableRowColumn,
 } from 'material-ui/Table';
 
-import MaterialModal from '../extras/Modal/MaterialModal';
+import MaterialModal from '../../extras/Modal/MaterialModal';
 import { Meteor } from "meteor/meteor";
 
 
