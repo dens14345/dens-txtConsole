@@ -25,14 +25,16 @@ class BusinessesTable extends Component {
    }
 
 
+   singleBusiness(businessId){
+      this.props.history.push(`/businesses/${businessId}`);
+
+   }
+
    render() {
       let businesses = this.props.businesses
       return (
          <Fragment>
-           {/* <AppBar
-               title='Businesses'
-               showMenuIconButton={false}
-            />*/}
+
             <Card>
                <CardTitle title='Businesses'/>
                <CardText>
@@ -66,7 +68,7 @@ class BusinessesTable extends Component {
                                     <RaisedButton
                                        label='view'
                                        primary={true}
-                                       onClick={() => alert('test')}
+                                       onClick={this.singleBusiness.bind(this, business._id)}
                                     />
 
                                  </TableRowColumn>

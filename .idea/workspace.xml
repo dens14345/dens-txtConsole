@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a88cae8-9dd7-4c2a-954e-af2bf7ba5985" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/SingleAgent.jsx" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/imports/startup/client/routes.js" afterPath="$PROJECT_DIR$/imports/startup/client/routes.js" />
       <change beforePath="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/SingleBusinessOwner.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/SingleBusinessOwner.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/AgentsTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/AgentsTable.jsx" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/BusinessesTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/BusinessesTable.jsx" />
       <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/BusinessOwnerAgents.jsx" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/BusinessOwnerContainer.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/BusinessOwnerContainer.jsx" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/Staff/StaffContainer.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Staff/StaffContainer.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,83 +28,49 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BusinessOwnerContainer.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/BusinessOwnerContainer.jsx">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/startup/client/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="48" column="20" lean-forward="true" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+            <state relative-caret-position="402">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
-                <element signature="e#0#51#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BusinessOwnersTable.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/businessOwners/BusinessOwnersTable.jsx">
+      <file leaf-file-name="StaffContainer.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Staff/StaffContainer.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="36" column="8" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-                <marker date="1525442120213" expanded="true" signature="1073:4481" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="1094:1191" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="1210:4460" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="1237:4439" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="1263:4410" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="1448:2074" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="1712:2038" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="2108:4383" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="2386:4241" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="2752:4199" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="2803:2958" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="3246:4147" ph="..." />
-                <marker date="1525442120213" expanded="true" signature="3620:3733" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingleBusinessOwner.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/SingleBusinessOwner.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="56" column="25" lean-forward="true" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="252">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="AgentsTable.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/AgentsTable.jsx">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="28" column="32" lean-forward="true" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+            <state relative-caret-position="380">
+              <caret line="242" column="11" lean-forward="true" selection-start-line="242" selection-start-column="11" selection-end-line="242" selection-end-column="11" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
+                <element signature="e#3106#7991#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/startup/client/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="82" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AgentsContainer.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AgentsContainer.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="112">
+              <caret line="58" column="34" lean-forward="true" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,12 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>switch</find>
-      <find>this.props</find>
-      <find>DepartmentsCollection</find>
-      <find>.push</find>
-      <find>BusinessOwner</find>
-      <find>nota</find>
       <find>nav</find>
       <find>businesses.all</find>
       <find>addagent</find>
@@ -129,14 +95,20 @@
       <find>UserInfoCards</find>
       <find>.find()</find>
       <find>businessesCount</find>
-      <find>&quot;</find>
       <find>CardTitle</find>
       <find>cardti</find>
       <find>BusinessesTable</find>
       <find>.map</find>
       <find>AgentsContainer</find>
-      <find>asdf</find>
       <find>singleAgent</find>
+      <find>super</find>
+      <find>asdf</find>
+      <find>SingleAgent</find>
+      <find>&quot;</find>
+      <find>singlebusiness</find>
+      <find>single</find>
+      <find>staffs con</find>
+      <find>BusinessOwnerContainer</find>
     </findStrings>
     <replaceStrings>
       <replace>forHTML</replace>
@@ -164,8 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/imports/ui/components/extras/Modal/MaterialModal.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/DeparmentsTable.jsx" />
         <option value="$PROJECT_DIR$/imports/api/consumers/consumers.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/SingleBusiness.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/ConsumersTable.jsx" />
@@ -195,10 +165,7 @@
         <option value="$PROJECT_DIR$/imports/ui/components/Profile/accounts/StaffProfileForm.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Sidebar/Sidebar.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/SingleBusiness.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessesContainer.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/Businesses.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/BusinessOwnerContainer.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/Staff/StaffContainer.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Dashboard/Staff/cards/BusinessOwnerCard.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Dashboard/Staff/StaffDashboard.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/BusinessOwners/BusinessOwners.jsx" />
@@ -209,12 +176,17 @@
         <option value="$PROJECT_DIR$/imports/ui/components/Dashboard/Staff/cards/AgentsCard.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/cards/AgentsCard.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/cards/UserInfoCard.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/BusinessesTable.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/stylesheets/base.scss" />
-        <option value="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/SingleBusinessOwner.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/AgentsTable.jsx" />
-        <option value="$PROJECT_DIR$/imports/startup/client/routes.js" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx" />
+        <option value="$PROJECT_DIR$/imports/startup/client/routes.js" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/SingleAgent.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/BusinessOwnerContainer.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/BusinessesTable.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/SingleBusinessOwner.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessesContainer.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/Staff/StaffContainer.jsx" />
       </list>
     </option>
   </component>
@@ -339,7 +311,27 @@
               <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="BusinessOwners" type="462c0819:PsiDirectoryNode" />
+              <item name="Businesses" type="462c0819:PsiDirectoryNode" />
+              <item name="Agents" type="462c0819:PsiDirectoryNode" />
+              <item name="extras" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Businesses" type="462c0819:PsiDirectoryNode" />
+              <item name="BusinessOwner" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Businesses" type="462c0819:PsiDirectoryNode" />
+              <item name="Staff" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
@@ -348,7 +340,6 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="BusinessOwners" type="462c0819:PsiDirectoryNode" />
-              <item name="businessOwners" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
@@ -368,6 +359,14 @@
               <item name="BusinessOwners" type="462c0819:PsiDirectoryNode" />
               <item name="singleBusinessOwner" type="462c0819:PsiDirectoryNode" />
               <item name="tables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="extras" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
@@ -458,12 +457,12 @@
       <workItem from="1525348868315" duration="16000" />
       <workItem from="1525348912718" duration="26399000" />
       <workItem from="1525379419938" duration="2530000" />
-      <workItem from="1525435180255" duration="15275000" />
+      <workItem from="1525435180255" duration="23026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231204000" />
+    <option name="totallyTimeSpent" value="238955000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="3" width="1424" height="876" extended-state="0" />
@@ -478,7 +477,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27297297" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2716216" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -497,40 +496,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/extras/NotAllowed.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Sidebar/SuperAdmin.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="261" column="0" lean-forward="false" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/extras/Progress.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/SuperAdmin/staffs/StaffsContainer.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -638,6 +608,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="70" column="8" lean-forward="false" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+            <element signature="n#!!block;n#loggedIn#0" expanded="false" />
+            <element signature="n#!!block;n#currentUser#0" expanded="false" />
+            <element signature="n#!!block;n#userRole#0" expanded="false" />
+            <element signature="n#!!block;n#checkRole#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -683,29 +660,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/SingleBusiness.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="61" column="1" lean-forward="false" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/Businesses.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-144">
           <caret line="12" column="46" lean-forward="true" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Staff/StaffContainer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="20" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,38 +694,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/BusinessOwnerContainer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessesContainer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="50" column="79" lean-forward="false" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Navbar/Navbar.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="74" column="19" lean-forward="true" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/businessOwners/BusinessOwners.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="4" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -775,14 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/agents/agents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -821,14 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/AgentsTable.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="109" column="46" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/stylesheets/base.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -861,24 +778,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/BusinessesTable.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/BusinessOwnerAgents.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-            <element signature="e#1087#1580#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/BusinessOwnerContainer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="48" column="20" lean-forward="true" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -905,20 +809,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/SingleBusinessOwner.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/BusinessOwnerContainer.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="56" column="25" lean-forward="true" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="32" />
+        <state relative-caret-position="243">
+          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/agents/agents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="72" column="87" lean-forward="true" selection-start-line="68" selection-start-column="3" selection-end-line="72" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/businessOwners/BusinessOwners.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/extras/Progress.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/AgentsTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="109" column="46" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/BusinessOwnerContainer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="24" column="85" lean-forward="true" selection-start-line="24" selection-start-column="85" selection-end-line="24" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/BusinessesTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+          <folding>
+            <element signature="e#1069#1562#0" expanded="false" />
+            <marker date="1525460506409" expanded="true" signature="777:2567" ph="..." />
+            <marker date="1525460506409" expanded="true" signature="797:2546" ph="..." />
+            <marker date="1525460506409" expanded="true" signature="870:2525" ph="..." />
+            <marker date="1525460506409" expanded="true" signature="896:2498" ph="..." />
+            <marker date="1525460506409" expanded="true" signature="1081:1561" ph="..." />
+            <marker date="1525460506409" expanded="true" signature="1345:1525" ph="..." />
+            <marker date="1525460506409" expanded="true" signature="1595:2471" ph="..." />
+            <marker date="1525460506409" expanded="true" signature="1862:2379" ph="..." />
+            <marker date="1525460506409" expanded="true" signature="1996:2337" ph="..." />
+            <marker date="1525460506409" expanded="true" signature="2047:2285" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/tables/AgentsTable.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="28" column="32" lean-forward="true" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+        <state relative-caret-position="-258">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="31" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/SingleAgent.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/SingleBusiness.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/BusinessOwners/singleBusinessOwner/SingleBusinessOwner.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
@@ -927,16 +921,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/startup/client/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="82" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="82" />
-          <folding />
+        <state relative-caret-position="402">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessesContainer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AgentsTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="242" column="11" lean-forward="true" selection-start-line="242" selection-start-column="11" selection-end-line="242" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#3106#7991#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        <state relative-caret-position="112">
+          <caret line="58" column="34" lean-forward="true" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Staff/StaffContainer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>

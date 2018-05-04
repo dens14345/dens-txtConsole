@@ -15,13 +15,10 @@ class StaffContainer extends Component {
 
 
    render() {
-
-
       return (
          <Fragment>
            <h1>Staffs Container</h1>
          </Fragment>
-
       );
    }
 }

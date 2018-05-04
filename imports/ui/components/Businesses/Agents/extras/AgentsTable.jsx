@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import faker from 'faker';
 import { AGENT_STATUS, ROLES } from '../../../../../api/Classes/Const';
 
+import AppBar from 'material-ui/AppBar';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
@@ -79,19 +80,6 @@ class AgentsTable extends Component {
       let departmentId = 'N/A';
 
 
-      // console.log(`name: ${name} \nemail: ${email} \nusername: ${username} \nnumber: ${number}`);
-      /*for (let i = 0; i <= 5000; i++) {
-         let name = faker.name.findName();
-         let email = faker.internet.email();
-         let username = faker.internet.userName();
-         let number  = faker.phone.phoneNumber();
-         let password = 'agent123';
-         let status =  AGENT_STATUS.ACTIVE;
-         let businessId = 'N/A';
-         let departmentId= 'N/A';
-         console.log(`name: ${name} \nemail: ${email} \nusername: ${username} \nnumber: ${number}`);
-      }*/
-
       let agents = [];
       for (let i = 0; i < 200; i++) {
          let name = faker.name.findName();
@@ -113,161 +101,148 @@ class AgentsTable extends Component {
             businessId,
             departmentId
          })
-         /*Meteor.call('agents.insert', {
-               name,
-               email,
-               username,
-               password,
-               number,
-               status,
-               businessId,
-               departmentId
-            },
-            (err, succ) => {
-               (succ) ? console.log(`random agent inserted`) :
-                  console.log(err)
-            }
-         );*/
       }
       console.log(agents);
-      Meteor.call('agents.insertBulk', agents, (err,succ) => {
+      Meteor.call('agents.insertBulk', agents, (err, succ) => {
          (succ) ? console.log(`random agent inserted`) :
-                  console.log(err)
+            console.log(err)
       })
    }
 
    render() {
       return (
-         <Card>
-            <CardTitle>
-               <RaisedButton
-                  label='New'
-                  primary={ true }
-                  onClick={ this.openModal.bind(this) }
-               />
-               <RaisedButton
-                  label='Use Faker'
-                  primary={ true }
-                  onClick={ this.addAgentUsingFaker.bind(this) }
-               />
-            </CardTitle>
+         <Fragment>
+            <AppBar
+               title='Agents'
+               showMenuIconButton={ false }
+            />
+            <Card>
+               <CardTitle>
+                  {
+                     (this.props.user.profile.role === ROLES.B_OWNER) ?
+                        (
+                           <Fragment>
+                              <RaisedButton
+                                 label='New'
+                                 primary={ true }
+                                 onClick={ this.openModal.bind(this) }
+                              />
+                              <RaisedButton
+                                 label='Use Faker'
+                                 primary={ true }
+                                 onClick={ this.addAgentUsingFaker.bind(this) }
+                              />
+                           </Fragment>
+                        ) : null
+                  }
 
-            <CardText>
-               <Table
-                  fixedHeader={ true }
-                  fixedFooter={ true }
-                  selectable={ false }
-                  multiSelectable={ false }
-               >
-                  <TableHeader
-                     displaySelectAll={ false }
-                     adjustForCheckbox={ false }
-                     displayRowCheckbox={ false }
-                     enableSelectAll={ false }
+               </CardTitle>
+
+               <CardText>
+                  <Table
+                     fixedHeader={ true }
+                     fixedFooter={ true }
+                     selectable={ false }
+                     multiSelectable={ false }
                   >
-                     <TableRow>
-                        <TableHeaderColumn colSpan='3' tooltip='Super Header' style={ { textAlign: 'center' } }>
-                        </TableHeaderColumn>
-                     </TableRow>
-                     <TableRow>
-                        <TableHeaderColumn>Agent</TableHeaderColumn>
-                        <TableHeaderColumn>Number</TableHeaderColumn>
-                        <TableHeaderColumn>Business</TableHeaderColumn>
-                        <TableHeaderColumn>Department</TableHeaderColumn>
-                        <TableHeaderColumn>Status</TableHeaderColumn>
-                        <TableHeaderColumn>Actions</TableHeaderColumn>
-                     </TableRow>
-                  </TableHeader>
+                     <TableHeader
+                        displaySelectAll={ false }
+                        adjustForCheckbox={ false }
+                        displayRowCheckbox={ false }
+                        enableSelectAll={ false }
+                     >
+                        <TableRow>
+                           <TableHeaderColumn>Agent</TableHeaderColumn>
+                           <TableHeaderColumn>Number</TableHeaderColumn>
+                           <TableHeaderColumn>Business</TableHeaderColumn>
+                           <TableHeaderColumn>Department</TableHeaderColumn>
+                           <TableHeaderColumn>Status</TableHeaderColumn>
+                           <TableHeaderColumn>Actions</TableHeaderColumn>
+                        </TableRow>
+                     </TableHeader>
 
-                  <TableBody
-                     displayRowCheckbox={ false }
-                     deselectOnClickaway={ true }
-                     showRowHover={ true }
-                     stripedRows={ true }
+                     <TableBody
+                        displayRowCheckbox={ false }
+                        deselectOnClickaway={ true }
+                        showRowHover={ true }
+                        stripedRows={ true }
+                     >
+                        {
+                           this.props.agents.map((agent, index) => (
+                              <TableRow key={ index }>
+                                 <TableRowColumn>{ agent.profile.name }</TableRowColumn>
+                                 <TableRowColumn> { agent.profile.number } </TableRowColumn>
+                                 <TableRowColumn> { agent.profile.business }</TableRowColumn>
+                                 <TableRowColumn> { agent.profile.department }</TableRowColumn>
+                                 <TableRowColumn> { agent.profile.status } </TableRowColumn>
+                                 <TableRowColumn> { agent.profile.status } </TableRowColumn>
+                              </TableRow>
+                           ))
+                        }
+                     </TableBody>
+                  </Table>
+                  <MaterialModal
+                     title='Create new Agent'
+                     open={ this.state.open }
+                     closeModal={ this.closeModal.bind(this) }
+                     submit={ this.addAgent.bind(this) }
                   >
-                     {
-                        this.props.agents.map((agent, index) => (
-                           <TableRow key={ index }>
-                              <TableRowColumn>{ agent.profile.name }</TableRowColumn>
-                              <TableRowColumn> { agent.profile.number } </TableRowColumn>
-                              <TableRowColumn> { agent.profile.business }</TableRowColumn>
-                              <TableRowColumn> { agent.profile.department }</TableRowColumn>
-                              <TableRowColumn> { agent.profile.status } </TableRowColumn>
-                              <TableRowColumn> { agent.profile.status } </TableRowColumn>
-                              { /*<TableRowColumn>*/ }
-                              { /*<Link to={ { pathname: `${window.location.pathname}/${department._id}` } }>*/ }
-                              { /*<RaisedButton*/ }
-                              { /*label='View'*/ }
-                              { /*primary={ true }*/ }
-                              { /*/>*/ }
-                              { /*</Link>*/ }
-                              { /*</TableRowColumn>*/ }
-                           </TableRow>
-                        ))
-                     }
-                  </TableBody>
-               </Table>
-               <MaterialModal
-                  title='Create new Agent'
-                  open={ this.state.open }
-                  closeModal={ this.closeModal.bind(this) }
-                  submit={ this.addAgent.bind(this) }
-               >
 
-                  <TextField
-                     value={ this.state.name }
-                     fullWidth={ true }
-                     floatingLabelText='Agent Name'
-                     onChange={ (e) => this.setState({ name: e.target.value }) }
-                  />
-                  <TextField
-                     value={ this.state.email }
-                     fullWidth={ true }
-                     floatingLabelText='Email'
-                     onChange={ (e) => this.setState({ email: e.target.value }) }
+                     <TextField
+                        value={ this.state.name }
+                        fullWidth={ true }
+                        floatingLabelText='Agent Name'
+                        onChange={ (e) => this.setState({ name: e.target.value }) }
+                     />
+                     <TextField
+                        value={ this.state.email }
+                        fullWidth={ true }
+                        floatingLabelText='Email'
+                        onChange={ (e) => this.setState({ email: e.target.value }) }
 
-                  />
-                  <TextField
-                     value={ this.state.username }
-                     fullWidth={ true }
-                     floatingLabelText='Username'
-                     onChange={ (e) => this.setState({ username: e.target.value }) }
-                  />
-                  <TextField
-                     value={ this.state.password }
-                     fullWidth={ true }
-                     floatingLabelText='Password'
-                     type='password'
-                     onChange={ (e) => this.setState({ password: e.target.value }) }
-                  />
-                  <TextField
-                     value={ this.state.number }
-                     fullWidth={ true }
-                     floatingLabelText='Number'
-                     onChange={ (e) => this.setState({ number: e.target.value }) }
-                  />
+                     />
+                     <TextField
+                        value={ this.state.username }
+                        fullWidth={ true }
+                        floatingLabelText='Username'
+                        onChange={ (e) => this.setState({ username: e.target.value }) }
+                     />
+                     <TextField
+                        value={ this.state.password }
+                        fullWidth={ true }
+                        floatingLabelText='Password'
+                        type='password'
+                        onChange={ (e) => this.setState({ password: e.target.value }) }
+                     />
+                     <TextField
+                        value={ this.state.number }
+                        fullWidth={ true }
+                        floatingLabelText='Number'
+                        onChange={ (e) => this.setState({ number: e.target.value }) }
+                     />
 
-               </MaterialModal>
-            </CardText>
-            { /*{console.log(this.props.agents)}*/ }
-         </Card>
+                  </MaterialModal>
+               </CardText>
+               { /*{console.log(this.props.agents)}*/ }
+            </Card>
+         </Fragment>
 
       );
    }
 }
 
 export default withTracker((props) => {
-   Meteor.subscribe('agents.businessOwner', Meteor.userId());
-   // console.log(Meteor.users.find().fetch());
-
-   let agents = Meteor.users.find().fetch();
+   // Meteor.subscribe('agents.businessOwner', Meteor.userId());
+   //
+   //
+   let agents = Meteor.users.find({ 'profile.role': ROLES.AGENT }, { limit: 10 }).fetch();
    let filteredAgents = agents.filter((agent) => {
       return agent.profile.role === ROLES.AGENT;
    });
-   // console.log(filteredAgents);
 
    return {
-      agents: filteredAgents
+      agents,
+      user: Meteor.user()
    };
 
 })(AgentsTable)

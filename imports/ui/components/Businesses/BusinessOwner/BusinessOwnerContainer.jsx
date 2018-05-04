@@ -18,8 +18,6 @@ class BusinessOwnerContainer extends Component {
 
 
    render() {
-
-
       return (
          <Fragment>
             <Route exact path='/businesses' component={ Businesses }/>
