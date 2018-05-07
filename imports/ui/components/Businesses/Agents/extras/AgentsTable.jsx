@@ -7,7 +7,7 @@ import AppBar from 'material-ui/AppBar';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import MaterialModal from '../../../extras/Modal/MaterialModal';
+import MaterialModal from '../../../../extras/Modal/MaterialModal';
 import {
    Table,
    TableBody,
@@ -18,6 +18,7 @@ import {
 } from 'material-ui/Table';
 
 import AgentsCollection from '../../../../../api/agents/agents';
+import { Meteor } from "meteor/meteor";
 
 
 class AgentsTable extends Component {
@@ -30,7 +31,8 @@ class AgentsTable extends Component {
          email: '',
          username: '',
          password: '',
-         number: ''
+         number: '',
+         agentLimit: 10
       }
    }
 
@@ -109,6 +111,10 @@ class AgentsTable extends Component {
       })
    }
 
+   incrementAgentsSubscription(){
+      this.setState({ agentLimit: this.state.agentLimit * 2 });
+      Meteor.subscribe('agents.available', Meteor.userId(), this.state.agentLimit);
+   }
    render() {
       return (
          <Fragment>
@@ -131,6 +137,11 @@ class AgentsTable extends Component {
                                  label='Use Faker'
                                  primary={ true }
                                  onClick={ this.addAgentUsingFaker.bind(this) }
+                              />
+                              <RaisedButton
+                                 label='Load More'
+                                 primary={true}
+                                 onClick={this.incrementAgentsSubscription.bind(this)}
                               />
                            </Fragment>
                         ) : null
@@ -232,13 +243,8 @@ class AgentsTable extends Component {
 }
 
 export default withTracker((props) => {
-   // Meteor.subscribe('agents.businessOwner', Meteor.userId());
-   //
-   //
-   let agents = Meteor.users.find({ 'profile.role': ROLES.AGENT }, { limit: 10 }).fetch();
-   let filteredAgents = agents.filter((agent) => {
-      return agent.profile.role === ROLES.AGENT;
-   });
+
+   let agents = Meteor.users.find({ 'profile.role': ROLES.AGENT }).fetch();
 
    return {
       agents,

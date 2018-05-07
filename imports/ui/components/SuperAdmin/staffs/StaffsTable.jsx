@@ -7,7 +7,7 @@ import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'm
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
-import {Progress }from '../../extras/Progress';
+import {Progress }from '../../../extras/Progress';
 
 
 import {
@@ -20,7 +20,7 @@ import {
    TableRowColumn,
 } from 'material-ui/Table';
 
-import MaterialModal from '../../extras/Modal/MaterialModal';
+import MaterialModal from '../../../extras/Modal/MaterialModal';
 import { ROLES } from '../../../../api/Classes/Const';
 
 

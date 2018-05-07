@@ -10,7 +10,7 @@ import EditIcon from 'material-ui/svg-icons/editor/border-color';
 
 import IconButton from 'material-ui/IconButton';
 
-import MaterialModal from "../../extras/Modal/MaterialModal";
+import MaterialModal from "../../../extras/Modal/MaterialModal";
 
 class StaffProfileForm extends Component {
 

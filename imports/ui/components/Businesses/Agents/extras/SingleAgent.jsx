@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Progress } from '../../../extras/Progress';
+import { Progress } from '../../../../extras/Progress';
 import AppBar from 'material-ui/AppBar';
 
 

@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
 import {
    Table,
    TableBody,
-   TableFooter,
    TableHeader,
    TableHeaderColumn,
    TableRow,
    TableRowColumn,
 } from 'material-ui/Table';
 
-import MaterialModal from '../../extras/Modal/MaterialModal';
+import MaterialModal from '../../../../extras/Modal/MaterialModal';
+import { ROLES } from "../../../../../api/Classes/Const";
 
 
 class DeparmentsTable extends Component {
@@ -49,32 +49,53 @@ class DeparmentsTable extends Component {
       this.setState({departmentName: e.target.value})
    }
 
-   render() {
-      return (
-         <Card>
-            <CardTitle title="Departments"/>
+   renderDepartmentsButton(){
+      return(
+         <Fragment>
             <RaisedButton
                label='New'
                primary={ true }
                onClick={ this.openModal.bind(this) }
             />
+            <MaterialModal
+               title='Create new Department'
+               open={ this.state.open }
+               closeModal={ this.closeModal.bind(this) }
+               submit={ this.addDepartment.bind(this) }
+            >
+               <TextField
+                  value={ this.state.departmentName }
+                  fullWidth={ true }
+                  floatingLabelText='Department Name'
+                  onChange={ this.handleInputChange.bind(this) }
+               />
+
+            </MaterialModal>
+         </Fragment>
+      )
+   }
+
+   render() {
+      return (
+         <Card>
+            <CardTitle title="Departments"/>
+            {
+               (this.props.user.profile.role === ROLES.B_OWNER) ?
+                  this.renderDepartmentsButton.bind(this): null
+
+            }
             <CardText>
                <Table
                   fixedHeader={ true }
-                  fixedFooter={ true }
                   selectable={ false }
                   multiSelectable={ false }
                >
                   <TableHeader
-                     displaySelectAll={ true }
-                     adjustForCheckbox={ true }
+                     displaySelectAll={ false }
+                     adjustForCheckbox={ false }
                      displayRowCheckbox={ false }
-                     enableSelectAll={ true }
+                     enableSelectAll={ false }
                   >
-                     <TableRow>
-                        <TableHeaderColumn colSpan="3" tooltip="Super Header" style={ { textAlign: 'center' } }>
-                        </TableHeaderColumn>
-                     </TableRow>
                      <TableRow>
                         <TableHeaderColumn>Department</TableHeaderColumn>
                         <TableHeaderColumn>Agents</TableHeaderColumn>
@@ -93,7 +114,6 @@ class DeparmentsTable extends Component {
                               <TableRowColumn>{ department.name }</TableRowColumn>
                               <TableRowColumn> 92</TableRowColumn>
                               <TableRowColumn>
-                                 { /*{console.log(this.props.businesses)}*/ }
                                  <Link to={ { pathname: `${window.location.pathname}/${department._id}` } }>
                                     <RaisedButton
                                        label="View"
@@ -106,20 +126,7 @@ class DeparmentsTable extends Component {
                      }
                   </TableBody>
                </Table>
-               <MaterialModal
-                  title='Create new Department'
-                  open={ this.state.open }
-                  closeModal={ this.closeModal.bind(this) }
-                  submit={ this.addDepartment.bind(this) }
-               >
-                  <TextField
-                     value={ this.state.departmentName }
-                     fullWidth={ true }
-                     floatingLabelText='Department Name'
-                     onChange={ this.handleInputChange.bind(this) }
-                  />
 
-               </MaterialModal>
             </CardText>
 
          </Card>
@@ -129,13 +136,11 @@ class DeparmentsTable extends Component {
 }
 
 export default withTracker((props) => {
-   // console.log(props)
-   /*let businessId = props.url.match.params.businessId
-   Meteor.subscribe('departments.business', businessId);*/
 
    return {
-      // departments: DepartmentsCollection.find().fetch()
+      user: Meteor.user()
    }
+
 
 })(DeparmentsTable)
 

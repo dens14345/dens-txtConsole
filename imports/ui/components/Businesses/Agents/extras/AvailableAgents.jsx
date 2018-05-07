@@ -2,13 +2,8 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
 
-import { AGENT_STATUS, ROLES } from '../../../../../api/Classes/Const';
 
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
-import MaterialModal from '../../../extras/Modal/MaterialModal';
 import {
    Table,
    TableBody,

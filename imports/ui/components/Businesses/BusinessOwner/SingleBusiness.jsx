@@ -8,15 +8,15 @@ import LinearProgress from 'material-ui/LinearProgress';
 import AppBar from 'material-ui/AppBar';
 
 import DepartmentsContainer from './DepartmentsContainer';
-import DepartmentsTable from './DeparmentsTable';
-import ConsumersTable from './ConsumersTable';
+import DepartmentsTable from './tables/DeparmentsTable';
+import ConsumersTable from './tables/ConsumersTable';
 
 import { BusinessesCollection } from '../../../../api/businesses/businesses';
 import { DepartmentsCollection } from '../../../../api/departments/departments';
 import { ConsumersCollection } from '../../../../api/consumers/consumers';
 
-import Sidebar from '../../Sidebar/Sidebar';
-import Navbar from '../../Navbar/Navbar';
+import Sidebar from '../../../layouts/Sidebar/Sidebar';
+import Navbar from '../../../layouts/Navbar/Navbar';
 import Businesses from './Businesses';
 
 

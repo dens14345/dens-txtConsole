@@ -9,11 +9,11 @@ import TextField from 'material-ui/TextField';
 import AppBar from 'material-ui/AppBar';
 
 
-import BusinessesTable from './BusinessesTable';
+import BusinessesTable from './tables/BusinessesTable';
 import SingleBusiness from './SingleBusiness';
-import Navbar from '../../Navbar/Navbar';
-import Sidebar from '../../Sidebar/Sidebar';
-import MaterialModal from '../../extras/Modal/MaterialModal';
+import Navbar from '../../../layouts/Navbar/Navbar';
+import Sidebar from '../../../layouts/Sidebar/Sidebar';
+import MaterialModal from '../../../extras/Modal/MaterialModal';
 
 import { BusinessesCollection } from "../../../../api/businesses/businesses";
 

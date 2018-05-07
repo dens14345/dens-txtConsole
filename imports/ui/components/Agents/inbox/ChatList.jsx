@@ -4,7 +4,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 
 
-import MobileTearSheet from '../../extras/MobileTearSheet';
+import MobileTearSheet from '../../../extras/MobileTearSheet';
 import { List, ListItem } from 'material-ui/List';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';

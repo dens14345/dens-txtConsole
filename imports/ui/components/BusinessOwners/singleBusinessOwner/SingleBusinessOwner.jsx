@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import AppBar from 'material-ui/AppBar';
-import { Progress } from '../../extras/Progress';
+import { Progress } from '../../../extras/Progress';
 import AgentsCard from '../../Dashboard/Staff/cards/AgentsCard';
 import BusinessCard from '../../Dashboard/Staff/cards/BusinessCard';
 import UserInfoCard from './cards/UserInfoCard';

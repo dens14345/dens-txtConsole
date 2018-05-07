@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
 
-import Navbar from '../Navbar/Navbar';
-import Sidebar from '../Sidebar/Sidebar';
+import Navbar from '../../layouts/Navbar/Navbar';
+import Sidebar from '../../layouts/Sidebar/Sidebar';
 import { Movies } from "../../../api/movies/movies";
 
 

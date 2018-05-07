@@ -28,15 +28,12 @@ class BusinessOwnerContainer extends Component {
                <DepartmentsContainer url={ props } businesses={ this.props.businesses }/> }
             />
          </Fragment>
-
       );
    }
 }
 
 export default withTracker(() => {
-   Meteor.subscribe('businesses.owner', Meteor.userId());
 
-   console.log('businewwonwe container');
    return {
       businesses: BusinessesCollection.find().fetch()
    }

@@ -14,6 +14,7 @@ import SuperAdmin from './SuperAdmin';
 import BusinessOwner from './BusinessOwner';
 import Agent from './Agent';
 import Staff from './Staff';
+import  Test  from './Test';
 
 
 // import '../../stylesheets/sidebar.css';
@@ -72,7 +73,8 @@ class Sidebar extends Component {
       }
 
       let drawerStyle = {
-         background: 'black'
+         background: 'black',
+         backgroundColor: 'black'
       }
 
       return (
@@ -90,15 +92,13 @@ class Sidebar extends Component {
                     onRequestChange={ this.handleSidebarToggle.bind(this) }
                     openSecondary={ false }
             >
-               <AppBar
-                  title='txtConsole'
-                  showMenuIconButton={false}
-
-               />
-               {/*<RaisedButton*/}
-                  {/*label="Toggle Drawer"*/}
-                  {/*onClick={ this.handleSidebarToggle.bind(this) }*/}
+               {/*<AppBar*/}
+                  {/*title='txtConsole'*/}
+                  {/*showMenuIconButton={ false }*/}
                {/*/>*/}
+
+               <Test/>
+
                <Divider/>
                {
                   (typeof currentUser() === 'undefined') ?

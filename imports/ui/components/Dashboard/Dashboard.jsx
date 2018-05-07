@@ -2,12 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Progress } from '../extras/Progress';
+import { Progress } from '../../extras/Progress';
 import { currentUser, userRole } from '../../../api/Classes/Utils';
 import { ROLES } from '../../../api/Classes/Const';
 
-import Navbar from '../Navbar/Navbar';
-import Sidebar from '../Sidebar/Sidebar';
+import Navbar from '../../layouts/Navbar/Navbar';
+import Sidebar from '../../layouts/Sidebar/Sidebar';
 
 import BusinessOwnerDashboard from './BusinessOwnerDashboard';
 import SuperAdminDashboard from './SuperAdminDashboard';

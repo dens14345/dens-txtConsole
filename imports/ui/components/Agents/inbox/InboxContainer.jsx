@@ -10,8 +10,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { MessagesCollection } from '../../../../api/messages/messages';
 import { ConversationsCollection } from "../../../../api/conversations/conversations";
 
-import Navbar from '../../Navbar/Navbar';
-import Sidebar from '../../Sidebar/Sidebar';
+import Navbar from '../../../layouts/Navbar/Navbar';
+import Sidebar from '../../../layouts/Sidebar/Sidebar';
 
 import ChatList from './ChatList';
 import Messages from './Messages';

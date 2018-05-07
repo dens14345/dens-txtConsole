@@ -4,10 +4,10 @@ import { Route } from 'react-router-dom';
 
 import AppBar from 'material-ui/AppBar';
 
-import Navbar from '../../Navbar/Navbar';
-import Sidebar from '../../Sidebar/Sidebar';
+import Navbar from '../../../layouts/Navbar/Navbar';
+import Sidebar from '../../../layouts/Sidebar/Sidebar';
 
-import AgentsTable from './AgentsTable';
+import AgentsTable from './tables/AgentsTable';
 import { DepartmentsCollection } from "../../../../api/departments/departments";
 
 class DepartmentsContainer extends Component {

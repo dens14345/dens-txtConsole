@@ -64,13 +64,27 @@ if (Meteor.isServer) {
 
 
    }); //end of methods
-
-
-   Meteor.publish('agents.businessOwner', (businessOwnerId) => Meteor.users.find({
-      'profile.belongsTo': businessOwnerId
-   }));
-
    Meteor.publish('agents.all', () => Meteor.users.find({ 'profile.role': 'agent' }) );
+
+   Meteor.publish('agents.available', (businessOwnerId, limit=10) =>
+      Meteor.users.find({'profile.belongsTo': businessOwnerId},{limit}
+   ));
+
+   Meteor.publish('agents.registeredToDepartment', (businessOwnerId, departmentId) => Meteor.users.find(
+      {
+         'profile.belongsTo': businessOwnerId,
+         'profile.department': departmentId
+      }
+   ));
+
+
+   // Meteor.publish('agents.businessOwner', (businessOwnerId, limit=0) => Meteor.users.find({
+   //    'profile.belongsTo': businessOwnerId
+   // },{
+   //    limit
+   // }));
+   //
+
 
 
 

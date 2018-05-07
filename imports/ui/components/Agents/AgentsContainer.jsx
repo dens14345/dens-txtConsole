@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Route } from 'react-router-dom';
 
-import Navbar from '../Navbar/Navbar';
-import Sidebar from '../Sidebar/Sidebar';
+import Navbar from '../../layouts/Navbar/Navbar';
+import Sidebar from '../../layouts/Sidebar/Sidebar';
 
 import InboxContainer from './inbox/InboxContainer';
 

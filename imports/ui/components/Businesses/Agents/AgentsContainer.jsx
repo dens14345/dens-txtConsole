@@ -5,12 +5,12 @@ import { Route } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 
 import { userRole } from '../../../../api/Classes/Utils';
-import { NotAllowed } from '../../extras/NotAllowed';
+import { NotAllowed } from '../../../extras/NotAllowed';
 import { ROLES } from '../../../../api/Classes/Const';
 
 
-import Navbar from '../../Navbar/Navbar';
-import Sidebar from '../../Sidebar/Sidebar';
+import Navbar from '../../../layouts/Navbar/Navbar';
+import Sidebar from '../../../layouts/Sidebar/Sidebar';
 
 import AgentsTable from './extras/AgentsTable';
 import SingleAgent from './extras/SingleAgent';
@@ -68,7 +68,9 @@ export default withTracker(() => {
             Meteor.subscribe('agents.all');
             break;
          case ROLES.B_OWNER:
-            Meteor.subscribe('agents.businessOwner', Meteor.userId());
+            // Meteor.subscribe('agents.businessOwner', Meteor.userId());
+            Meteor.subscribe('agents.available', Meteor.userId(), 10);
+
             break;
          default:
             break;

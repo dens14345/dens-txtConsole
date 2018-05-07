@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import faker from 'faker';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
 
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { ConsumersCollection } from '../../../../api/consumers/consumers';
+import { ConsumersCollection } from '../../../../../api/consumers/consumers';
 
-// import Pagination from 'materialui-pagination';
-import Pagination from 'material-ui-pagination-react';
 import {
    Table,
    TableBody,
-   TableFooter,
    TableHeader,
    TableHeaderColumn,
    TableRow,
    TableRowColumn,
 } from 'material-ui/Table';
 
-import MaterialModal from '../../extras/Modal/MaterialModal';
+import MaterialModal from '../../../../extras/Modal/MaterialModal';
+import { ROLES } from "../../../../../api/Classes/Const";
 
 
 class ConsumersTable extends Component {
@@ -120,8 +118,6 @@ class ConsumersTable extends Component {
 
          consumers.push({ name, number, address, businessId });
       }
-
-      // console.log(consumers[1].address);
       Meteor.call('consumer.insertBulk', consumers, (err, succ) => {
          (succ) ? console.log(`random consumer inserted`) :
             console.log(err)
@@ -140,27 +136,65 @@ class ConsumersTable extends Component {
       this.setState({ consumerAddress: e.target.value })
    }
 
+   renderNewConsumerButton(){
+     return(
+        <Fragment>
+           <RaisedButton
+              label='New'
+              primary={ true }
+              onClick={ this.openModal.bind(this) }
+           />
+           <RaisedButton
+              label='Insert with Faker'
+              primary={ true }
+              onClick={ this.addConsumerUsingFaker.bind(this, () => {
+                 console.log('finished')
+              }) }
+           />
+           <RaisedButton
+              label='Bulk insert'
+              primary={ true }
+              onClick={ this.addConsumerUsingFaker1.bind(this) }
+           />
+           <MaterialModal
+              title='Add new Consumer'
+              open={ this.state.open }
+              closeModal={ this.closeModal.bind(this) }
+              submit={ this.addConsumer.bind(this) }
+           >
+              <TextField
+                 value={ this.state.consumerName }
+                 fullWidth={ true }
+                 floatingLabelText='Consumer Name'
+                 onChange={ this.handleInputNameChange.bind(this) }
+              />
+              <TextField
+                 value={ this.state.consumerNumber }
+                 fullWidth={ true }
+                 floatingLabelText='Number'
+                 onChange={ this.handleInputNumberChange.bind(this) }
+              />
+              <TextField
+                 value={ this.state.consumerAddress }
+                 fullWidth={ true }
+                 floatingLabelText='Address'
+                 onChange={ this.handleInputAddressChange.bind(this) }
+              />
+
+
+           </MaterialModal>
+        </Fragment>
+     )
+   }
+
    render() {
       return (
          <Card>
             <CardTitle title="Consumers"/>
-            <RaisedButton
-               label='New'
-               primary={ true }
-               onClick={ this.openModal.bind(this) }
-            />
-            <RaisedButton
-               label='Insert with Faker'
-               primary={ true }
-               onClick={ this.addConsumerUsingFaker.bind(this, () => {
-                  console.log('finished')
-               }) }
-            />
-            <RaisedButton
-               label='Bulk insert'
-               primary={ true }
-               onClick={ this.addConsumerUsingFaker1.bind(this) }
-            />
+            {
+               (this.props.user.profile.role === ROLES.B_OWNER)?
+                  this.renderNewConsumerButton.bind(this) : null
+            }
 
             <CardText>
                <Table
@@ -191,13 +225,16 @@ class ConsumersTable extends Component {
                            <TableRow key={ index }>
                               <TableRowColumn>{ consumer.name }</TableRowColumn>
                               <TableRowColumn> { consumer.number }</TableRowColumn>
+                              <TableRowColumn> { consumer.address }</TableRowColumn>
                               <TableRowColumn>
                                  <RaisedButton
                                     label="Edit"
                                     primary={ true }
+                                    disabled={!this.props.isBusinessOwner}
                                  />
                                  <RaisedButton
                                     label="Remove"
+                                    disabled={!this.props.isBusinessOwner}
                                  />
                               </TableRowColumn>
                            </TableRow>
@@ -205,50 +242,9 @@ class ConsumersTable extends Component {
                      }
                   </TableBody>
                </Table>
-               { /*<Pagination
-                  total={ this.state.total }
-                  rowsPerPage={ this.state.rowsPerPage }
-                  page={ this.state.page }
-                  numberOfRows={ this.state.numberOfRows }
-                  updateRows={ this.updateRows.bind(this) }
-               />*/ }
                <Divider/>
-               {/*<Pagination
-                  rows={ 10 }
-                  rowSizeWidthStyle="10%"
-                  selectedRowSize={ this.state.selectedRowSize }
-                  rowSize={ [10, 20, 30] }
-                  handleRowSizeChange={ this.onChange.bind(this) }
-               />*/}
-
             </CardText>
-            <MaterialModal
-               title='Add new Consumer'
-               open={ this.state.open }
-               closeModal={ this.closeModal.bind(this) }
-               submit={ this.addConsumer.bind(this) }
-            >
-               <TextField
-                  value={ this.state.consumerName }
-                  fullWidth={ true }
-                  floatingLabelText='Consumer Name'
-                  onChange={ this.handleInputNameChange.bind(this) }
-               />
-               <TextField
-                  value={ this.state.consumerNumber }
-                  fullWidth={ true }
-                  floatingLabelText='Number'
-                  onChange={ this.handleInputNumberChange.bind(this) }
-               />
-               <TextField
-                  value={ this.state.consumerAddress }
-                  fullWidth={ true }
-                  floatingLabelText='Address'
-                  onChange={ this.handleInputAddressChange.bind(this) }
-               />
 
-
-            </MaterialModal>
          </Card>
 
 
@@ -259,9 +255,20 @@ class ConsumersTable extends Component {
 export default withTracker((props) => {
 
    Meteor.subscribe('consumers.business.limit', props.businessId, 50);
+   // let checkRole = () => {
+   //    if(Meteor.user().profile.role === ROLES.B_OWNER)
+   //       return true
+   //    else
+   //       return false
+   // };
+
+   let checkRole = () => Meteor.user().profile.role === ROLES.B_OWNER;
+   console.log(checkRole());
 
    return {
-      consumers: ConsumersCollection.find().fetch()
+      consumers: ConsumersCollection.find().fetch(),
+      user: Meteor.user(),
+      isBusinessOwner: checkRole()
    }
 
 })(ConsumersTable)

@@ -3,8 +3,8 @@ import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import AppBar from 'material-ui/AppBar';
 
-import Navbar from '../Navbar/Navbar';
-import Sidebar from '../Sidebar/Sidebar';
+import Navbar from '../../layouts/Navbar/Navbar';
+import Sidebar from '../../layouts/Sidebar/Sidebar';
 
 import ProfileForm from './ProfileForm';
 import StaffProfileForm from './accounts/StaffProfileForm';
