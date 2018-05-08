@@ -18,7 +18,7 @@ export default class Agent extends Component {
                   Contacts
                </MenuItem>
             </Link>
-            <Link to='/'>
+            <Link to='/profile'>
                <MenuItem>
                   Profile
                </MenuItem>

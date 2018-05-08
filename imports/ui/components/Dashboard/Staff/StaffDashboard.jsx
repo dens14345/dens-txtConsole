@@ -38,6 +38,7 @@ class StaffDashboard extends Component {
                   style={ cardStyle }
                   agentsCount={ this.props.agentsCount }
                />
+
             </div>
          </div>
       );
@@ -46,13 +47,27 @@ class StaffDashboard extends Component {
 
 export default withTracker(() => {
 
-   Meteor.subscribe('agents.all');
-   Meteor.subscribe('businesses.all');
-   Meteor.subscribe('businessOwner.all');
+   // Meteor.subscribe('agents.all');
+   // Meteor.subscribe('agents.count');
+   // Meteor.subscribe('businesses.all');
+   // Meteor.subscribe('businessOwner.all');
+   Meteor.subscribe('businesses-count');
+   Meteor.subscribe('agents.count');
+   Meteor.subscribe('businessOwners.count');
 
-   let agentsCount = Meteor.users.find({ 'profile.role': 'agent' }).count();
-   let businessesCount = BusinessesCollection.find().count();
-   let businessOwnersCount = Meteor.users.find({ 'profile.role': 'b_owner' }).count();
+   let businessesCount = Counts.get('businesses-count');
+   let businessOwnersCount = Counts.get('businessOwners.count');
+   let agentsCount = Counts.get('agents.count');
+
+
+   // let agentsCount = Meteor.users.find({ 'profile.role': 'agent' }).count();
+   // let businessesCount = BusinessesCollection.find().count();
+   // let businessOwnersCount = Meteor.users.find({ 'profile.role': 'b_owner' }).count();
+
+
+
+
+
 
    return {
       agentsCount,

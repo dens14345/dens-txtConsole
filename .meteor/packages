@@ -29,3 +29,5 @@ react-meteor-data
 meteortoys:allthings
 check
 percolate:paginated-subscription
+session
+ros:publish-counts

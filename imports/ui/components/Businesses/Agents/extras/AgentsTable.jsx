@@ -1,3 +1,4 @@
+import { Meteor } from "meteor/meteor";
 import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import faker from 'faker';
@@ -8,6 +9,7 @@ import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'm
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import MaterialModal from '../../../../extras/Modal/MaterialModal';
+import Divider from 'material-ui/Divider';
 import {
    Table,
    TableBody,
@@ -17,9 +19,47 @@ import {
    TableRowColumn,
 } from 'material-ui/Table';
 
-import AgentsCollection from '../../../../../api/agents/agents';
-import { Meteor } from "meteor/meteor";
+import DataTables from 'material-ui-datatables';
 
+import AgentsCollection from '../../../../../api/agents/agents';
+import Datatable from './Datatable';
+
+const TABLE_COLUMNS = [
+   {
+      key: 'name',
+      label: 'Name',
+   }, {
+      key: 'number',
+      label: 'Number',
+   }, {
+      key: 'business',
+      label: 'Business',
+   }, {
+      key: 'department',
+      label: 'Department',
+   }, {
+      key: 'status',
+      label: 'Status',
+   }, {
+      key: 'actions',
+      label: 'Actions',
+   }
+];
+
+const TABLE_DATA = [
+
+];
+
+const TABLE_DATA_NEXT = [
+   {
+      name: 'Marshmallow',
+      number: '159',
+      business: '6.0',
+      department: '24',
+      status: '4.0',
+      actions: '87'
+   },
+];
 
 class AgentsTable extends Component {
 
@@ -32,7 +72,12 @@ class AgentsTable extends Component {
          username: '',
          password: '',
          number: '',
-         agentLimit: 10
+         agentLimit: 10,
+         // data: TABLE_DATA,
+         data: props.agents,
+         page: 1,
+         limit: 20,
+         skip: 0
       }
    }
 
@@ -111,140 +156,94 @@ class AgentsTable extends Component {
       })
    }
 
-   incrementAgentsSubscription(){
+   incrementAgentsSubscription() {
       this.setState({ agentLimit: this.state.agentLimit * 2 });
       Meteor.subscribe('agents.available', Meteor.userId(), this.state.agentLimit);
    }
+
+   handlePreviousPageClick() {
+      console.log('handlePreviousPageClick');
+      this.setState({
+         data: TABLE_DATA_NEXT,
+         page: 1,
+      });
+   }
+
+   handleNextPageClick() {
+
+
+      console.log('handleNextPageClick');
+      this.setState({
+         limit: this.state.limit + 5,
+         skip: this.state.skip + 5
+      });
+      Meteor.subscribe('agents1.available', Meteor.userId(), this.state.skip);
+      Meteor.subscribe('agents.all', this.state.skip);
+
+      this.setState({
+         data: this.props.agents,
+         page: this.state.page + 1,
+      });
+
+   }
+
    render() {
+
       return (
          <Fragment>
             <AppBar
                title='Agents'
                showMenuIconButton={ false }
             />
+
+            <Divider/>
             <Card>
-               <CardTitle>
-                  {
-                     (this.props.user.profile.role === ROLES.B_OWNER) ?
-                        (
-                           <Fragment>
-                              <RaisedButton
-                                 label='New'
-                                 primary={ true }
-                                 onClick={ this.openModal.bind(this) }
-                              />
-                              <RaisedButton
-                                 label='Use Faker'
-                                 primary={ true }
-                                 onClick={ this.addAgentUsingFaker.bind(this) }
-                              />
-                              <RaisedButton
-                                 label='Load More'
-                                 primary={true}
-                                 onClick={this.incrementAgentsSubscription.bind(this)}
-                              />
-                           </Fragment>
-                        ) : null
-                  }
-
-               </CardTitle>
-
                <CardText>
-                  <Table
-                     fixedHeader={ true }
-                     fixedFooter={ true }
-                     selectable={ false }
-                     multiSelectable={ false }
-                  >
-                     <TableHeader
-                        displaySelectAll={ false }
-                        adjustForCheckbox={ false }
-                        displayRowCheckbox={ false }
-                        enableSelectAll={ false }
-                     >
-                        <TableRow>
-                           <TableHeaderColumn>Agent</TableHeaderColumn>
-                           <TableHeaderColumn>Number</TableHeaderColumn>
-                           <TableHeaderColumn>Business</TableHeaderColumn>
-                           <TableHeaderColumn>Department</TableHeaderColumn>
-                           <TableHeaderColumn>Status</TableHeaderColumn>
-                           <TableHeaderColumn>Actions</TableHeaderColumn>
-                        </TableRow>
-                     </TableHeader>
-
-                     <TableBody
-                        displayRowCheckbox={ false }
-                        deselectOnClickaway={ true }
-                        showRowHover={ true }
-                        stripedRows={ true }
-                     >
-                        {
-                           this.props.agents.map((agent, index) => (
-                              <TableRow key={ index }>
-                                 <TableRowColumn>{ agent.profile.name }</TableRowColumn>
-                                 <TableRowColumn> { agent.profile.number } </TableRowColumn>
-                                 <TableRowColumn> { agent.profile.business }</TableRowColumn>
-                                 <TableRowColumn> { agent.profile.department }</TableRowColumn>
-                                 <TableRowColumn> { agent.profile.status } </TableRowColumn>
-                                 <TableRowColumn> { agent.profile.status } </TableRowColumn>
-                              </TableRow>
-                           ))
-                        }
-                     </TableBody>
-                  </Table>
-                  <MaterialModal
-                     title='Create new Agent'
-                     open={ this.state.open }
-                     closeModal={ this.closeModal.bind(this) }
-                     submit={ this.addAgent.bind(this) }
-                  >
-
-                     <TextField
-                        value={ this.state.name }
-                        fullWidth={ true }
-                        floatingLabelText='Agent Name'
-                        onChange={ (e) => this.setState({ name: e.target.value }) }
-                     />
-                     <TextField
-                        value={ this.state.email }
-                        fullWidth={ true }
-                        floatingLabelText='Email'
-                        onChange={ (e) => this.setState({ email: e.target.value }) }
-
-                     />
-                     <TextField
-                        value={ this.state.username }
-                        fullWidth={ true }
-                        floatingLabelText='Username'
-                        onChange={ (e) => this.setState({ username: e.target.value }) }
-                     />
-                     <TextField
-                        value={ this.state.password }
-                        fullWidth={ true }
-                        floatingLabelText='Password'
-                        type='password'
-                        onChange={ (e) => this.setState({ password: e.target.value }) }
-                     />
-                     <TextField
-                        value={ this.state.number }
-                        fullWidth={ true }
-                        floatingLabelText='Number'
-                        onChange={ (e) => this.setState({ number: e.target.value }) }
-                     />
-
-                  </MaterialModal>
+                  {/*<Datatable/>*/}
+                  {console.log(this.props.agents)}
+                  <DataTables
+                     height={'auto'}
+                     selectable={false}
+                     showRowHover={true}
+                     columns={TABLE_COLUMNS}
+                     // data={this.state.data}
+                     data={this.props.agents}
+                     page={this.state.page}
+                     multiSelectable={false}
+                     onNextPageClick={this.handleNextPageClick.bind(this)}
+                     onPreviousPageClick={this.handlePreviousPageClick.bind(this)}
+                     showCheckboxes={false}
+                     enableSelectAll={false}
+                     count={5000}
+                  />
                </CardText>
-               { /*{console.log(this.props.agents)}*/ }
+
             </Card>
          </Fragment>
-
       );
    }
 }
 
 export default withTracker((props) => {
 
-   let agents = Meteor.users.find({ 'profile.role': ROLES.AGENT }).fetch();
+   let x = Meteor.users.find({ 'profile.role': ROLES.AGENT }).fetch();
+   let agents = [];
+
+   x.map((agent) => {
+      let obj = {
+         name: agent.profile.name,
+         number: agent.profile.number,
+         business: agent.profile.business,
+         department: agent.profile.department,
+         status: agent.profile.status,
+         actions: <RaisedButton
+                     label='View'
+                     onClick={() => {alert(agent._id)}}
+                  />
+      };
+      agents.push(obj);
+   });
+
 
    return {
       agents,

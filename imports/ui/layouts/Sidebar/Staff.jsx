@@ -19,6 +19,11 @@ export default class Staff extends Component {
                   Businesses
                </MenuItem>
             </Link>
+            <Link to='/agents'>
+               <MenuItem>
+                  Agents
+               </MenuItem>
+            </Link>
             <Link to='/profile'>
                <MenuItem>
                   Profile

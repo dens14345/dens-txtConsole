@@ -5,6 +5,7 @@ import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'm
 import RaisedButton from 'material-ui/RaisedButton';
 import AvailableAgents from '../../Agents/extras/AvailableAgents';
 import TextField from 'material-ui/TextField';
+import {Progress} from '../../../../extras/Progress';
 
 import {
    Table,
@@ -16,7 +17,9 @@ import {
 } from 'material-ui/Table';
 
 import MaterialModal from '../../../../extras/Modal/MaterialModal';
-import { Meteor } from "meteor/meteor";
+import { Meteor } from 'meteor/meteor';
+import { ROLES } from '../../../../../api/Classes/Const';
+import { Accounts } from 'meteor/accounts-base';
 
 
 class AgentsTable extends Component {
@@ -74,20 +77,40 @@ class AgentsTable extends Component {
       Meteor.subscribe('agents.available', this.props.businessOwnerId, this.state.limit);
    }
 
-   render() {
-      return (
+   renderAddAgentButton(){
+      console.log('bro ano na bat ayaw mo mag render');
+      return(
          <Fragment>
+            <RaisedButton
+               label='Add agent'
+               primary={ true }
+               onClick={ this.toggleAddAgentModal.bind(this) }
+            />
             <RaisedButton
                label='load more'
                onClick={this.incrementAgentsSubscription.bind(this)}
             />
+         </Fragment>
+      )
+   }
+
+   render() {
+      if(!this.props.user.profile){
+         return (<Progress/>);
+      }
+      
+      return (
+         <Fragment>
+
             <Card>
-               <CardTitle title="Agents"/>
-               <RaisedButton
-                  label='Add agent'
-                  primary={ true }
-                  onClick={ this.toggleAddAgentModal.bind(this) }
-               />
+               <CardTitle title='Agents'/>
+               {console.log(this.props.user.profile.role)}
+               {
+                  (this.props.user.profile.role === ROLES.B_OWNER)?
+                     this.renderAddAgentButton(): null
+               }
+
+
                <CardText>
                   <Table
                      fixedHeader={ true }
@@ -166,13 +189,32 @@ class AgentsTable extends Component {
 }
 
 export default withTracker((props) => {
-   // console.log(props);
+
+   let isReady = Accounts.loginServicesConfigured();
+   let user = Meteor.user();
+
+
+   //------------------------------------------
+
    let businessOwnerId = Meteor.userId();
    let departmentId = props.departmentId;
 
 
-   Meteor.subscribe('agents.available', businessOwnerId, 20);
-   Meteor.subscribe('agents.registeredToDepartment', businessOwnerId, departmentId);
+
+
+   if(isReady) {
+      switch (user.profile.role) {
+         case ROLES.STAFF:
+            Meteor.subscribe('agents.department', departmentId);
+            break;
+         case ROLES.B_OWNER:
+            Meteor.subscribe('agents.available', businessOwnerId, 20);
+            Meteor.subscribe('agents.registeredToDepartment', businessOwnerId, departmentId);
+            break;
+         default:
+            break;
+      }
+   }
 
    let registeredAgents = Meteor.users.find({'profile.department': departmentId}).fetch();
    let availableAgents = Meteor.users.find({'profile.belongsTo': businessOwnerId}).fetch();
@@ -181,10 +223,12 @@ export default withTracker((props) => {
 
 
 
+
    return {
       registeredAgents,
       availableAgents,
-      businessOwnerId
+      businessOwnerId,
+      user
    }
 })(AgentsTable)
 

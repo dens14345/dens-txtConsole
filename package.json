@@ -11,6 +11,7 @@
     "faker": "^4.1.0",
     "flexboxgrid": "^6.3.1",
     "material-ui": "^0.20.0",
+    "material-ui-datatables": "^0.18.2",
     "material-ui-pagination-react": "^1.9.0",
     "materialui-pagination": "0.0.6",
     "meteor-node-stubs": "^0.3.2",

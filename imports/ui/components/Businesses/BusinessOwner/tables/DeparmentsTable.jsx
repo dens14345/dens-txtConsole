@@ -16,7 +16,7 @@ import {
 } from 'material-ui/Table';
 
 import MaterialModal from '../../../../extras/Modal/MaterialModal';
-import { ROLES } from "../../../../../api/Classes/Const";
+import { ROLES } from '../../../../../api/Classes/Const';
 
 
 class DeparmentsTable extends Component {
@@ -78,7 +78,7 @@ class DeparmentsTable extends Component {
    render() {
       return (
          <Card>
-            <CardTitle title="Departments"/>
+            <CardTitle title='Departments'/>
             {
                (this.props.user.profile.role === ROLES.B_OWNER) ?
                   this.renderDepartmentsButton.bind(this): null
@@ -116,7 +116,7 @@ class DeparmentsTable extends Component {
                               <TableRowColumn>
                                  <Link to={ { pathname: `${window.location.pathname}/${department._id}` } }>
                                     <RaisedButton
-                                       label="View"
+                                       label='View'
                                        primary={ true }
                                     />
                                  </Link>

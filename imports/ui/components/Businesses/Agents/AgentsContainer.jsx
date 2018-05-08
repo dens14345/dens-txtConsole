@@ -61,15 +61,14 @@ export default withTracker(() => {
    let user = Meteor.user();
 
    if (isReady) {
-      console.log(user.profile.role);
+      // console.log(user.profile.role);
 
       switch (user.profile.role) {
          case ROLES.STAFF:
-            Meteor.subscribe('agents.all');
+            Meteor.subscribe('agents.all', 10);
             break;
          case ROLES.B_OWNER:
-            // Meteor.subscribe('agents.businessOwner', Meteor.userId());
-            Meteor.subscribe('agents.available', Meteor.userId(), 10);
+            Meteor.subscribe('agents1.available', Meteor.userId(), 20, 5);
 
             break;
          default:

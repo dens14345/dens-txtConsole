@@ -6,8 +6,7 @@ import AppBar from 'material-ui/AppBar';
 import Navbar from '../../layouts/Navbar/Navbar';
 import Sidebar from '../../layouts/Sidebar/Sidebar';
 
-import ProfileForm from './ProfileForm';
-import StaffProfileForm from './accounts/StaffProfileForm';
+import ProfileForm from './form/ProfileForm';
 import { ROLES } from '../../../api/Classes/Const';
 import { currentUser } from '../../../api/Classes/Utils';
 
@@ -22,16 +21,15 @@ class ProfileContainer extends Component {
    }
 
    renderProfileForm(userRole) {
-      // console.log(`userRole: ${userRole}`);
       switch (userRole) {
          case ROLES.SUPER_ADMIN:
          // return <SuperAdmin/>
          case ROLES.STAFF:
-            return <StaffProfileForm account={currentUser()} />;
+            return <ProfileForm account={currentUser()} />;
          case ROLES.B_OWNER:
          // return <BusinessOwner/>;
          case ROLES.AGENT:
-         // return <Agent/>;
+            return <ProfileForm account={currentUser()} />;
          default:
             break;
       }

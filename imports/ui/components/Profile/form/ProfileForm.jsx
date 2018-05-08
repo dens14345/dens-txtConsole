@@ -73,7 +73,7 @@ class StaffProfileForm extends Component {
    render() {
       let style = {
          width: 600
-      }
+      };
       return (
          <Card>
             <CardTitle title="Edit Profile"/>
