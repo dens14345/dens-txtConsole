@@ -22,6 +22,21 @@ if (Meteor.isServer) {
 
 
    //Publications here
-   Meteor.publish('calls.all', () => CallsCollection.find());
+   // Meteor.publish('calls.all', () => CallsCollection.find());
+
+   Meteor.publish('calls.agent.all', (agentNumber) => CallsCollection.find({agentNumber}) );
+
+   Meteor.publish('calls.agent.callStatus', (agentNumber, callStatus) =>
+      CallsCollection.find({agentNumber, callStatus})
+   );
+
+   Meteor.publish('calls.agent.missedCalls', (agentNumber) =>
+      CallsCollection.find({agentNumber,
+         $or:[
+            {callStatus: 'missed_call'},
+            { callStatus: 'rejected'}
+         ]
+      })
+   );
 
 }

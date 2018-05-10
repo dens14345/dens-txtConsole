@@ -51,11 +51,7 @@ class Messages extends Component {
 
          if(err)
             Bert.alert('Message not set', 'error', 'growl-top-right');
-
       });
-      //sendMessage: function({messageBody, agentNumber, To}){
-
-      //   asdf
 
    }
 

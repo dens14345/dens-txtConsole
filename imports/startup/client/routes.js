@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
 import Login from '../../ui/components/Auth/Login';
@@ -40,8 +40,9 @@ class Routes extends Component {
                <Route path='/business-owners' component={ BusinessOwnerContainer }/>
 
                <Route path='/agents' component={ AgentsContainer }/>
-               {/*asdfasdfasdfasdfasdfasdasdf*/}
-               <Route path='/call-logs' component={ CallLogContainer }/>
+
+               <Route exact path='/call-logs' render={() => (<Redirect to='/call-logs/all'/>)}/>
+               <Route path='/call-logs/:callLogFilter' component={ CallLogContainer }/>
 
 
                <Route path='/inbox' component={ InboxContainer }/>
