@@ -33,3 +33,5 @@ session
 ros:publish-counts
 themeteorchef:bert
 meteorhacks:picker
+email
+meteorhacks:kadira
