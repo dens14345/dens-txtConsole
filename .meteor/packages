@@ -31,3 +31,5 @@ check
 percolate:paginated-subscription
 session
 ros:publish-counts
+themeteorchef:bert
+meteorhacks:picker

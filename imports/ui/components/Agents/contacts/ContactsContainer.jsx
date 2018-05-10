@@ -2,6 +2,7 @@ import { Meteor } from "meteor/meteor";
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Route } from 'react-router-dom';
+import AppBar from 'material-ui/AppBar';
 
 
 import Navbar from '../../../layouts/Navbar/Navbar';
@@ -35,13 +36,18 @@ class ContactsContainer extends Component {
             <Navbar/>
             <Sidebar/>
             <div className="my-container">
-               <h1>contacts container</h1>
+               { /*<h1>contacts container number of contacts: {this.props.consumersCount}</h1>*/ }
+               <AppBar
+                  title='Contacts'
+                  showMenuIconButton={ false }
+               />
+               <br/>
 
                <div className="row">
-                  <div className="col-xs-3">
-                     <ContactsList consumers={ this.props.consumers }/>
+                  <div className="col-xs-4">
+                     <ContactsList consumers={ this.props.consumers } businessId={ this.props.businessId }/>
                   </div>
-                  <div className="col-xs-8">
+                  <div className="col-xs-7">
                      <Route path='/contacts/:consumerId' render={ (props) =>
                         <ContactInfo url={ props } consumers={ this.props.consumers }/> }
                      />
@@ -51,32 +57,31 @@ class ContactsContainer extends Component {
             </div>
          </div>
 
-   );
+      );
 
    }
-   }
+}
 
-   export default withTracker(() => {
-      let isReady = Accounts.loginServicesConfigured()
-      let user = Meteor.user();
-      let businessId;
+export default withTracker(() => {
+   let isReady = Accounts.loginServicesConfigured()
+   let user = Meteor.user();
+   let businessId;
 
-   if(isReady){
-      Meteor.subscribe('consumers.business', user.profile.business);
+   if (isReady) {
       businessId = user.profile.business;
+      Meteor.subscribe('consumers.business', businessId);
       console.log('user is now ready');
-   }else{
+   } else {
       console.log('user not ready');
    }
 
 
-      //('consumers.business', (businessId) => ConsumersCollection.find({ business: businessId }));
-
-      return {
+   return {
       user,
-      consumers: ConsumersCollection.find({ business: businessId }).fetch()
+      consumers: ConsumersCollection.find({ business: businessId }).fetch(),
+      businessId
    }
-   })(ContactsContainer)
+})(ContactsContainer)
 
 
 

@@ -3,9 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import Divider from 'material-ui/Divider';
 import EditIcon from 'material-ui/svg-icons/editor/border-color';
 
 import IconButton from 'material-ui/IconButton';
@@ -57,14 +55,19 @@ class StaffProfileForm extends Component {
       Meteor.call('checkPassword', digest, function (err, passwordMatch) {
          //password match
          if (passwordMatch) {
-            console.log('the passwords match!');
+            Bert.alert('Profile Updated', 'success', 'growl-top-right');
             Meteor.call('updateUser', Meteor.userId(), doc, (err, succ) => {
                console.log(err);
                console.log(succ);
             });
-         }else{
-            console.log('password does not match');
+         } else {
+
+            Bert.alert('Incorrect password', 'danger', 'growl-top-right');
          }
+      });
+      this.setState({
+         oldPassword: '',
+         open: false
       });
 
 
@@ -137,7 +140,7 @@ class StaffProfileForm extends Component {
                         passwordEdit: false,
                         updatePassword: true
                      });
-                  }}
+                  } }
                   children={ <EditIcon/> }
                />
                <br/>
@@ -158,18 +161,22 @@ class StaffProfileForm extends Component {
                   label='Update Profile'
                   primary={ true }
                   onClick={ () => {
-                     if(this.state.updatePassword){
-                        if((this.state.newPassword === this.state.confirmPassword) &&
-                           (this.state.newPassword.length !== 0)){
+                     if (this.state.updatePassword) {
+                        if ((this.state.newPassword === this.state.confirmPassword) &&
+                           (this.state.newPassword.length !== 0)) {
                            this.setState({ open: true });
-                        }else{
-                           console.log('your password does not match');
+                        } else {
+                           Bert.alert('password does not match', 'danger', 'growl-top-right');
+                           this.setState({
+                              newPassword: '',
+                              confirmPassword: '',
+                           });
                            return;
                         }
-                     }else{
+                     } else {
                         this.setState({ open: true });
                      }
-                  }}
+                  } }
                />
                <MaterialModal
                   title='Enter password to confirm'

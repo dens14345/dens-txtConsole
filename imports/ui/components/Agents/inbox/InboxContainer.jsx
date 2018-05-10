@@ -3,12 +3,11 @@ import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Route } from 'react-router-dom';
 import faker from 'faker';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import { MESSAGE_DIRECTION } from '../../../../api/Classes/Const';
 import { MessagesCollection } from '../../../../api/messages/messages';
-import { ConversationsCollection } from "../../../../api/conversations/conversations";
+import { ConversationsCollection } from '../../../../api/conversations/conversations';
 
 import Navbar from '../../../layouts/Navbar/Navbar';
 import Sidebar from '../../../layouts/Sidebar/Sidebar';
@@ -43,14 +42,16 @@ class InboxContainer extends Component {
                let body = faker.lorem.sentences();
                let from = faker.phone.phoneNumber();
                let to = agentNumber;
-               let direction = 'incoming';
+               let direction = '';
                let conversationId = convoId;
+
+               // make alternate messages
+               (i % 2 === 0)? direction = MESSAGE_DIRECTION.INBOUND: direction = MESSAGE_DIRECTION.OUTBOUND;
+
 
                messages.push({
                   body, from, to, direction, conversationId
                })
-
-
             }
 
             console.log(messages);
@@ -71,7 +72,10 @@ class InboxContainer extends Component {
             <div className='my-container'>
                <div className='row'>
                   <div className='col-md-3'>
-                     <ChatList conversations={ this.props.conversations }/>
+                     <ChatList
+                        conversations={ this.props.conversations }
+                        agentNumber={ this.props.agentNumber }
+                     />
                   </div>
                   <div className='col-md-9'>
                      <RaisedButton
@@ -106,7 +110,8 @@ export default withTracker((props) => {
 
    return {
       conversations: ConversationsCollection.find().fetch(),
-      messages: MessagesCollection.find().fetch()
+      messages: MessagesCollection.find().fetch(),
+      agentNumber
    }
 })(InboxContainer)
 

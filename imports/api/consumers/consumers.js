@@ -1,7 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
-import { Accounts } from "meteor/accounts-base";
-import { ROLES } from "../Classes/Const";
 
 export const ConsumersCollection = new Mongo.Collection('consumers');
 
@@ -71,9 +69,20 @@ if (Meteor.isServer) {
 
 
    Meteor.publish('consumers.all', () => ConsumersCollection.find());
+
+   Meteor.publish('consumers.count', function (businessId) {
+      Counts.publish(this, 'consumers.count', ConsumersCollection.find({ business: businessId }), { fastCount: true });
+   });
+
+
    Meteor.publish('consumers.business.limit', (businessId, limit) => ConsumersCollection.find(
       { business: businessId },
       { limit }
-      ));
-   Meteor.publish('consumers.business', (businessId) => ConsumersCollection.find({ business: businessId }));
+   ));
+   Meteor.publish('consumers.business', (businessId, limit = 10) =>
+      ConsumersCollection.find({ business: businessId }, {limit})
+   );
+
+
+
 }

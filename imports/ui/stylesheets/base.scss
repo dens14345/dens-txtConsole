@@ -68,6 +68,36 @@ header, .my-container {
   text-align: center;
 }
 
+.message-details {
+  color: #737373;
+}
+
+.my-chip{
+  //background-color: #E0E0E0;
+  border-radius: 25px;
+  padding: 20px;
+  width: 75%;
+}
+.incoming-callmodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  right: 50px;
+  bottom: 50px;
+  height: 25%;
+  /*overflow: auto;*/
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  width: 20%;
+
+  -webkit-box-shadow: 0px 6px 19px -1px rgba(117,117,117,1);
+  -moz-box-shadow: 0px 6px 19px -1px rgba(117,117,117,1);
+  box-shadow: 0px 6px 19px -1px rgba(117,117,117,1);
+}
+.inline-button-div{
+  text-align: center;
+}
 
 .visible {
   display: block;

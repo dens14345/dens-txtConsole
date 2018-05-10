@@ -12,9 +12,12 @@ import AgentsContainer from '../../ui/components/Businesses/Agents/AgentsContain
 import BusinessesContainer from '../../ui/components/Businesses/BusinessesContainer';
 import StaffsContainer from '../../ui/components/SuperAdmin/staffs/StaffsContainer';
 
+
 import InboxContainer from '../../ui/components/Agents/inbox/InboxContainer';
 import ContactsContainer from '../../ui/components/Agents/contacts/ContactsContainer';
 import BusinessOwnerContainer from '../../ui/components/BusinessOwners/BusinessOwnerContainer';
+import CallLogContainer from '../../ui/components/CallLogs/CallLogContainer';
+
 
 
 
@@ -38,6 +41,8 @@ class Routes extends Component {
 
                <Route path='/agents' component={ AgentsContainer }/>
                {/*asdfasdfasdfasdfasdfasdasdf*/}
+               <Route path='/call-logs' component={ CallLogContainer }/>
+
 
                <Route path='/inbox' component={ InboxContainer }/>
                <Route path='/contacts' component={ ContactsContainer }/>

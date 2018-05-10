@@ -72,7 +72,6 @@ class AgentsTable extends Component {
    }
 
    incrementAgentsSubscription(){
-
       this.setState({ limit: this.state.limit + 20 });
       Meteor.subscribe('agents.available', this.props.businessOwnerId, this.state.limit);
    }

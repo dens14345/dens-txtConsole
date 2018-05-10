@@ -11,3 +11,15 @@ export const AGENT_STATUS = {
    ACTIVE    : 'active',
    SUSPENDED : 'suspended'
 };
+
+export const MESSAGE_DIRECTION = {
+   INBOUND: 'inbound',
+   OUTBOUND: 'outbound'
+};
+
+export const CALL_STATUS = {
+   INBOUND: 'inbound',
+   OUTBOUND: 'outbound',
+   MISSED_CALL: 'missed_call',
+   REJECTED: 'rejected'
+};

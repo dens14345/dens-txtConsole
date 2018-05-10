@@ -1,15 +1,36 @@
 <head>
    <title>meteor-react-boilerplate</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+   <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+   <script type='text/javascript' src='//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js'></script>
+   <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+   <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css' type='text/css'>
 </head>
 
 <body>
 
-<div id="render-target">
+<div id='render-target'>
    <!--Main entry point-->
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
+   <div id='call-modal' class='incoming-callmodal inline-button-div'>
+
+      <p id='call-modal-details'>Some text in the Modal..</p>
+
+      <div id='button-container' class='row visible'>
+         <div class='col-sm-6'>
+            <button id='btn-answerCall' class=''>Answer</button>
+         </div>
+         <div class='col-sm-6'>
+            <button id='btn-rejectCall' class=''>Reject</button>
+         </div>
+
+      </div>
+   </div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.js'></script>
+
+
+<!--<script src='http://code.jquery.com/jquery-3.3.1.min.js'></script>-->
+<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js'></script>-->
 </body>

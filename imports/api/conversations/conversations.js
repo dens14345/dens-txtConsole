@@ -7,23 +7,23 @@ if (Meteor.isServer) {
 
    Meteor.methods({
 
-      // 'departments.insert'(name, businessId){
-      //    return DepartmentsCollection.insert({
-      //       name,
-      //       dateCreated: new Date(),
-      //       business: businessId
-      //    });
-      // }
       'conversations.insert'({agentNumber, convoWith}){
          return ConversationsCollection.insert({
             agentNumber,
             convoWith
          });
-      }
+      },
+
 
 
    }); //end of methods
 
-   Meteor.publish('conversations.agentNumber', (agentNumber) => ConversationsCollection.find({agentNumber}));
+   Meteor.publish('conversations.agentNumber', (agentNumber, limit=10) =>
+      ConversationsCollection.find({agentNumber}, {limit})
+   );
+
+   Meteor.publish('conversations.count', function(agentNumber){
+      Counts.publish(this,  'conversations.count',  ConversationsCollection.find({agentNumber}))
+   });
 
 }

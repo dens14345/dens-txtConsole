@@ -1,0 +1,9 @@
+{
+  "public": {
+    "myNumber": "+639360770843"
+  },
+  "twilio": {
+    "accountSid": "AC32b5428951eafb546fb3400a5e9ccd54",
+    "authToken": "6be0fdf67ed80ed3589c776788af550e"
+  }
+}
