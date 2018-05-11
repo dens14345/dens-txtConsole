@@ -14,6 +14,10 @@ if (Meteor.isServer) {
          });
       },
 
+      'conversations.isNumberExisting'(convoWith){
+         return ConversationsCollection.findOne({ convoWith });
+      }
+
 
 
    }); //end of methods

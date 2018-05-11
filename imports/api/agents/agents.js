@@ -75,13 +75,14 @@ if (Meteor.isServer) {
       Counts.publish(this, 'agents.count', Meteor.users.find({ 'profile.role': 'agent' }), {fastCount:true});
    });
 
-   Meteor.publish('agents1.available', (businessOwnerId, skip = 10, limit = 10) =>
-      Meteor.users.find({ 'profile.belongsTo': businessOwnerId }, { limit: limit, skip: skip }
+   Meteor.publish('agents1.available', (businessOwnerId, skipLimit) =>
+      // Meteor.users.find({ 'profile.belongsTo': businessOwnerId }, { limit: limit, skip: skip }
+      Meteor.users.find({ 'profile.belongsTo': businessOwnerId }, {  limit: 5 , skip: skipLimit }
    ));
 
-   Meteor.publish('agents.available', (businessOwnerId, limit = 10) =>
-      Meteor.users.find({ 'profile.belongsTo': businessOwnerId }, { limit }
-   ));
+   // Meteor.publish('agents.available', (businessOwnerId, limit = 10) =>
+   //    Meteor.users.find({ 'profile.belongsTo': businessOwnerId }, { limit }
+   // ));
 
    Meteor.publish('agents.registeredToDepartment', (businessOwnerId, departmentId) => Meteor.users.find(
       {

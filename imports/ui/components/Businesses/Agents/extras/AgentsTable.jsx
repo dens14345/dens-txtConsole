@@ -157,8 +157,9 @@ class AgentsTable extends Component {
    }
 
    incrementAgentsSubscription() {
-      this.setState({ agentLimit: this.state.agentLimit * 2 });
-      Meteor.subscribe('agents.available', Meteor.userId(), this.state.agentLimit);
+      this.setState({ agentLimit: this.state.agentLimit + 10 });
+      console.log(this.state.agentLimit);
+      Meteor.subscribe('agents1.available', Meteor.userId(), 20);
    }
 
    handlePreviousPageClick() {
@@ -170,21 +171,28 @@ class AgentsTable extends Component {
    }
 
    handleNextPageClick() {
-
-
       console.log('handleNextPageClick');
+      console.log(`skip: `, this.state.skip);
+      Meteor.subscribe('agents1.available', Meteor.userId(), this.state.skip);
+
+      Session.set('skipLimit', this.state.skip);
+
       this.setState({
          limit: this.state.limit + 5,
          skip: this.state.skip + 5
       });
-      Meteor.subscribe('agents1.available', Meteor.userId(), this.state.skip);
-      Meteor.subscribe('agents.all', this.state.skip);
+
+      // let users = Meteor.users.find({},{skip: this.state.skip}).fetch();
+      // console.log(users);
+      // Meteor.subscribe('agents.all', this.state.skip);
 
       this.setState({
          data: this.props.agents,
          page: this.state.page + 1,
       });
-
+   }
+   deleteAfterUser(){
+      Meteor.subscribe('agents1.available', Meteor.userId(), 60);
    }
 
    render() {
@@ -199,8 +207,16 @@ class AgentsTable extends Component {
             <Divider/>
             <Card>
                <CardText>
-                  {/*<Datatable/>*/}
                   {console.log(this.props.agents)}
+                  {/*{console.log(this.props.x)}*/}
+
+                  <button onClick={this.handleNextPageClick.bind(this)}>
+                     new subscripbtion
+                  </button>
+                  <button onClick={this.deleteAfterUser.bind(this)}>
+                     delete after use
+                  </button>
+
                   <DataTables
                      height={'auto'}
                      selectable={false}
@@ -226,8 +242,15 @@ class AgentsTable extends Component {
 
 export default withTracker((props) => {
 
-   let x = Meteor.users.find({ 'profile.role': ROLES.AGENT }).fetch();
+   // Meteor.subscribe('agents1.available', Meteor.userId(), 0);
+
+   // let x = Meteor.users.find({ 'profile.role': ROLES.AGENT }).fetch();
+   let skipLimit = Session.get('skipLimit');
+   let x = Meteor.users.find({}, { skip: skipLimit }).fetch();
    let agents = [];
+
+   // x.observe
+   //    added
 
    x.map((agent) => {
       let obj = {
@@ -247,7 +270,8 @@ export default withTracker((props) => {
 
    return {
       agents,
-      user: Meteor.user()
+      user: Meteor.user(),
+      x
    };
 
 })(AgentsTable)

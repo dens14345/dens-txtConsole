@@ -1,13 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
+
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
-import Message from 'material-ui/svg-icons/communication/message'
 import Close from 'material-ui/svg-icons/navigation/close'
 import FlatButton from 'material-ui/FlatButton'
 import CommunicationCall from 'material-ui/svg-icons/communication/call'
 import { deepOrange500 } from 'material-ui/styles/colors'
+import TextField from 'material-ui/TextField';
 
 import ReactMaterialUiNotifications from 'react-materialui-notifications';
 import moment from 'moment';
@@ -18,7 +19,7 @@ import Sidebar from '../../layouts/Sidebar/Sidebar';
 import ProfileForm from './form/ProfileForm';
 import { ROLES } from '../../../api/Classes/Const';
 import { currentUser } from '../../../api/Classes/Utils';
-import { CallsCollection } from "../../../api/calls/calls";
+
 
 
 class ProfileContainer extends Component {
@@ -30,8 +31,13 @@ class ProfileContainer extends Component {
       }
       this.state = {
          count: 0,
-         showNotification: false
-      }
+         showNotification: false,
+         value: '',
+         openModalState: false,
+         emailBody: '',
+         emailTo: ''
+
+      };
    }
 
    renderProfileForm(userRole) {
@@ -51,49 +57,42 @@ class ProfileContainer extends Component {
 
    notify() {
 
-
-
       console.log(`notify function clicked`);
       ReactMaterialUiNotifications.showNotification({
          title: 'Title',
          additionalText: `Some message to be displayed ${this.state.count}`,
          icon: <CommunicationCall/>,
-         iconBadgeColor
-   :
-      deepOrange500,
-         overflowContent
-   :
-      <div>
-         <FlatButton
-            label="dismiss"
-            icon={ <Close/> }
-         />
-         <FlatButton
-            label="answer"
-            icon={ <CommunicationCall/> }
-         />
-      </div>,
-         timestamp
-   :
-      moment().format('h:mm A'),
-         personalised
-   :
-      true,
-         avatar
-   :
-      "demo.png",
-         priority
-   :
-      true,
-         zDepth
-   :
-      4
-   });
+         iconBadgeColor:
+         deepOrange500,
+         overflowContent:
+            <div>
+               <FlatButton
+                  label='dismiss'
+                  icon={ <Close/> }
+               />
+               <FlatButton
+                  label='answer'
+                  icon={ <CommunicationCall/> }
+               />
+            </div>,
+         timestamp:
+            moment().format('h:mm A'),
+         personalised:
+            true,
+         avatar:
+            'demo.png',
+         priority:
+            true,
+         zDepth:
+            4
+      });
 
       this.setState({
          count: ++this.state.count
       })
    }
+
+
 
    render() {
       if (!this.props.user) {
@@ -111,11 +110,18 @@ class ProfileContainer extends Component {
                   title='Profile'
                   showMenuIconButton={ false }
                />
-               <RaisedButton
+              {/* <RaisedButton
                   label='Notification'
                   onClick={ this.notify.bind(this) }
                />
-               <ReactMaterialUiNotifications
+
+               <RaisedButton
+                  label='Send Email'
+                             onClick={ () => {this.setState({ openModalState: true })} }
+               />*/}
+
+
+               { /* <ReactMaterialUiNotifications
                   desktop={ true }
                   transitionName={ {
                      leave: 'dummy',
@@ -126,7 +132,8 @@ class ProfileContainer extends Component {
                   transitionAppear={ true }
                   transitionLeave={ true }
                   autoHide={ 5000 }
-               />
+               />*/ }
+
 
                {
                   (typeof currentUser() === 'undefined') ?

@@ -50,9 +50,8 @@ class Messages extends Component {
          }
 
          if(err)
-            Bert.alert('Message not set', 'error', 'growl-top-right');
+            Bert.alert('Message not set', 'danger', 'growl-top-right');
       });
-
    }
 
 

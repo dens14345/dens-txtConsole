@@ -68,8 +68,7 @@ export default withTracker(() => {
             Meteor.subscribe('agents.all', 10);
             break;
          case ROLES.B_OWNER:
-            Meteor.subscribe('agents1.available', Meteor.userId(), 20, 5);
-
+            Meteor.subscribe('agents1.available', Meteor.userId());
             break;
          default:
             break;

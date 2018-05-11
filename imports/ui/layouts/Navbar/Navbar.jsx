@@ -1,34 +1,29 @@
 import React, { Component, Fragment } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { render } from 'react-dom';
-import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import Logout from 'material-ui/svg-icons/action/power-settings-new';
-import VerticalMenu from 'material-ui/svg-icons/navigation/more-vert';
-import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
-import FontIcon from 'material-ui/FontIcon';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import RaisedButton from 'material-ui/RaisedButton';
-import ArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
+import 'react-quill/dist/quill.snow.css';
+import ReactQuill from 'react-quill';
+
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import PersonCircle from 'material-ui/svg-icons/maps/person-pin';
 import Person from 'material-ui/svg-icons/social/person';
-
+import EmailIcon from 'material-ui/svg-icons/communication/email';
+import MessageIcon from 'material-ui/svg-icons/communication/message';
 import AppBar from 'material-ui/AppBar';
+import TextField from 'material-ui/TextField';
+import ThemeIcon from 'material-ui/svg-icons/image/palette';
+import LeftIcon from 'material-ui/svg-icons/navigation/chevron-left';
+import LogoutIcon from 'material-ui/svg-icons/action/power-settings-new';
+
 import Divider from 'material-ui/Divider';
 
-import FlatButton from 'material-ui/FlatButton';
 
-import { Modal, Button } from 'react-materialize';
-
-
-import Sidebar from '../Sidebar/Sidebar';
+import MaterialModal from '../../extras/Modal/MaterialModal';
+import { ROLES } from '../../../api/Classes/Const';
 
 
 class Navbar extends Component {
@@ -36,7 +31,22 @@ class Navbar extends Component {
       super(props);
       this.state = {
          value: 3,
+         openEmailModalState: false,
+         openMessageModalState: false,
+
+         messageBody: '',
+
+         emailBody: '',
+         emailTo: ''
       };
+   }
+
+   toggleEmailModal() {
+      this.setState({ openEmailModalState: !this.state.openEmailModalState });
+   }
+
+   toggleMessageModal() {
+      this.setState({ openMessageModalState: !this.state.openMessageModalState });
    }
 
    logout(e) {
@@ -54,6 +64,74 @@ class Navbar extends Component {
       Meteor.users.update({ _id: Meteor.userId() }, { $set: { 'profile.theme': theme } });
    }
 
+
+   isAgent() {
+
+      return (
+         <Fragment>
+            <IconButton tooltip='Compose new message' onClick={ this.toggleMessageModal.bind(this) }>
+               <MessageIcon/>
+            </IconButton>
+            <IconButton tooltip='Compose Email' onClick={ this.toggleEmailModal.bind(this) }>
+               <EmailIcon/>
+            </IconButton>
+         </Fragment>
+      )
+   }
+
+
+   sendEmail() {
+      console.log('Email To: ', this.state.emailTo);
+      console.log('EmailBody: ', this.state.emailBody);
+      let to = this.state.emailTo;
+      let htmlEmailBody = this.state.emailBody;
+      let agentEmail = Meteor.user().emails[0].address;
+
+      Bert.alert('Sending Email', 'info', 'growl-top-right');
+
+      let self = this;
+      Meteor.call('email.send', {
+         to,
+         htmlEmailBody,
+         from: agentEmail,
+      }, function (err, succ) {
+
+         console.log('error: ', err);
+         console.log('succucces: ', succ);
+
+         if (succ) {
+            Bert.alert('Email sent', 'success', 'growl-top-right');
+            self.setState({ emailTo: '', emailBody: '' });
+         }
+
+         if (err || !succ)
+            Bert.alert('Email not sent', 'danger', 'growl-top-right');
+      });
+   }
+
+   sendMessage() {
+      let self = this;
+      let messageBody = this.state.messageBody;
+      // let agentNumber = this.props.agentNumber;
+      let agentNumber = this.props.user.profile.number;
+      let To = Meteor.settings.public.myNumber;
+
+      Bert.alert('Sending message', 'info', 'growl-top-right');
+
+      Meteor.call('sendMessage', { messageBody, agentNumber, To }, function (err, messageData) {
+         console.log(err);
+         console.log(messageData);
+         if (messageData) {
+            Bert.alert('Message Sent', 'success', 'growl-top-right');
+            self.setState({ messageBody: '' });
+         }
+
+         if (err)
+            Bert.alert('Message not set', 'danger', 'growl-top-right');
+      });
+   }
+
+
    render() {
 
       if (!this.props.user) {
@@ -62,61 +140,92 @@ class Navbar extends Component {
          )
       }
 
-
       return (
          <div className='my-container'>
             <AppBar
                title={ this.props.user.username }
-               iconElementLeft={<IconButton><Person/></IconButton>}
+               iconElementLeft={ <IconButton><Person/></IconButton> }
                iconElementRight={
-                  <IconMenu
-                     iconButtonElement={ <IconButton><MoreVertIcon/></IconButton> }
+                  <Fragment>
+                     {
+                        (this.props.user.profile.role === ROLES.AGENT) ?
+                           this.isAgent() : null
+                     }
+                     <IconMenu
+                        iconButtonElement={ <IconButton><MoreVertIcon/></IconButton> }
+                     >
+                        <MenuItem primaryText='Theme'
+                                  leftIcon={ <LeftIcon/> }
+                                  menuItems={ [
+                                     <MenuItem primaryText='Light Theme'
+                                               onClick={ this.updateTheme.bind(this, 'lightBaseTheme') }
+                                     />,
+                                     <MenuItem primaryText='Dark Theme'
+                                               onClick={ this.updateTheme.bind(this, 'darkBaseTheme') }
+                                     />
+                                  ] }
+                        />
+                        <Divider/>
+                        <MenuItem primaryText='Sign out'
+                                  onClick={ this.logout }
+                                  leftIcon={<LogoutIcon/>}
+                        />
+                     </IconMenu>
+                  </Fragment>
 
-                  >
-                     <MenuItem primaryText='Theme'
-                               rightIcon={ <ArrowDropRight/> }
-                               menuItems={ [
-                                  <MenuItem primaryText='Light Theme'
-                                            onClick={ this.updateTheme.bind(this, 'lightBaseTheme') }
-                                  />,
-                                  <MenuItem primaryText='Dark Theme'
-                                            onClick={ this.updateTheme.bind(this, 'darkBaseTheme') }
-                                  />
-                               ] }
-                     />
-                     <MenuItem primaryText='Send feedback'/>
-                     <MenuItem primaryText='Settings'/>
-                     <MenuItem primaryText='Help'/>
-                     <Divider/>
-                     <MenuItem primaryText='Sign out'
-                               onClick={ this.logout }
-                     />
-                  </IconMenu>
                }
             />
-            { /*   <Toolbar>
-               <ToolbarGroup firstChild={ true }>
-                  <RaisedButton label='Inbox' primary={ true }/>
-               </ToolbarGroup>
-               <ToolbarGroup>
-                  <ToolbarTitle text='Options'/>
-                  <FontIcon className='muidocs-icon-custom-sort'/>
-                  <ToolbarSeparator/>
-                  <IconMenu
-                     iconButtonElement={
-                        <IconButton touch={ true }>
-                           <NavigationExpandMoreIcon/>
-                        </IconButton>
-                     }
-                  >
-                     <MenuItem primaryText='Download'/>
-                     <MenuItem primaryText='More Info'/>
-                  </IconMenu>
-               </ToolbarGroup>
-            </Toolbar>*/ }
 
+            { /*compose Email modal*/ }
+            <MaterialModal title={ `Send Email` }
+                           open={ this.state.openEmailModalState }
+                           closeModal={ this.toggleEmailModal.bind(this) }
+                           submit={ this.sendEmail.bind(this) }>
+
+               <TextField
+                  floatingLabelText='To'
+                  value={ this.state.emailTo }
+                  onChange={ (e) => this.setState({ emailTo: e.target.value }) }
+               />
+
+               <ReactQuill
+                  theme='snow'
+                  value={ this.state.emailBody }
+                  onChange={ (e) => {
+                     this.setState({ emailBody: e })
+                  } }
+                  style={ { height: 180 } }/>
+
+            </MaterialModal>
+
+            { /*Compose message modal*/ }
+            <MaterialModal title={ `Compose new message` }
+                           open={ this.state.openMessageModalState }
+                           closeModal={ this.toggleMessageModal.bind(this) }
+                           submit={ this.sendMessage.bind(this) }>
+
+               <TextField
+                  floatingLabelText='To'
+                  value={ this.state.emailTo }
+                  onChange={ (e) => this.setState({ emailTo: e.target.value }) }
+               />
+
+               <TextField
+                  floatingLabelText='Type Message'
+                  multiLine={ true }
+                  rows={ 2 }
+                  rowsMax={ 4 }
+                  fullWidth={ true }
+                  value={ this.state.messageBody }
+                  onChange={ (e) => {
+                     this.setState({ messageBody: e.target.value })
+                  } }
+               />
+
+
+            </MaterialModal>
          </div>
-      )
+      );
    }
 }
 

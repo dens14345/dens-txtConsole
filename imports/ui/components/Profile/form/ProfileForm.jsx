@@ -61,7 +61,6 @@ class StaffProfileForm extends Component {
                console.log(succ);
             });
          } else {
-
             Bert.alert('Incorrect password', 'danger', 'growl-top-right');
          }
       });

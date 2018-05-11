@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
+import { ConversationsCollection } from '../conversations/conversations';
+import { MESSAGE_DIRECTION} from '../Classes/Const';
 
 export const MessagesCollection = new Mongo.Collection('messages');
 
@@ -19,8 +21,8 @@ if (Meteor.isServer) {
          });
       },
 
-      sendMessage: function({messageBody, agentNumber, To}){
-         return HTTP.call(
+      'sendMessage': function({messageBody, agentNumber, To}){
+         let messageData =  HTTP.call(
             'POST',
             `https://api.twilio.com/2010-04-01/Accounts/${Meteor.settings.twilio.accountSid}
                /SMS/Messages.json`, {
@@ -34,6 +36,44 @@ if (Meteor.isServer) {
                 ${Meteor.settings.twilio.authToken}`
             }
          );
+
+         console.log(messageData);
+
+         //para di na tayo mag call sa server ok>?
+         let convo = ConversationsCollection.findOne({ convoWith: To });
+         let convoId = 'default value';
+
+         if(convo) {
+            convoId = convo._id;
+         }else{
+            //need to get this newly inserted conversation ID
+            convo = ConversationsCollection.insert({
+               agentNumber,
+               convoWith: To
+            });
+            convoId = convo
+         }
+
+
+         console.log(`TAKE A LOOK AT THESE: `, convo);
+         Meteor.call('messages.insert', {
+            body:             messageData.data.body,
+            from:             messageData.data.from,
+            to:               messageData.data.to,
+            direction:        MESSAGE_DIRECTION.OUTBOUND,
+
+            conversationId:   convoId
+         //   asdf
+
+         },  (error, success) => {
+            console.log(`inserting message to db success: ${success}`);
+         });
+
+         // 'messages.insert'({ body, from, to, direction, conversationId }) {
+
+
+
+            return messageData;
       },
 
       'messages.insertBulk'(messages) {
