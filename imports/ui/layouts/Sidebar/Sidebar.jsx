@@ -3,10 +3,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import AppBar from 'material-ui/AppBar';
-import Menu from 'material-ui/svg-icons/navigation/menu';
-import IconButton from 'material-ui/IconButton';
 
 import { currentUser } from '../../../api/Classes/Utils';
 import { ROLES } from '../../../api/Classes/Const';

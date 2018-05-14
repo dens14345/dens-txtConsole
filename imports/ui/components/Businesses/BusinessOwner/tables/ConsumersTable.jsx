@@ -9,8 +9,10 @@ import { Card, CardTitle, CardText } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { ConsumersCollection } from '../../../../../api/consumers/consumers';
-
+import FlatButton from 'material-ui/FlatButton'
+import Paper from 'material-ui/Paper';
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import SearchIcon from 'material-ui/svg-icons/action/search'
 import {
    Table,
    TableBody,
@@ -20,8 +22,11 @@ import {
    TableRowColumn,
 } from 'material-ui/Table';
 
+
+import { ConsumersCollection } from '../../../../../api/consumers/consumers';
 import MaterialModal from '../../../../extras/Modal/MaterialModal';
 import { ROLES } from "../../../../../api/Classes/Const";
+import { Meteor } from "meteor/meteor";
 
 
 class ConsumersTable extends Component {
@@ -38,7 +43,8 @@ class ConsumersTable extends Component {
          numberOfRows: 5,
          page: 1,
          total: undefined,
-         selectedRowSize: 20
+         selectedRowSize: 20,
+         consumerLimit: 10
       }
    }
 
@@ -54,20 +60,14 @@ class ConsumersTable extends Component {
       this.setState({
          consumerName: '',
          consumerNumber: '',
-         consumerAddress: ''
-      })
+         consumerAddress: '',
+         nameSearch: ''
+      });
    }
-
-   updateRows(state) {
-      /*RowApi.getRows(state)
-         .then((updatedState) => {
-            this.setState(updatedState);
-         });*/
-   }
-
-   onChange(event, index, selectedRowSize) {
-      this.setState({ selectedRowSize });
-   };
+   //
+   // onChange(event, index, selectedRowSize) {
+   //    this.setState({ selectedRowSize });
+   // };
 
    addConsumer() {
       Meteor.call('consumer.insert', {
@@ -78,34 +78,17 @@ class ConsumersTable extends Component {
       }, (err, succ) => {
          console.log(err);
          console.log(succ);
-         (succ) ? this.clearStates() : console.log(err)
+         if (succ) {
+            this.clearStates();
+            Bert.alert('Consumer Added', 'success', 'growl-top-right');
+         }
+
       });
    }
 
-   addConsumerUsingFaker(callback) {
-      for (let i = 0; i < 10000; i++) {
-         let add = faker.address;
+   addConsumerUsingFaker() {
+      Bert.alert('Inserting consumer..', 'info', 'growl-top-right');
 
-         let name = faker.name.findName();
-         let number = faker.phone.phoneNumber();
-         let address = `${add.country} ${add.city} ${add.streetAddress} ${add.streetName}`;
-         let businessId = this.props.businessId;
-
-         Meteor.call('consumer.insert', {
-            name,
-            number,
-            address,
-            businessId
-         }, (err, succ) => {
-            (succ) ? console.log(`${succ} inserted`) : console.log(err)
-         });
-      }
-      console.log('testing');
-
-      callback();
-   }
-
-   addConsumerUsingFaker1() {
       let consumers = [];
       for (let i = 0; i < 10000; i++) {
          let add = faker.address;
@@ -119,157 +102,193 @@ class ConsumersTable extends Component {
          consumers.push({ name, number, address, businessId });
       }
       Meteor.call('consumer.insertBulk', consumers, (err, succ) => {
-         (succ) ? console.log(`random consumer inserted`) :
-            console.log(err)
+         console.log(err);
+
+         if (succ) {
+            Bert.alert('10k consumer inserted', 'success', 'growl-top-right');
+         }
+      });
+   }
+
+   searchConsumer(){
+      // console.log(this.state.nameSearch);
+      let name = this.state.nameSearch;
+      Meteor.call('consumer.search', name, (err, succ) => {
+         console.log(err);
+         console.log(succ);
       });
    }
 
    handleInputNameChange(e) {
-      this.setState({ consumerName: e.target.value })
+      this.setState({ consumerName: e.target.value });
    }
 
    handleInputNumberChange(e) {
-      this.setState({ consumerNumber: e.target.value })
+      this.setState({ consumerNumber: e.target.value });
    }
 
    handleInputAddressChange(e) {
-      this.setState({ consumerAddress: e.target.value })
+      this.setState({ consumerAddress: e.target.value });
    }
 
-   renderNewConsumerButton(){
-     return(
-        <Fragment>
-           <RaisedButton
-              label='New'
-              primary={ true }
-              onClick={ this.openModal.bind(this) }
-           />
-           <RaisedButton
-              label='Insert with Faker'
-              primary={ true }
-              onClick={ this.addConsumerUsingFaker.bind(this, () => {
-                 console.log('finished')
-              }) }
-           />
-           <RaisedButton
-              label='Bulk insert'
-              primary={ true }
-              onClick={ this.addConsumerUsingFaker1.bind(this) }
-           />
-           <MaterialModal
-              title='Add new Consumer'
-              open={ this.state.open }
-              closeModal={ this.closeModal.bind(this) }
-              submit={ this.addConsumer.bind(this) }
-           >
-              <TextField
-                 value={ this.state.consumerName }
-                 fullWidth={ true }
-                 floatingLabelText='Consumer Name'
-                 onChange={ this.handleInputNameChange.bind(this) }
-              />
-              <TextField
-                 value={ this.state.consumerNumber }
-                 fullWidth={ true }
-                 floatingLabelText='Number'
-                 onChange={ this.handleInputNumberChange.bind(this) }
-              />
-              <TextField
-                 value={ this.state.consumerAddress }
-                 fullWidth={ true }
-                 floatingLabelText='Address'
-                 onChange={ this.handleInputAddressChange.bind(this) }
-              />
+   incrementConsumersSubscription() {
+      this.setState({ consumerLimit: 10 + this.state.consumerLimit });
+
+      Meteor.subscribe('consumers.business.limit', this.props.businessId, this.state.consumerLimit);
+
+   }
+
+   renderNewConsumerButton() {
+      return (
+         <Fragment>
+            <RaisedButton
+               label='New'
+               primary={ true }
+               onClick={ this.openModal.bind(this) }
+            />
+            <RaisedButton
+               label='Insert 10k consumers'
+               primary={ true }
+               onClick={ this.addConsumerUsingFaker.bind(this) }
+            />
+            <MaterialModal
+               title='Add new Consumer'
+               open={ this.state.open }
+               closeModal={ this.closeModal.bind(this) }
+               submit={ this.addConsumer.bind(this) }
+            >
+               <TextField
+                  value={ this.state.consumerName }
+                  fullWidth={ true }
+                  floatingLabelText='Consumer Name'
+                  onChange={ this.handleInputNameChange.bind(this) }
+               />
+               <TextField
+                  value={ this.state.consumerNumber }
+                  fullWidth={ true }
+                  floatingLabelText='Number'
+                  onChange={ this.handleInputNumberChange.bind(this) }
+               />
+               <TextField
+                  value={ this.state.consumerAddress }
+                  fullWidth={ true }
+                  floatingLabelText='Address'
+                  onChange={ this.handleInputAddressChange.bind(this) }
+               />
 
 
-           </MaterialModal>
-        </Fragment>
-     )
+            </MaterialModal>
+         </Fragment>
+      )
    }
 
    render() {
+      let paperStyle = {
+         transitionDuration: '0.3s',
+         height: 550,
+         padding: '15px 0px 0px 15px',
+      };
       return (
-         <Card>
-            <CardTitle title="Consumers"/>
-            {
-               (this.props.user.profile.role === ROLES.B_OWNER)?
-                  this.renderNewConsumerButton.bind(this) : null
-            }
+         <Paper style={paperStyle}>
+            <div className="row">
+               <div className="col-md">
+                  <h3 className='inline-element'>{ `Consumers ` }</h3>
+                  <span className='text-details'>( {`${this.props.loadedConsumersCount} / ${this.props.consumersCount}`}  )</span>
+                  <br/>
+                  {
+                     (this.props.user.profile.role === ROLES.B_OWNER) ?
+                        (this.renderNewConsumerButton()) : null
+                  }
+               </div>
+               <div className="col-md">
+                  <TextField
+                     floatingLabelText='Search'
+                     value={this.state.nameSearch}
+                     onChange={(e) => this.setState({nameSearch: e.target.value})}
+                  />
+                  <FloatingActionButton
+                     onClick={this.searchConsumer.bind(this)}
+                     children={<SearchIcon/>} />
 
-            <CardText>
-               <Table
-                  fixedHeader={ true }
-                  selectable={ false }
-                  multiSelectable={ false }
-               >
-                  <TableHeader
-                     displaySelectAll={ false }
-                     adjustForCheckbox={ false }
-                     displayRowCheckbox={ false }
+               </div>
+            </div>
+
+            <Paper style={ { height: 450, overflowY: 'scroll' } } zDepth={ 0 }>
+                  <Table
+                     fixedHeader={ true }
+                     selectable={ false }
+                     multiSelectable={ false }
                   >
-                     <TableRow>
-                        <TableHeaderColumn>Name</TableHeaderColumn>
-                        <TableHeaderColumn>Number</TableHeaderColumn>
-                        <TableHeaderColumn>Address</TableHeaderColumn>
-                        <TableHeaderColumn>Actions</TableHeaderColumn>
-                     </TableRow>
-                  </TableHeader>
+                     <TableHeader
+                        displaySelectAll={ false }
+                        adjustForCheckbox={ false }
+                        displayRowCheckbox={ false }
+                     >
+                        <TableRow>
+                           <TableHeaderColumn>Name</TableHeaderColumn>
+                           <TableHeaderColumn>Number</TableHeaderColumn>
+                           <TableHeaderColumn>Address</TableHeaderColumn>
+                           <TableHeaderColumn>Actions</TableHeaderColumn>
+                        </TableRow>
+                     </TableHeader>
 
-                  <TableBody
-                     displayRowCheckbox={ false }
-                     deselectOnClickaway={ true }
-                     showRowHover={ true }
-                  >
-                     {
-                        this.props.consumers.map((consumer, index) => (
-                           <TableRow key={ index }>
-                              <TableRowColumn>{ consumer.name }</TableRowColumn>
-                              <TableRowColumn> { consumer.number }</TableRowColumn>
-                              <TableRowColumn> { consumer.address }</TableRowColumn>
-                              <TableRowColumn>
-                                 <RaisedButton
-                                    label="Edit"
-                                    primary={ true }
-                                    disabled={!this.props.isBusinessOwner}
-                                 />
-                                 <RaisedButton
-                                    label="Remove"
-                                    disabled={!this.props.isBusinessOwner}
-                                 />
-                              </TableRowColumn>
-                           </TableRow>
-                        ))
-                     }
-                  </TableBody>
-               </Table>
-               <Divider/>
-            </CardText>
+                     <TableBody
+                        displayRowCheckbox={ false }
+                        deselectOnClickaway={ true }
+                        showRowHover={ true }
+                     >
+                        {
+                           this.props.consumers.map((consumer, index) => (
+                              <TableRow key={ index }>
+                                 <TableRowColumn>{ consumer.name }</TableRowColumn>
+                                 <TableRowColumn> { consumer.number }</TableRowColumn>
+                                 <TableRowColumn> { consumer.address }</TableRowColumn>
+                                 <TableRowColumn>
+                                    <RaisedButton
+                                       label="Edit"
+                                       primary={ true }
+                                       disabled={ !this.props.isBusinessOwner }
+                                    />
+                                    <RaisedButton
+                                       label="Remove"
+                                       disabled={ !this.props.isBusinessOwner }
+                                    />
+                                 </TableRowColumn>
+                              </TableRow>
+                           ))
+                        }
+                     </TableBody>
+                  </Table>
+                  <Divider/>
 
-         </Card>
-
-
+            </Paper>
+            <FlatButton
+               label='Load More'
+               primary={ true }
+               onClick={ this.incrementConsumersSubscription.bind(this) }
+            />
+         </Paper>
       );
    }
 }
 
 export default withTracker((props) => {
+   let businessId = props.businessId;
 
-   Meteor.subscribe('consumers.business.limit', props.businessId, 50);
-   // let checkRole = () => {
-   //    if(Meteor.user().profile.role === ROLES.B_OWNER)
-   //       return true
-   //    else
-   //       return false
-   // };
+   Meteor.subscribe('consumers.business.limit', businessId, 10);
+   Meteor.subscribe('consumers.business.limit.count', businessId);
 
    let checkRole = () => Meteor.user().profile.role === ROLES.B_OWNER;
-   console.log(checkRole());
+   // console.log(checkRole());
 
    return {
       consumers: ConsumersCollection.find().fetch(),
       user: Meteor.user(),
-      isBusinessOwner: checkRole()
-   }
+      isBusinessOwner: checkRole(),
+      businessId,
+      loadedConsumersCount: ConsumersCollection.find().count(),
+      consumersCount: Counts.get('consumers.business.limit.count')
+   };
 
 })(ConsumersTable)
 

@@ -58,17 +58,9 @@ export default withTracker(() => {
    let businessesCount = Counts.get('businesses-count');
    let businessOwnersCount = Counts.get('businessOwners.count');
    let agentsCount = Counts.get('agents.count');
-
-
    // let agentsCount = Meteor.users.find({ 'profile.role': 'agent' }).count();
    // let businessesCount = BusinessesCollection.find().count();
    // let businessOwnersCount = Meteor.users.find({ 'profile.role': 'b_owner' }).count();
-
-
-
-
-
-
    return {
       agentsCount,
       businessesCount,

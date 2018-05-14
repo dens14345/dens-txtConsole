@@ -1,6 +1,7 @@
 {
   "public": {
-    "myNumber": "+639360770843"
+    "myNumber": "+639360770843",
+    "myTwilioNumber": "+13073171350"
   },
   "twilio": {
     "accountSid": "AC32b5428951eafb546fb3400a5e9ccd54",

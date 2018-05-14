@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Route } from 'react-router-dom';
 
 
 import CircularProgress from 'material-ui/CircularProgress';
@@ -43,8 +42,8 @@ class SingleBusiness extends Component {
             <Sidebar/>
             <div className='my-container'>
                <AppBar
-                  title={ this.props.business[0].name }
-                  showMenuIconButton={false}
+               title={ this.props.business[0].name }
+               showMenuIconButton={false}
                />
                <DepartmentsTable
                   departments={ this.props.departments }
@@ -67,14 +66,28 @@ export default withTracker((props) => {
    let businessId = props.url.match.params.businessId
 
    Meteor.subscribe('departments.business', businessId);
-   // Meteor.subscribe('consumers.business', businessId);
-   // Meteor.subscribe('consumers.business.limit', businessId, 50);
-
 
    let business = businesses.filter((business) => {
       return business._id === businessId
    });
-   // console.log(business[0]);
+
+   let departments = DepartmentsCollection.find().fetch();
+
+   //kmmpBaJ9PJYErNb2j
+   // Meteor.subscribe('agents.registeredToDepartment.count', Meteor.userId(), 'kmmpBaJ9PJYErNb2j');
+   // let agentsCount = Counts.get('agents.registeredToDepartment.count');
+   // console.log(agentsCount);
+
+
+   // let filteredDeparments = [];
+   // departments.map((department) => {
+   //    Meteor.subscribe('agents.registeredToDepartment.count', Meteor.userId(), department._id);
+   //    let agentsCount = Counts.get('agents.registeredToDepartment.count');
+   //    console.log('department: ', department);
+   //    console.log('agentsCount: ', agentsCount);
+   // });
+
+
    return {
       business,
       businessId,

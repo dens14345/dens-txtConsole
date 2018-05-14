@@ -11,9 +11,9 @@ import { ROLES } from '../../../../api/Classes/Const';
 
 import Navbar from '../../../layouts/Navbar/Navbar';
 import Sidebar from '../../../layouts/Sidebar/Sidebar';
-
-import AgentsTable from './extras/AgentsTable';
 import SingleAgent from './extras/SingleAgent';
+
+import InfiniteScrollingAgentsTable from './extras/InfiniteScrollingAgentsTable';
 
 
 class AgentsContainer extends Component {
@@ -46,11 +46,11 @@ class AgentsContainer extends Component {
             <Navbar/>
             <Sidebar/>
             <div className='my-container'>
-               <Route exact path='/agents' component={ AgentsTable }/>
+               {/*<Route exact path='/agents' component={ AgentsTable }/>*/}
+               <Route exact path='/agents' component={ InfiniteScrollingAgentsTable }/>
                <Route exact path='/agents/:agentId' component={ SingleAgent }/>
             </div>
          </Fragment>
-
       );
 
    }

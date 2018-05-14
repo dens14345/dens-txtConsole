@@ -1,7 +1,10 @@
+import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { SideNav, SideNavItem, Button } from 'react-materialize';
 
+import BusinessCard from './Staff/cards/BusinessCard';
+import AgentsCard from './Staff/cards/AgentsCard';
 
 class BusinessOwnerDashboard extends Component {
 
@@ -12,44 +15,27 @@ class BusinessOwnerDashboard extends Component {
 
    render() {
       return (
-         <div>
-            <h4>BusinessOwnerDashboard</h4>
-            <div>testing</div>
-            <div>testing</div>
-            <div>testing</div>
-            <div>testing</div>
+         <div className='row'>
+            <div className='col-sm-4'>
+               <BusinessCard businessesCount={ this.props.businessesCount }/>
+            </div>
+            <div className='col-sm-4'>
+               <AgentsCard agentsCount={ this.props.agentsCount }/>
+            </div>
          </div>
+
       );
    }
 }
 
 export default withTracker(() => {
+
+   Meteor.subscribe('businesses.owner.count', Meteor.userId());
+   Meteor.subscribe('agents.businessOwner.count', Meteor.userId());
+
    return {
-
-   }
+      businessesCount: Counts.get('businesses.owner.count'),
+      agentsCount: Counts.get('agents.businessOwner.count')
+   };
 })(BusinessOwnerDashboard)
-
-
-
-/*
-* <SideNav
-               trigger={<Button>SIDE NAV DEMO</Button>}
-               options={{ closeOnClick: true }}
-            >
-               <SideNavItem userView
-                            user={{
-                               background: 'img/office.jpg',
-                               image: 'img/yuna.jpg',
-                               name: 'John Doe',
-                               email: 'jdandturk@gmail.com'
-                            }}
-               />
-               <SideNavItem href='#!icon' icon='cloud'>First Link With Icon</SideNavItem>
-               <SideNavItem href='#!second'>Second Link</SideNavItem>
-               <SideNavItem divider />
-               <SideNavItem subheader>Subheader</SideNavItem>
-               <SideNavItem waves href='#!third'>Third Link With Waves</SideNavItem>
-               <SideNavItem waves href='#!third'>tests</SideNavItem>
-            </SideNav>
-* */
 

@@ -68,8 +68,6 @@ class ContactsList extends Component {
                         </Link>
                      ))
                   }
-
-
                </List>
             </Paper>
 

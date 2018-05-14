@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
 
@@ -44,55 +44,56 @@ class AvailableAgents extends Component {
 
       console.log(this.props.agents);
       return (
-
-         <Table
-            fixedHeader={ true }
-            fixedFooter={ true }
-            selectable={ false }
-            multiSelectable={ false }
-         >
-            <TableHeader
-               displaySelectAll={ false }
-               adjustForCheckbox={ false }
-               displayRowCheckbox={ false }
-               enableSelectAll={ false }
+         <Fragment>
+            <Table
+               fixedHeader={ true }
+               fixedFooter={ true }
+               selectable={ false }
+               multiSelectable={ false }
             >
+               <TableHeader
+                  displaySelectAll={ false }
+                  adjustForCheckbox={ false }
+                  displayRowCheckbox={ false }
+                  enableSelectAll={ false }
+               >
 
-               <TableRow>
-                  <TableHeaderColumn>Agent</TableHeaderColumn>
-                  <TableHeaderColumn>Status</TableHeaderColumn>
-                  <TableHeaderColumn>Actions</TableHeaderColumn>
-               </TableRow>
-            </TableHeader>
+                  <TableRow>
+                     <TableHeaderColumn>Agent</TableHeaderColumn>
+                     <TableHeaderColumn>Status</TableHeaderColumn>
+                     <TableHeaderColumn>Actions</TableHeaderColumn>
+                  </TableRow>
+               </TableHeader>
 
-            <TableBody
-               displayRowCheckbox={ false }
-               deselectOnClickaway={ true }
-               showRowHover={ true }
-            >
-               {
-                  this.props.agents.map((agent, index) => (
-                     <TableRow key={ index }>
-                        <TableRowColumn>{ agent.profile.name }</TableRowColumn>
-                        <TableRowColumn> { agent.profile.status } </TableRowColumn>
-                        <TableRowColumn>
-                           <RaisedButton
-                              label='Add'
-                              primary={ true }
-                              onClick={this.addAgent.bind(this,
-                                 agent._id,
-                                 this.props.businessId,
-                                 this.props.departmentId
-                              )}
-                           />
-                        </TableRowColumn>
+               <TableBody
+                  displayRowCheckbox={ false }
+                  deselectOnClickaway={ true }
+                  showRowHover={ true }
+               >
 
-                     </TableRow>
-                  ))
-               }
-            </TableBody>
-         </Table>
+                  {
+                     this.props.agents.map((agent, index) => (
+                        <TableRow key={ index }>
+                           <TableRowColumn>{ agent.profile.name }</TableRowColumn>
+                           <TableRowColumn> { agent.profile.status } </TableRowColumn>
+                           <TableRowColumn>
+                              <RaisedButton
+                                 label='Add'
+                                 primary={ true }
+                                 onClick={this.addAgent.bind(this,
+                                    agent._id,
+                                    this.props.businessId,
+                                    this.props.departmentId
+                                 )}
+                              />
+                           </TableRowColumn>
 
+                        </TableRow>
+                     ))
+                  }
+               </TableBody>
+            </Table>
+         </Fragment>
 
       );
    }

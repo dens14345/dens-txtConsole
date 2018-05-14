@@ -38,19 +38,23 @@ class DeparmentsTable extends Component {
    }
 
    addDepartment() {
-     Meteor.call('departments.insert', this.state.departmentName, this.props.businessId, (err, succ) => {
-        console.log(err);
-        console.log(succ);
-        (succ) ? this.setState({ departmentName: '' }) : console.log(err) ;
-     })
+      Meteor.call('departments.insert', this.state.departmentName, this.props.businessId, (err, succ) => {
+         console.log(err);
+         console.log(succ);
+
+         if (succ) {
+            this.setState({ departmentName: '' });
+            Bert.alert('Department Added', 'success', 'growl-top-right');
+         }
+      });
    }
 
-   handleInputChange(e){
-      this.setState({departmentName: e.target.value})
+   handleInputChange(e) {
+      this.setState({ departmentName: e.target.value })
    }
 
-   renderDepartmentsButton(){
-      return(
+   renderDepartmentsButton() {
+      return (
          <Fragment>
             <RaisedButton
                label='New'
@@ -81,7 +85,7 @@ class DeparmentsTable extends Component {
             <CardTitle title='Departments'/>
             {
                (this.props.user.profile.role === ROLES.B_OWNER) ?
-                  this.renderDepartmentsButton.bind(this): null
+                  (this.renderDepartmentsButton()) : null
 
             }
             <CardText>
@@ -98,7 +102,6 @@ class DeparmentsTable extends Component {
                   >
                      <TableRow>
                         <TableHeaderColumn>Department</TableHeaderColumn>
-                        <TableHeaderColumn>Agents</TableHeaderColumn>
                         <TableHeaderColumn>Action</TableHeaderColumn>
                      </TableRow>
                   </TableHeader>
@@ -112,7 +115,6 @@ class DeparmentsTable extends Component {
                         this.props.departments.map((department, index) => (
                            <TableRow key={ index }>
                               <TableRowColumn>{ department.name }</TableRowColumn>
-                              <TableRowColumn> 92</TableRowColumn>
                               <TableRowColumn>
                                  <Link to={ { pathname: `${window.location.pathname}/${department._id}` } }>
                                     <RaisedButton

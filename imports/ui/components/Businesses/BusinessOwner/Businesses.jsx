@@ -16,6 +16,9 @@ import Sidebar from '../../../layouts/Sidebar/Sidebar';
 import MaterialModal from '../../../extras/Modal/MaterialModal';
 
 import { BusinessesCollection } from "../../../../api/businesses/businesses";
+import { Accounts } from "meteor/accounts-base";
+import { Meteor } from "meteor/meteor";
+import { ROLES } from "../../../../api/Classes/Const";
 
 
 class Businesses extends Component {
@@ -39,6 +42,7 @@ class Businesses extends Component {
 
    addBusiness() {
       let businessName = this.state.businessName;
+
       Meteor.call('businesses.insert', businessName, (error, success) => {
          if (success) {
             this.setState({ businessName: '' })
@@ -68,26 +72,6 @@ class Businesses extends Component {
                   title='Businesses'
                   showMenuIconButton={ false }
                />
-               {/*<RaisedButton
-                  label='New'
-                  primary={ true }
-                  onClick={ this.openModal.bind(this) }
-               />*/}
-
-               <MaterialModal
-                  title='Create new Business'
-                  open={ this.state.open }
-                  closeModal={ this.closeModal.bind(this) }
-                  submit={ this.addBusiness.bind(this) }
-               >
-                  <TextField
-                     value={ this.state.businessName }
-                     fullWidth={ true }
-                     floatingLabelText='Business Name'
-                     onChange={ this.handleInputChange.bind(this) }
-                  />
-
-               </MaterialModal>
                <BusinessesTable/>
             </div>
          </div>
@@ -96,10 +80,16 @@ class Businesses extends Component {
 }
 
 export default withTracker(() => {
-   Meteor.subscribe('businesses.owner', Meteor.userId());
+   let userRole = '';
+
+   let isReady = Accounts.loginServicesConfigured();
+   (isReady)? userRole = Meteor.user().profile.role : null
+
+
    return {
       user: Meteor.user(),
-      businesses: BusinessesCollection.find().fetch()
+      businesses: BusinessesCollection.find().fetch(),
+      userRole
    }
 })(Businesses)
 

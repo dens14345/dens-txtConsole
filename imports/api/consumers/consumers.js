@@ -18,9 +18,7 @@ if (Meteor.isServer) {
       },
 
       'consumer.insertBulk'(consumers) {
-
          consumers.forEach((con) => {
-
             let name = con.name;
             let number = con.number;
             let address = con.address;
@@ -35,35 +33,18 @@ if (Meteor.isServer) {
             console.log('Consumer inserted');
          });
          return 'true';
+      },
+
+      'consumer.search'(name){
+         // let consumers = ConsumersCollection.find({ name: {$regex: "//" + name + "//i" } }, {limit: 10}).fetch();
+         // let consumers = ConsumersCollection.find({ name: /santino/i  }, {limit: 10}).fetch();
+         // let consumers = ConsumersCollection.find({ name: {$regex:  "/" + name + "/i" } }, {limit: 10}).fetch();
+         let consumers = ConsumersCollection.find({ name: {$regex: new RegExp(name, "i") } }, {limit: 10}).fetch();
+
+         console.log(consumers);
+         return consumers;
+         // return true;
       }
-
-      /*'agents.insertBulk'(docs){
-         let userId = Meteor.userId();
-         let status = 'active';
-         let role = ROLES.AGENT;
-         let business = 'N/A';
-         let department = 'N/A';
-
-         docs.forEach((doc) => {
-            Accounts.createUser({
-               email: doc.email,
-               username: doc.username,
-               password: doc.password,
-               profile: {
-                  name: doc.name,
-                  number: doc.number,
-                  status,
-                  role,
-                  business,
-                  department,
-                  belongsTo: userId
-               }
-            });
-            console.log('record inserted')
-         });
-         return true;
-      },*/
-
 
    }); //end of methods
 
@@ -74,11 +55,15 @@ if (Meteor.isServer) {
       Counts.publish(this, 'consumers.count', ConsumersCollection.find({ business: businessId }), { fastCount: true });
    });
 
-
-   Meteor.publish('consumers.business.limit', (businessId, limit) => ConsumersCollection.find(
+   Meteor.publish('consumers.business.limit', (businessId, limit = 10) => ConsumersCollection.find(
       { business: businessId },
       { limit }
    ));
+
+   Meteor.publish('consumers.business.limit.count', function(businessId){
+      Counts.publish(this,  'consumers.business.limit.count', ConsumersCollection.find({ business: businessId }, {fastCount: true} ))
+   });
+
    Meteor.publish('consumers.business', (businessId, limit = 10) =>
       ConsumersCollection.find({ business: businessId }, {limit})
    );

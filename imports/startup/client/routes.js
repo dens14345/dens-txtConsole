@@ -18,7 +18,7 @@ import ContactsContainer from '../../ui/components/Agents/contacts/ContactsConta
 import BusinessOwnerContainer from '../../ui/components/BusinessOwners/BusinessOwnerContainer';
 import CallLogContainer from '../../ui/components/CallLogs/CallLogContainer';
 
-
+import EmailsContainer from '../../ui/components/Emails/EmailsContainer';
 
 
 class Routes extends Component {
@@ -41,12 +41,13 @@ class Routes extends Component {
 
                <Route path='/agents' component={ AgentsContainer }/>
 
-               <Route exact path='/call-logs' render={() => (<Redirect to='/call-logs/all'/>)}/>
+               <Route exact path='/call-logs' render={ () => (<Redirect to='/call-logs/all'/>) }/>
                <Route path='/call-logs/:callLogFilter' component={ CallLogContainer }/>
 
 
                <Route path='/inbox' component={ InboxContainer }/>
                <Route path='/contacts' component={ ContactsContainer }/>
+               <Route path='/emails' component={ EmailsContainer }/>
 
 
                <Route path='/staffs' component={ StaffsContainer }/>

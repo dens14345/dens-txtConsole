@@ -69,20 +69,15 @@ if (Meteor.isServer) {
 
 
    }); //end of methods
-   Meteor.publish('agents.all', (limit = 0) => Meteor.users.find({ 'profile.role': 'agent' }, { limit }));
+   Meteor.publish('agents.all', (skip = 0) => Meteor.users.find({ 'profile.role': 'agent' }, { limit: 5, skip }));
 
    Meteor.publish('agents.count', function () {
       Counts.publish(this, 'agents.count', Meteor.users.find({ 'profile.role': 'agent' }), {fastCount:true});
    });
 
    Meteor.publish('agents1.available', (businessOwnerId, skipLimit) =>
-      // Meteor.users.find({ 'profile.belongsTo': businessOwnerId }, { limit: limit, skip: skip }
       Meteor.users.find({ 'profile.belongsTo': businessOwnerId }, {  limit: 5 , skip: skipLimit }
    ));
-
-   // Meteor.publish('agents.available', (businessOwnerId, limit = 10) =>
-   //    Meteor.users.find({ 'profile.belongsTo': businessOwnerId }, { limit }
-   // ));
 
    Meteor.publish('agents.registeredToDepartment', (businessOwnerId, departmentId) => Meteor.users.find(
       {
@@ -94,12 +89,25 @@ if (Meteor.isServer) {
       'profile.department': departmentId
    }));
 
+   Meteor.publish('agents.registeredToDepartment.count', function (businessOwnerId, departmentId) {
+      Counts.publish(this, 'agents.registeredToDepartment.count',
+         Meteor.users.find({'profile.belongsTo': businessOwnerId,'profile.department': departmentId})
+   )});
+   // Meteor.publish('agents.department.count', function(departmentId){
+   //    Counts.publish(this, 'agents.department.count'. Meteor.users.find({ 'profile.department': departmentId }), {fastCount: true} );
+   // } );
+
 
    Meteor.publish('agents.businessOwner', (businessOwnerId, limit = 0) => Meteor.users.find({
       'profile.belongsTo': businessOwnerId
-   }, {
-      limit
-   }));
+   }, {limit }));
+
+   Meteor.publish('agents.businessOwner.count', function(businessOwnerId){
+      Counts.publish(this, 'agents.businessOwner.count',
+         Meteor.users.find({'profile.belongsTo': businessOwnerId}) )
+   } );
+
+
 
 }
 

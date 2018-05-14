@@ -77,7 +77,6 @@ class AgentsTable extends Component {
    }
 
    renderAddAgentButton(){
-      console.log('bro ano na bat ayaw mo mag render');
       return(
          <Fragment>
             <RaisedButton
@@ -85,10 +84,10 @@ class AgentsTable extends Component {
                primary={ true }
                onClick={ this.toggleAddAgentModal.bind(this) }
             />
-            <RaisedButton
-               label='load more'
-               onClick={this.incrementAgentsSubscription.bind(this)}
-            />
+            {/*<RaisedButton*/}
+               {/*label='load more'*/}
+               {/*onClick={this.incrementAgentsSubscription.bind(this)}*/}
+            {/*/>*/}
          </Fragment>
       )
    }
@@ -103,13 +102,10 @@ class AgentsTable extends Component {
 
             <Card>
                <CardTitle title='Agents'/>
-               {console.log(this.props.user.profile.role)}
                {
                   (this.props.user.profile.role === ROLES.B_OWNER)?
-                     this.renderAddAgentButton(): null
+                     (this.renderAddAgentButton()) : null
                }
-
-
                <CardText>
                   <Table
                      fixedHeader={ true }
@@ -145,6 +141,7 @@ class AgentsTable extends Component {
                                     <RaisedButton
                                        label='Remove'
                                        onClick={ this.cantThinkOfAfunctionName.bind(this, agent) }
+                                       disabled={ this.props.disableRemoveButton }
                                     />
                                  </TableRowColumn>
                               </TableRow>
@@ -198,17 +195,19 @@ export default withTracker((props) => {
    let businessOwnerId = Meteor.userId();
    let departmentId = props.departmentId;
 
-
+   let disableRemoveButton = false;
 
 
    if(isReady) {
       switch (user.profile.role) {
          case ROLES.STAFF:
             Meteor.subscribe('agents.department', departmentId);
+            disableRemoveButton = true;
             break;
          case ROLES.B_OWNER:
             Meteor.subscribe('agents.available', businessOwnerId, 20);
             Meteor.subscribe('agents.registeredToDepartment', businessOwnerId, departmentId);
+            disableRemoveButton = false;
             break;
          default:
             break;
@@ -227,7 +226,8 @@ export default withTracker((props) => {
       registeredAgents,
       availableAgents,
       businessOwnerId,
-      user
+      user,
+      disableRemoveButton
    }
 })(AgentsTable)
 

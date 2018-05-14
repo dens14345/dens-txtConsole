@@ -96,16 +96,12 @@ class Messages extends Component {
                                     <p>
                                        { message.body }
                                     </p>
-                                    <p className='message-details'>
+                                    <p className='text-details'>
                                        { moment(message.date).format('MMMM Do YYYY, h:mm:ss a') }
                                     </p>
                                  </MyChip>
                                  <div style={ { clear: 'both' } }/>
-
-
                                  <br/>
-
-
                               </div>
                            )
                         }
@@ -118,6 +114,7 @@ class Messages extends Component {
             <FlatButton
                label='load more'
                onClick={ this.incrementMessageSubscription.bind(this) }
+               primary={true}
             />
 
             <div className="row">

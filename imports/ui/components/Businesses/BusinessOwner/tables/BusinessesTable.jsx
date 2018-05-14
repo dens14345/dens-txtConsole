@@ -22,6 +22,8 @@ import {
 
 import { BusinessesCollection } from "../../../../../api/businesses/businesses";
 import { ROLES } from "../../../../../api/Classes/Const";
+import { Accounts } from "meteor/accounts-base";
+import { Meteor } from "meteor/meteor";
 
 class BusinessesTable extends Component {
 
@@ -50,7 +52,8 @@ class BusinessesTable extends Component {
       let businessName = this.state.businessName;
       Meteor.call('businesses.insert', businessName, (error, success) => {
          if (success) {
-            this.setState({ businessName: '' })
+            this.setState({ businessName: '' });
+            Bert.alert('Business Added', 'success', 'growl-top-right');
          }
          console.log(error)
          console.log(success)
@@ -89,10 +92,15 @@ class BusinessesTable extends Component {
          <Card>
             <CardTitle>
 
+
                {
-                  (this.props.user.profile.role === ROLES.B_OWNER)?
-                     this.renderNewBusinessButton.bind(this): null
+                  (this.props.userRole === ROLES.B_OWNER) ?
+                     (
+                        this.renderNewBusinessButton()
+                     ) : null
                }
+
+
 
 
             </CardTitle>
@@ -149,9 +157,15 @@ class BusinessesTable extends Component {
 }
 
 export default withTracker(() => {
+
+   let userRole = '';
+
+   let isReady = Accounts.loginServicesConfigured();
+   (isReady)? userRole = Meteor.user().profile.role : null;
+
    return {
       businesses: BusinessesCollection.find().fetch(),
-      user: Meteor.user()
+      userRole
    }
 
 })(BusinessesTable)

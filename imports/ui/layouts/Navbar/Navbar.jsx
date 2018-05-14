@@ -18,6 +18,7 @@ import TextField from 'material-ui/TextField';
 import ThemeIcon from 'material-ui/svg-icons/image/palette';
 import LeftIcon from 'material-ui/svg-icons/navigation/chevron-left';
 import LogoutIcon from 'material-ui/svg-icons/action/power-settings-new';
+import CallIcon from 'material-ui/svg-icons/communication/call';
 
 import Divider from 'material-ui/Divider';
 
@@ -33,7 +34,9 @@ class Navbar extends Component {
          value: 3,
          openEmailModalState: false,
          openMessageModalState: false,
+         openCallModalState: false,
 
+         numberToCall: '',
          messageBody: '',
 
          emailBody: '',
@@ -46,7 +49,11 @@ class Navbar extends Component {
    }
 
    toggleMessageModal() {
-      this.setState({ openMessageModalState: !this.state.openMessageModalState });
+      this.setState({ openCallModalState: !this.state.openCallModalState });
+   }
+
+   toggleCallModal(){
+      this.setState({ openCallModalState: !this.state.openCallModalState });
    }
 
    logout(e) {
@@ -72,6 +79,9 @@ class Navbar extends Component {
             <IconButton tooltip='Compose new message' onClick={ this.toggleMessageModal.bind(this) }>
                <MessageIcon/>
             </IconButton>
+            <IconButton tooltip='Make a call' onClick={ this.toggleCallModal.bind(this) }>
+               <CallIcon/>
+            </IconButton>
             <IconButton tooltip='Compose Email' onClick={ this.toggleEmailModal.bind(this) }>
                <EmailIcon/>
             </IconButton>
@@ -79,6 +89,13 @@ class Navbar extends Component {
       )
    }
 
+   makeCall(){
+      Bert.alert('Calling', 'info', 'growl-top-right');
+      Meteor.call('calls.makeCall', (err, succ) => {
+         console.log(err);
+         console.log(succ);
+      });
+   }
 
    sendEmail() {
       console.log('Email To: ', this.state.emailTo);
@@ -132,6 +149,7 @@ class Navbar extends Component {
    }
 
 
+
    render() {
 
       if (!this.props.user) {
@@ -175,6 +193,8 @@ class Navbar extends Component {
 
                }
             />
+
+
 
             { /*compose Email modal*/ }
             <MaterialModal title={ `Send Email` }
@@ -222,6 +242,22 @@ class Navbar extends Component {
                   } }
                />
 
+
+            </MaterialModal>
+
+            {/*Call modal*/}
+            <MaterialModal title={ `Call` }
+                           open={ this.state.openCallModalState }
+                           closeModal={ this.toggleCallModal.bind(this) }
+                           submit={ this.makeCall.bind(this) }
+            >
+               <TextField
+                  floatingLabelText='Enter Number'
+                  hintText='+639758595311'
+                  value={ this.state.numberToCall }
+                  onChange={ (e) => this.setState({ numberToCall: e.target.value }) }
+                  fullWidth={true}
+               />
 
             </MaterialModal>
          </div>

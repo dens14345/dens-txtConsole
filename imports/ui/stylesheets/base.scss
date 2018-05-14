@@ -68,7 +68,7 @@ header, .my-container {
   text-align: center;
 }
 
-.message-details {
+.text-details {
   color: #737373;
 }
 
@@ -109,6 +109,9 @@ header, .my-container {
   float: right;
   font-size: 28px;
   font-weight: bold;
+}
+.inline-element{
+  display:inline;
 }
 
 .close:hover,
