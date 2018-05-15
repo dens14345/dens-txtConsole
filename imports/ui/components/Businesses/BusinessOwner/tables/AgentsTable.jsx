@@ -190,7 +190,6 @@ export default withTracker((props) => {
    let user = Meteor.user();
 
 
-   //------------------------------------------
 
    let businessOwnerId = Meteor.userId();
    let departmentId = props.departmentId;
@@ -200,6 +199,7 @@ export default withTracker((props) => {
 
    if(isReady) {
       switch (user.profile.role) {
+
          case ROLES.STAFF:
             Meteor.subscribe('agents.department', departmentId);
             disableRemoveButton = true;
