@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { loggedIn } from '../../../api/Classes/Utils'
 
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+
+
 export default class Login extends Component {
 
    constructor(props) {
@@ -12,25 +17,24 @@ export default class Login extends Component {
       }
    }
 
-   componentWillMount(){
-      if(loggedIn()){
+   componentWillMount() {
+      if (loggedIn()) {
          this.props.history.push('/');
       }
    }
 
-   handleEmailInput(e){
+   handleEmailInput(e) {
       this.setState({ email: e.target.value });
    }
 
-   handlePasswordInput(e){
+   handlePasswordInput(e) {
       this.setState({ password: e.target.value });
    }
 
-   login(e){
+   login(e) {
       e.preventDefault();
       let email = this.state.email;
       let password = this.state.password;
-
 
 
       Meteor.loginWithPassword(email, password, (error, success) => {
@@ -40,32 +44,38 @@ export default class Login extends Component {
       });
    }
 
-   render(){
-      return(
-         <div className="my-container">
-            <h4>Login page</h4>
-            <div className="row">
-               <form className="col s12">
-                  <div className="row">
-                     <div className="input-field col s12">
-                        <input id="email" type="email" className="validate"
-                           onChange={this.handleEmailInput.bind(this)}
-                           value={this.state.email}/>
-                        <label htmlFor="email">Email</label>
-                     </div>
-                  </div>
-                  <div className="row">
-                     <div className="input-field col s12">
-                        <input id="password" type="password" className="validate"
-                           onChange={this.handlePasswordInput.bind(this)}
-                           value={this.state.password}/>
-                        <label htmlFor="password">Password</label>
-                     </div>
-                  </div>
-                  <button className="btn" onClick={this.login.bind(this)}>Submit</button>
-               </form>
-            </div>
-         </div>
+   render() {
+      return (
+            <Card style={{margin: '0px 200px 0px 200px'}}>
+               <CardTitle title='Login'/>
+               <CardText>
+                     <form className="">
+                        <div className="">
+                           <TextField
+                              value={ this.state.email}
+                              fullWidth={ true }
+                              floatingLabelText='Email'
+                              type='email'
+                              onChange={ this.handleEmailInput.bind(this) }
+                           />
+                        </div>
+                        <div className="row">
+                              <TextField
+                                 value={ this.state.password }
+                                 fullWidth={ true }
+                                 floatingLabelText='Password'
+                                 type='password'
+                                 onChange={ this.handlePasswordInput.bind(this) }
+                              />
+                        </div>
+                        <RaisedButton
+                           label='Submit'
+                           onClick={this.login.bind(this)}
+                           primary={true}
+                        />
+                     </form>
+               </CardText>
+            </Card>
       );
    }
 }

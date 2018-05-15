@@ -11,8 +11,14 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton'
 import Paper from 'material-ui/Paper';
-import FloatingActionButton from 'material-ui/FloatingActionButton'
-import SearchIcon from 'material-ui/svg-icons/action/search'
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import SearchIcon from 'material-ui/svg-icons/action/search';
+import IconButton from 'material-ui/IconButton';
+import CancelIcon from 'material-ui/svg-icons/navigation/cancel';
+
+
+
+
 import {
    Table,
    TableBody,
@@ -27,6 +33,8 @@ import { ConsumersCollection } from '../../../../../api/consumers/consumers';
 import MaterialModal from '../../../../extras/Modal/MaterialModal';
 import { ROLES } from "../../../../../api/Classes/Const";
 import { Meteor } from "meteor/meteor";
+
+import FilteredConsumersTable from './FilteredConsumersTable';
 
 
 class ConsumersTable extends Component {
@@ -61,13 +69,10 @@ class ConsumersTable extends Component {
          consumerName: '',
          consumerNumber: '',
          consumerAddress: '',
-         nameSearch: ''
+         nameSearch: '',
+         searchConsumerMode: false
       });
    }
-   //
-   // onChange(event, index, selectedRowSize) {
-   //    this.setState({ selectedRowSize });
-   // };
 
    addConsumer() {
       Meteor.call('consumer.insert', {
@@ -110,7 +115,7 @@ class ConsumersTable extends Component {
       });
    }
 
-   searchConsumer(){
+   searchConsumer() {
       // console.log(this.state.nameSearch);
       let name = this.state.nameSearch;
       Meteor.call('consumer.search', name, (err, succ) => {
@@ -182,84 +187,56 @@ class ConsumersTable extends Component {
       )
    }
 
-   render() {
-      let paperStyle = {
-         transitionDuration: '0.3s',
-         height: 550,
-         padding: '15px 0px 0px 15px',
-      };
+   renderConsumersTable() {
       return (
-         <Paper style={paperStyle}>
-            <div className="row">
-               <div className="col-md">
-                  <h3 className='inline-element'>{ `Consumers ` }</h3>
-                  <span className='text-details'>( {`${this.props.loadedConsumersCount} / ${this.props.consumersCount}`}  )</span>
-                  <br/>
-                  {
-                     (this.props.user.profile.role === ROLES.B_OWNER) ?
-                        (this.renderNewConsumerButton()) : null
-                  }
-               </div>
-               <div className="col-md">
-                  <TextField
-                     floatingLabelText='Search'
-                     value={this.state.nameSearch}
-                     onChange={(e) => this.setState({nameSearch: e.target.value})}
-                  />
-                  <FloatingActionButton
-                     onClick={this.searchConsumer.bind(this)}
-                     children={<SearchIcon/>} />
-
-               </div>
-            </div>
-
+         <Fragment>
             <Paper style={ { height: 450, overflowY: 'scroll' } } zDepth={ 0 }>
-                  <Table
-                     fixedHeader={ true }
-                     selectable={ false }
-                     multiSelectable={ false }
+               <Table
+                  fixedHeader={ true }
+                  selectable={ false }
+                  multiSelectable={ false }
+               >
+                  <TableHeader
+                     displaySelectAll={ false }
+                     adjustForCheckbox={ false }
+                     displayRowCheckbox={ false }
                   >
-                     <TableHeader
-                        displaySelectAll={ false }
-                        adjustForCheckbox={ false }
-                        displayRowCheckbox={ false }
-                     >
-                        <TableRow>
-                           <TableHeaderColumn>Name</TableHeaderColumn>
-                           <TableHeaderColumn>Number</TableHeaderColumn>
-                           <TableHeaderColumn>Address</TableHeaderColumn>
-                           <TableHeaderColumn>Actions</TableHeaderColumn>
-                        </TableRow>
-                     </TableHeader>
+                     <TableRow>
+                        <TableHeaderColumn>Name</TableHeaderColumn>
+                        <TableHeaderColumn>Number</TableHeaderColumn>
+                        <TableHeaderColumn>Address</TableHeaderColumn>
+                        <TableHeaderColumn>Actions</TableHeaderColumn>
+                     </TableRow>
+                  </TableHeader>
 
-                     <TableBody
-                        displayRowCheckbox={ false }
-                        deselectOnClickaway={ true }
-                        showRowHover={ true }
-                     >
-                        {
-                           this.props.consumers.map((consumer, index) => (
-                              <TableRow key={ index }>
-                                 <TableRowColumn>{ consumer.name }</TableRowColumn>
-                                 <TableRowColumn> { consumer.number }</TableRowColumn>
-                                 <TableRowColumn> { consumer.address }</TableRowColumn>
-                                 <TableRowColumn>
-                                    <RaisedButton
-                                       label="Edit"
-                                       primary={ true }
-                                       disabled={ !this.props.isBusinessOwner }
-                                    />
-                                    <RaisedButton
-                                       label="Remove"
-                                       disabled={ !this.props.isBusinessOwner }
-                                    />
-                                 </TableRowColumn>
-                              </TableRow>
-                           ))
-                        }
-                     </TableBody>
-                  </Table>
-                  <Divider/>
+                  <TableBody
+                     displayRowCheckbox={ false }
+                     deselectOnClickaway={ true }
+                     showRowHover={ true }
+                  >
+                     {
+                        this.props.consumers.map((consumer, index) => (
+                           <TableRow key={ index }>
+                              <TableRowColumn>{ consumer.name }</TableRowColumn>
+                              <TableRowColumn> { consumer.number }</TableRowColumn>
+                              <TableRowColumn> { consumer.address }</TableRowColumn>
+                              <TableRowColumn>
+                                 <RaisedButton
+                                    label="Edit"
+                                    primary={ true }
+                                    disabled={ !this.props.isBusinessOwner }
+                                 />
+                                 <RaisedButton
+                                    label="Remove"
+                                    disabled={ !this.props.isBusinessOwner }
+                                 />
+                              </TableRowColumn>
+                           </TableRow>
+                        ))
+                     }
+                  </TableBody>
+               </Table>
+               <Divider/>
 
             </Paper>
             <FlatButton
@@ -267,6 +244,67 @@ class ConsumersTable extends Component {
                primary={ true }
                onClick={ this.incrementConsumersSubscription.bind(this) }
             />
+         </Fragment>
+      )
+   }
+
+   renderTable() {
+      if (this.state.searchConsumerMode) {
+         // Session.set('filteredConsumers', []);
+         return (<FilteredConsumersTable nameSearch={ this.state.nameSearch }/>)
+      } else {
+         return (this.renderConsumersTable())
+      }
+   }
+
+   render() {
+      let paperStyle = {
+         transitionDuration: '0.3s',
+         height: 550,
+         padding: '15px 0px 0px 15px',
+      };
+
+
+      return (
+         <Paper style={ paperStyle }>
+            <div className="row">
+               <div className="col-md">
+                  <h3 className='inline-element'>{ `Consumers ` }</h3>
+                  <span
+                     className='text-details'>( { `${this.props.loadedConsumersCount} / ${this.props.consumersCount}` } )</span>
+                  <br/>
+                  {
+                     (this.props.user.profile.role === ROLES.B_OWNER) ?
+                        (this.renderNewConsumerButton()) : null
+                  }
+               </div>
+               <div className="col-md">
+                  {
+                     (this.state.searchConsumerMode)?
+                        (<IconButton
+                           children={<CancelIcon/>}
+                           onClick={() => {
+                              this.setState({ searchConsumerMode: false });
+                              this.setState({ nameSearch: '' });
+                           } }
+                        />): null
+                  }
+
+                  <TextField
+                     floatingLabelText='Search'
+                     value={ this.state.nameSearch }
+                     onChange={ (e) => this.setState({ nameSearch: e.target.value }) }
+                  />
+                  <FloatingActionButton
+                     // onClick={this.searchConsumer.bind(this)}
+                     onClick={ () => this.setState({ searchConsumerMode: true }) }
+                     children={ <SearchIcon/> }/>
+
+               </div>
+            </div>
+
+            { this.renderTable() }
+
          </Paper>
       );
    }

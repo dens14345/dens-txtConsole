@@ -5,32 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a88cae8-9dd7-4c2a-954e-af2bf7ba5985" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/InfiniteScrollingAgentsTable.jsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Emails/Emails.jsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Emails/EmailsContainer.jsx" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/FilteredConsumersTable.jsx" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/imports/api/agents/agents.js" afterPath="$PROJECT_DIR$/imports/api/agents/agents.js" />
-      <change beforePath="$PROJECT_DIR$/imports/api/businesses/businesses.js" afterPath="$PROJECT_DIR$/imports/api/businesses/businesses.js" />
-      <change beforePath="$PROJECT_DIR$/imports/api/calls/calls.js" afterPath="$PROJECT_DIR$/imports/api/calls/calls.js" />
       <change beforePath="$PROJECT_DIR$/imports/api/consumers/consumers.js" afterPath="$PROJECT_DIR$/imports/api/consumers/consumers.js" />
-      <change beforePath="$PROJECT_DIR$/imports/startup/client/routes.js" afterPath="$PROJECT_DIR$/imports/startup/client/routes.js" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Agents/contacts/ContactsList.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/contacts/ContactsList.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/Messages.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Agents/inbox/Messages.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/AgentsContainer.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AvailableAgents.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AvailableAgents.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/Businesses.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/Businesses.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/SingleBusiness.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/SingleBusiness.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/AgentsTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/AgentsTable.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/BusinessesTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/BusinessesTable.jsx" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/Auth/Login.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Auth/Login.jsx" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/Auth/Register.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Auth/Register.jsx" />
       <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/ConsumersTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/ConsumersTable.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/DeparmentsTable.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/DeparmentsTable.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Dashboard/BusinessOwnerDashboard.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Dashboard/BusinessOwnerDashboard.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/Dashboard/Staff/StaffDashboard.jsx" afterPath="$PROJECT_DIR$/imports/ui/components/Dashboard/Staff/StaffDashboard.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/layouts/Navbar/Navbar.jsx" afterPath="$PROJECT_DIR$/imports/ui/layouts/Navbar/Navbar.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/layouts/Sidebar/Sidebar.jsx" afterPath="$PROJECT_DIR$/imports/ui/layouts/Sidebar/Sidebar.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/layouts/Sidebar/SuperAdmin.jsx" afterPath="$PROJECT_DIR$/imports/ui/layouts/Sidebar/SuperAdmin.jsx" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/stylesheets/base.scss" afterPath="$PROJECT_DIR$/imports/ui/stylesheets/base.scss" />
-      <change beforePath="$PROJECT_DIR$/settings.json" afterPath="$PROJECT_DIR$/settings.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,67 +24,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SingleBusiness.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/SingleBusiness.jsx">
+      <file leaf-file-name="Login.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/Auth/Login.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="18">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <element signature="e#0#51#0" expanded="true" />
+                <element signature="e#526#603#0" expanded="false" />
+                <element signature="e#550#598#0" expanded="false" />
+                <element signature="e#628#682#0" expanded="false" />
+                <element signature="e#710#767#0" expanded="false" />
+                <element signature="e#781#1075#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeparmentsTable.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/DeparmentsTable.jsx">
+      <file leaf-file-name="Register.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/Auth/Register.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="105" column="32" lean-forward="true" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="32" />
+            <state relative-caret-position="288">
+              <caret line="73" column="56" lean-forward="true" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
               <folding>
-                <element signature="n#!!block;n#renderDepartmentsButton#0;n#DeparmentsTable#0" expanded="false" />
+                <element signature="e#1#42#0" expanded="true" />
+                <element signature="e#457#632#0" expanded="false" />
+                <element signature="e#657#711#0" expanded="false" />
+                <element signature="e#735#789#0" expanded="false" />
+                <element signature="e#813#867#0" expanded="false" />
+                <element signature="e#894#951#0" expanded="false" />
+                <element signature="e#977#1035#0" expanded="false" />
+                <element signature="e#1051#1509#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConsumersTable.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/ConsumersTable.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="116" column="26" lean-forward="true" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
-              <folding>
-                <element signature="e#220#281#0" expanded="true" />
-                <element signature="n#!!block;n#constructor#0;n#ConsumersTable#0" expanded="false" />
-                <element signature="n#!!block;n#addConsumer#0;n#ConsumersTable#0" expanded="false" />
-                <element signature="n#!!block;n#addConsumerUsingFaker#0;n#ConsumersTable#0" expanded="false" />
-                <element signature="n#!!block;n#renderNewConsumerButton#0;n#ConsumersTable#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="consumers.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/imports/api/consumers/consumers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#256#449#0" expanded="false" />
-                <element signature="e#491#960#0" expanded="false" />
-                <element signature="e#2050#2190#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Messages.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/Agents/inbox/Messages.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="133" column="33" lean-forward="true" selection-start-line="133" selection-start-column="33" selection-end-line="133" selection-end-column="33" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -112,21 +62,31 @@
       <file leaf-file-name="AgentsTable.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/AgentsTable.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="152" column="67" lean-forward="true" selection-start-line="152" selection-start-column="67" selection-end-line="152" selection-end-column="67" />
+            <state relative-caret-position="290">
+              <caret line="201" column="34" lean-forward="true" selection-start-line="201" selection-start-column="34" selection-end-line="201" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="agents.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/api/agents/agents.js">
+      <file leaf-file-name="packages" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.meteor/packages">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="91" column="54" lean-forward="false" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="54" />
-              <folding>
-                <element signature="e#2798#2845#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="542">
+              <caret line="36" column="18" lean-forward="true" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,20 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>insert 500 age</find>
-      <find>bulk insert</find>
-      <find>consumers.business.limit</find>
-      <find>isBusinessOwner</find>
-      <find>increment</find>
-      <find>businessId</find>
-      <find>addConsumerUsingFaker1</find>
-      <find>consumerLimit</find>
-      <find>consumers.business</find>
-      <find>incrementConsumersSubscription</find>
-      <find>.count</find>
-      <find>.Count</find>
-      <find>insert 1</find>
-      <find>consumersTable</find>
       <find>consumers</find>
       <find>paperstyle</find>
       <find>span</find>
@@ -158,13 +104,27 @@
       <find>counts.get</find>
       <find>this.props.con</find>
       <find>material</find>
-      <find>render</find>
       <find>materialmodal</find>
       <find>textfield</find>
       <find>floating</find>
-      <find>asdf</find>
       <find>searchConsumer</find>
       <find>onChange</find>
+      <find>renderTable</find>
+      <find>rendertable</find>
+      <find>this.props.consumer</find>
+      <find>table</find>
+      <find>render</find>
+      <find>searchConsumerMode</find>
+      <find>Search</find>
+      <find>search</find>
+      <find>compose me</find>
+      <find>TextField</find>
+      <find>asdf</find>
+      <find>login page</find>
+      <find>email</find>
+      <find>but</find>
+      <find>card</find>
+      <find>materi</find>
     </findStrings>
     <replaceStrings>
       <replace>forHTML</replace>
@@ -197,9 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/imports/ui/components/Agents/contacts/ContactsContainer.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Agents/inbox/InboxContainer.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/layouts/Sidebar/Staff.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/layouts/Sidebar/BusinessOwner.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/extras/Nootifications/TestNotification.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Agents/inbox/ChatList.jsx" />
@@ -225,7 +182,6 @@
         <option value="$PROJECT_DIR$/imports/ui/components/Agents/contacts/ContactsList.jsx" />
         <option value="$PROJECT_DIR$/settings.json" />
         <option value="$PROJECT_DIR$/imports/api/calls/calls.js" />
-        <option value="$PROJECT_DIR$/imports/ui/layouts/Navbar/Navbar.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/BusinessesTable.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/Businesses.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Dashboard/Staff/StaffDashboard.jsx" />
@@ -246,8 +202,12 @@
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/AvailableAgents.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/SingleBusiness.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/DeparmentsTable.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/ConsumersTable.jsx" />
         <option value="$PROJECT_DIR$/imports/api/consumers/consumers.js" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/ConsumersTable.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/FilteredConsumersTable.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/layouts/Navbar/Navbar.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Auth/Login.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/Auth/Register.jsx" />
       </list>
     </option>
   </component>
@@ -262,9 +222,8 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-2" />
-    <option name="y" value="7" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="5" />
     <option name="width" value="1408" />
     <option name="height" value="864" />
   </component>
@@ -296,6 +255,11 @@
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
               <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name=".meteor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -310,20 +274,6 @@
               <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="agents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
-              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="businesses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
-              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="calls" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
@@ -378,16 +328,7 @@
               <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Agents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
-              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Agents" type="462c0819:PsiDirectoryNode" />
-              <item name="inbox" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
@@ -396,25 +337,6 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Businesses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
-              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Businesses" type="462c0819:PsiDirectoryNode" />
-              <item name="Agents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
-              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
-              <item name="imports" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Businesses" type="462c0819:PsiDirectoryNode" />
-              <item name="Agents" type="462c0819:PsiDirectoryNode" />
-              <item name="extras" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
@@ -477,6 +399,21 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Emails" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="txt-console" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="Navbar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="txt-console" type="b2602c69:ProjectViewProjectNode" />
@@ -582,15 +519,16 @@
       <workItem from="1526125764072" duration="7837000" />
       <workItem from="1526138151743" duration="2785000" />
       <workItem from="1526195748707" duration="24000" />
-      <workItem from="1526299345544" duration="20901000" />
+      <workItem from="1526299345544" duration="28662000" />
+      <workItem from="1526385374581" duration="5106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="418977000" />
+    <option name="totallyTimeSpent" value="431844000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="7" width="1408" height="864" extended-state="1" />
+    <frame x="5" y="0" width="1408" height="864" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18759124" sideWeight="0.4920635" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -598,10 +536,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19324325" sideWeight="0.50282085" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13540198" sideWeight="0.50793654" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13540198" sideWeight="0.50793654" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43956044" sideWeight="0.49717912" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26648352" sideWeight="0.49717912" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -625,29 +563,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/imports/startup/server/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="163" column="66" lean-forward="true" selection-start-line="161" selection-start-column="15" selection-end-line="163" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Dashboard/Dashboard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="55" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/CallLogs/toolbar/CallLogsToolbar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/extras/Nootifications/TestNotification.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
@@ -673,14 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="54" column="21" lean-forward="false" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -733,13 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.meteor/packages">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/Agents/extras/SingleAgent.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -758,13 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="30" column="60" lean-forward="true" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/layouts/Navbar/Navbar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -835,9 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="19" column="57" lean-forward="true" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
-          <folding>
-            <element signature="e#1#51#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -845,7 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="67" lean-forward="true" selection-start-line="5" selection-start-column="67" selection-end-line="6" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -853,9 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -882,7 +768,7 @@
         <state relative-caret-position="-540">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,9 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -938,16 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/agents/agents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="91" column="54" lean-forward="false" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="54" />
-          <folding>
-            <element signature="e#2798#2845#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Dashboard/BusinessOwnerDashboard.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -976,37 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="98" column="4" lean-forward="true" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
-          <folding>
-            <element signature="e#1023#2851#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/SingleBusiness.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/DeparmentsTable.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="105" column="32" lean-forward="true" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!block;n#renderDepartmentsButton#0;n#DeparmentsTable#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/AgentsTable.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="152" column="67" lean-forward="true" selection-start-line="152" selection-start-column="67" selection-end-line="152" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1018,12 +860,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imports/api/agents/agents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="91" column="54" lean-forward="false" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/layouts/Navbar/Navbar.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/FilteredConsumersTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="88" column="1" lean-forward="true" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#51#0" expanded="false" />
+            <element signature="e#941#2822#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/ConsumersTable.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="116" column="26" lean-forward="true" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
+        <state relative-caret-position="181">
+          <caret line="192" column="36" lean-forward="false" selection-start-line="192" selection-start-column="36" selection-end-line="192" selection-end-column="36" />
           <folding>
-            <element signature="e#220#281#0" expanded="true" />
+            <element signature="e#220#281#0" expanded="false" />
             <element signature="n#!!block;n#constructor#0;n#ConsumersTable#0" expanded="false" />
             <element signature="n#!!block;n#addConsumer#0;n#ConsumersTable#0" expanded="false" />
             <element signature="n#!!block;n#addConsumerUsingFaker#0;n#ConsumersTable#0" expanded="false" />
@@ -1032,16 +900,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/DeparmentsTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#renderDepartmentsButton#0;n#DeparmentsTable#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/SingleBusiness.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="50" column="17" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#51#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/imports/api/consumers/consumers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="94">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
             <element signature="e#256#449#0" expanded="false" />
             <element signature="e#491#960#0" expanded="false" />
-            <element signature="e#2050#2190#0" expanded="false" />
+            <element signature="e#1825#1951#0" expanded="false" />
+            <element signature="e#2183#2323#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Auth/Register.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="73" column="56" lean-forward="true" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
+          <folding>
+            <element signature="e#1#42#0" expanded="true" />
+            <element signature="e#457#632#0" expanded="false" />
+            <element signature="e#657#711#0" expanded="false" />
+            <element signature="e#735#789#0" expanded="false" />
+            <element signature="e#813#867#0" expanded="false" />
+            <element signature="e#894#951#0" expanded="false" />
+            <element signature="e#977#1035#0" expanded="false" />
+            <element signature="e#1051#1509#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Auth/Login.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#526#603#0" expanded="false" />
+            <element signature="e#550#598#0" expanded="false" />
+            <element signature="e#628#682#0" expanded="false" />
+            <element signature="e#710#767#0" expanded="false" />
+            <element signature="e#781#1075#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/Businesses/BusinessOwner/tables/AgentsTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="201" column="34" lean-forward="true" selection-start-line="201" selection-start-column="34" selection-end-line="201" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.meteor/packages">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="36" column="18" lean-forward="true" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>

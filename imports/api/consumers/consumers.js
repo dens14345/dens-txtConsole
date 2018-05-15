@@ -41,13 +41,16 @@ if (Meteor.isServer) {
          // let consumers = ConsumersCollection.find({ name: {$regex:  "/" + name + "/i" } }, {limit: 10}).fetch();
          let consumers = ConsumersCollection.find({ name: {$regex: new RegExp(name, "i") } }, {limit: 10}).fetch();
 
-         console.log(consumers);
+
          return consumers;
          // return true;
       }
 
    }); //end of methods
 
+   Meteor.publish('consumers.filteredByName', (name) => {
+      ConsumersCollection.find({ name: { $regex: new RegExp(name, "i") } }, { limit: 10 }).fetch();
+   });
 
    Meteor.publish('consumers.all', () => ConsumersCollection.find());
 

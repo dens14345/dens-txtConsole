@@ -4,6 +4,13 @@ import { render } from 'react-dom';
 import { ROLES } from '../../../api/Classes/Const';
 import { Accounts } from 'meteor/accounts-base';
 
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+
+
+
 
 export default class Register extends Component {
 
@@ -61,43 +68,59 @@ export default class Register extends Component {
                <form className="col s12">
                   <div className="row">
                      <div className="input-field col s6">
-                        <input id="fname" type="text" className="validate"
-                               onChange={ this.handleFnameInput.bind(this) }
-                               value={ this.state.fname }/>
-                        <label htmlFor="fname">Firstname</label>
+                        <TextField
+                           value={ this.state.fname}
+                           fullWidth={ true }
+                           floatingLabelText='Firstname'
+                           onChange={ this.handleFnameInput.bind(this) }
+                        />
                      </div>
                      <div className="input-field col s6">
-                        <input id="lname" type="text" className="validate"
-                               onChange={ this.handleLnameInput.bind(this) }
-                               value={ this.state.lname }/>
-                        <label htmlFor="lname">Lastname</label>
+                        <TextField
+                           value={ this.state.lname}
+                           fullWidth={ true }
+                           floatingLabelText='Lastname'
+                           onChange={ this.handleLnameInput.bind(this) }
+                        />
                      </div>
                   </div>
                   <div className="row">
                      <div className="input-field col s12">
-                        <input id="username" type="text" className="validate"
-                               onChange={ this.handleUsernameInput.bind(this) }
-                               value={ this.state.username }/>
-                        <label htmlFor="username">Username</label>
+                        <TextField
+                           value={ this.state.username}
+                           fullWidth={ true }
+                           floatingLabelText='Username'
+                           onChange={ this.handleUsernameInput.bind(this) }
+                        />
                      </div>
                   </div>
                   <div className="row">
                      <div className="input-field col s12">
-                        <input id="email" type="email" className="validate"
-                               onChange={ this.handleEmailInput.bind(this) }
-                               value={ this.state.email }/>
-                        <label htmlFor="email">Email</label>
+                        <TextField
+                           value={ this.state.email}
+                           fullWidth={ true }
+                           floatingLabelText='Email'
+                           type='email'
+                           onChange={ this.handleEmailInput.bind(this) }
+                        />
                      </div>
                   </div>
                   <div className="row">
                      <div className="input-field col s12">
-                        <input id="password" type="password" className="validate"
-                               onChange={ this.handlePasswordInput.bind(this) }
-                               value={ this.state.password }/>
-                        <label htmlFor="password">Password</label>
+                        <TextField
+                           value={ this.state.password}
+                           fullWidth={ true }
+                           floatingLabelText='Password'
+                           type='password'
+                           onChange={ this.handlePasswordInput.bind(this) }
+                        />
                      </div>
                   </div>
-                  <button className="btn" onClick={ this.register.bind(this) }>Submit</button>
+                  <RaisedButton
+                     label='Submit'
+                     onClick={this.register.bind(this)}
+                     primary={true}
+                  />
                </form>
             </div>
          </div>
